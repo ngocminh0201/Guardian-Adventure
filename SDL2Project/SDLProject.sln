@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33130.400
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL", "SDL\SDL.vcxproj", "{5B227AA8-C830-4853-9D8E-A55D27ED0CD6}"
 EndProject
