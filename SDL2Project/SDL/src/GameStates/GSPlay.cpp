@@ -28,7 +28,7 @@ void GSPlay::Init()
 	m_background->Set2DPosition(0, 0);
 
 	// button close
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_menu.tga");
 	button = std::make_shared<MouseButton>( texture, SDL_FLIP_NONE);
 	button->SetSize(50, 50);
 	button->Set2DPosition(SCREEN_WIDTH - 50, 10);
@@ -38,10 +38,10 @@ void GSPlay::Init()
 	m_listButton.push_back(button);
 
    // Animation 
-	texture = ResourceManagers::GetInstance()->GetTexture("Actor1_2.tga");
-	obj = std::make_shared<SpriteAnimation>( texture, 2, 9, 6, 0.2f);
-	obj->SetFlip(SDL_FLIP_HORIZONTAL);
-	obj->SetSize(40, 50);
+	texture = ResourceManagers::GetInstance()->GetTexture("Actor1_2demo.tga");
+	obj = std::make_shared<SpriteAnimation>( texture, 4, 4, 5, 0.2f);
+	obj->SetFlip(SDL_FLIP_NONE);
+	obj->SetSize(100, 110);
 	obj->Set2DPosition(240, 400);
 	//Camera::GetInstance()->SetTarget(obj);
 	m_listAnimation.push_back(obj);
