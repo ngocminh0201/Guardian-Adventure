@@ -2,8 +2,8 @@
 #include "GameStates/GSIntro.h"
 #include "GSMenu.h"
 #include "GSPlay.h"
-#include "../../GSOption.h"
-#include "../../GSCredit.h"
+#include <GSOption.h>
+#include <GSCredit.h>
 GameStateBase::GameStateBase(StateType stateType) : m_stateType(stateType)
 {}
 
