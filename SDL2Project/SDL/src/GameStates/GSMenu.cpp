@@ -75,7 +75,7 @@ void GSMenu::Init()
 
 	//Set Sound
 	m_Sound = std::make_shared<Sound>();
-	m_Sound->LoadSound("Data/Sounds/Alarm01.wav");
+	m_Sound->LoadSound("Data/Sounds/sound.flac");
 	m_Sound->PlaySound();
 	
 }
