@@ -15,7 +15,7 @@ GSMenu::~GSMenu()
 void GSMenu::Init()
 {
 	//auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("background.png");
 
 	// background
 	//auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -68,10 +68,12 @@ void GSMenu::Init()
 	// game title
 	///Set Font
 	m_textColor = { 255, 255, 0 };
-	m_textGameName = std::make_shared<Text>("Data/lazy.ttf", m_textColor);
+	m_textGameName = std::make_shared<Text>("Data/Caslon.ttf", m_textColor);
 	m_textGameName->SetSize(300, 50);
 	m_textGameName->Set2DPosition((SCREEN_WIDTH - m_textGameName->GetWidth())/2, SCREEN_HEIDHT / 2 - 300);
 	m_textGameName->LoadFromRenderText("ADVENTURE");
+
+	//Set Sound
 	m_Sound = std::make_shared<Sound>();
 	m_Sound->LoadSound("Data/Sounds/Alarm01.wav");
 	m_Sound->PlaySound();

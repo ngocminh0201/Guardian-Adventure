@@ -37,13 +37,20 @@ void GSCredit::Resume()
 void GSCredit::Init()
 {
 	//auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_play1.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_option.png");
 
 	// background
 
 	m_background = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
 	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
 	m_background->Set2DPosition(0, 0);
+
+	// text
+	m_textColor = { 255, 255, 0 };
+	m_textCredit = std::make_shared<Text>("Data/Caslon.ttf", m_textColor);
+	m_textCredit->SetSize(300, 50);
+	m_textCredit->Set2DPosition((SCREEN_WIDTH - m_textCredit->GetWidth()) / 2, SCREEN_HEIDHT / 2 - 300);
+	m_textCredit->LoadFromRenderText("CREDIT");
 
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
@@ -102,11 +109,12 @@ void GSCredit::Update(float deltaTime)
 
 void GSCredit::Draw(SDL_Renderer* renderer)
 {
-	m_background->Draw(renderer);
 
+	m_background->Draw(renderer);
 	for (auto it : m_listButton)
 	{
 		it->Draw(renderer);
 	}
 
+	m_textCredit->Draw(renderer);
 }

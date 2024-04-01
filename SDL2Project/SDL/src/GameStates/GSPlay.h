@@ -17,6 +17,7 @@ public:
 
 	void	Pause() override;
 	void	Resume() override;
+	
 
 	void	HandleEvents() override;
 	void	HandleKeyEvents(SDL_Event& e) override;
@@ -25,6 +26,7 @@ public:
 	void	Update(float deltaTime) override;
 	void	Draw(SDL_Renderer* renderer) override;
 	int m_KeyPress;
+	
 
 private:
 	std::shared_ptr<Sprite2D>	m_background;
@@ -36,5 +38,8 @@ private:
 	
 	float time = 0.0f;
 	float m_Velocity = 10.0f;
+	int x = 240;
+	int y = 400;
+	
 };
 

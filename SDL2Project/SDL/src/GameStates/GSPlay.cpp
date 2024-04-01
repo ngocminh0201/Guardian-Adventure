@@ -19,7 +19,7 @@ GSPlay::~GSPlay()
 void GSPlay::Init()
 {
 	//auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_play1.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_map1.png");
 
 	// background
 	
@@ -83,16 +83,27 @@ void GSPlay::HandleKeyEvents(SDL_Event& e)
 		case SDLK_LEFT:
 			printf("MOVE LEFT");
 			m_KeyPress |= 1;
+			x -= 3;
+			obj->Set2DPosition(x, y);
 			break;
 		case SDLK_DOWN:
-			printf("MOVE BACK");
+			printf("MOVE DOWN");
 			m_KeyPress |= 1 << 1;
+			y += 15;
+			obj->Set2DPosition(x, y);
+
 			break;
 		case SDLK_RIGHT:
+			printf("MOVE RIGHT");
 			m_KeyPress |= 1 << 2;
+			x += 3;
+			obj->Set2DPosition( x, y); 
 			break;
 		case SDLK_UP:
+			printf("MOVE UP");
+			y -= 15;
 			m_KeyPress |= 1 << 3;
+			obj->Set2DPosition(x, y);
 			break;
 		default:
 			break;
