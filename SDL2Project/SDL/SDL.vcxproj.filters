@@ -78,10 +78,10 @@
     <ClCompile Include="src\GameStates\GSPlay.cpp">
       <Filter>Source Files\GameState</Filter>
     </ClCompile>
-    <ClCompile Include="GSOption.cpp">
+    <ClCompile Include="src\GameStates\GSOption.cpp">
       <Filter>Source Files\GameState</Filter>
     </ClCompile>
-    <ClCompile Include="GSCredit.cpp">
+    <ClCompile Include="src\GameStates\GSCredit.cpp">
       <Filter>Source Files\GameState</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,10 +149,10 @@
     <ClInclude Include="src\GameObject\KeyState.h">
       <Filter>Source Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="GSOption.h">
+    <ClInclude Include="src\GameStates\GSOption.h">
       <Filter>Source Files\GameState</Filter>
     </ClInclude>
-    <ClInclude Include="GSCredit.h">
+    <ClInclude Include="src\GameStates\GSCredit.h">
       <Filter>Source Files\GameState</Filter>
     </ClInclude>
   </ItemGroup>

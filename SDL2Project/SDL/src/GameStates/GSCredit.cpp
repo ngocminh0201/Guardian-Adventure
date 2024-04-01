@@ -43,6 +43,11 @@ void GSCredit::Init()
 	m_background = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
 	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
 	m_background->Set2DPosition(0, 0);
+	//
+	m_credit = std::make_shared<Text>("Data/Caslon.ttf", textColor);
+	m_credit->SetSize(300, 50);
+	m_credit->Set2DPosition((SCREEN_WIDTH - m_credit->GetWidth()) / 2, SCREEN_HEIDHT / 2 - 300);
+	m_credit->LoadFromRenderText("ADVENTURE");
 
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
@@ -102,7 +107,7 @@ void GSCredit::Update(float deltaTime)
 void GSCredit::Draw(SDL_Renderer* renderer)
 {
 	m_background->Draw(renderer);
-
+	m_credit->Draw(renderer);
 	for (auto it : m_listButton)
 	{
 		it->Draw(renderer);

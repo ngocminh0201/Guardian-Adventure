@@ -2,6 +2,7 @@
 #include "GameStateBase.h"
 #include "GameObject/MouseButton.h"
 #include "Sound.h"
+#include "GameObject/Text.h"
 class Sprite2D;
 class SpriteAnimation;
 
@@ -29,6 +30,7 @@ private:
 	std::shared_ptr<Sprite2D>	m_background;
 	std::list<std::shared_ptr<MouseButton>>	m_listButton;
 	std::shared_ptr<MouseButton> button;
+	std::shared_ptr<Text> m_credit;
 
+	SDL_Color textColor = { 62, 62, 62, 62 }; 
 };
-

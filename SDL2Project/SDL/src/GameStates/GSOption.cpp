@@ -44,6 +44,11 @@ void GSOption::Init()
 	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
 	m_background->Set2DPosition(0, 0);
 
+	m_option = std::make_shared<Text>("Data/Caslon.ttf", textColor);
+	m_option->SetSize(300, 50);
+	m_option->Set2DPosition((SCREEN_WIDTH - m_option->GetWidth()) / 2, SCREEN_HEIDHT / 2 - 300);
+	m_option->LoadFromRenderText("ADVENTURE");
+
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
 	button = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
@@ -102,7 +107,7 @@ void GSOption::Update(float deltaTime)
 void GSOption::Draw(SDL_Renderer* renderer)
 {
 	m_background->Draw(renderer);
-
+	m_option->Draw(renderer);
 	for (auto it : m_listButton)
 	{
 		it->Draw(renderer);
