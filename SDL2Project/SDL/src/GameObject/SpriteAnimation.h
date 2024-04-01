@@ -17,7 +17,8 @@ protected:
 	Uint32 m_lastUpdate;
 	int			m_animSpeed;
 	int m_numAction; //start from 1,2,3...
-	//SDL_RendererFlip m_flip;
+	SDL_RendererFlip m_flip;
+	
 	//std::shared_ptr<TextureManager> m_texture;
 public:
 	SpriteAnimation(std::shared_ptr<TextureManager> texture, int spriteRow, int frameCount, int numAction, float  frameTime);

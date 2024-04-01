@@ -131,9 +131,6 @@
     <ClInclude Include="src\GameManager\Singleton.h">
       <Filter>Source Files\GameManager</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameStates\GameStateBase.h">
-      <Filter>Source Files\GameState</Filter>
-    </ClInclude>
     <ClInclude Include="src\GameStates\GameStateMachine.h">
       <Filter>Source Files\GameState</Filter>
     </ClInclude>
