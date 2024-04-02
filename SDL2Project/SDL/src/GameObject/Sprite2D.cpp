@@ -8,6 +8,7 @@
 Sprite2D::Sprite2D(std::shared_ptr<TextureManager> texture, SDL_RendererFlip flip)
 	:BaseObject(texture), m_iWidth(100), m_iHeight(50)
 {
+
 	m_flip = flip;
 	Init();
 	
@@ -30,6 +31,19 @@ void Sprite2D::Draw(SDL_Renderer * renderer)
 
 void Sprite2D::Update(float deltatime)
 {
+	// Check for input events (e.g., keyboard input)
+	SDL_PumpEvents();
+	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+	if (keyboardState[SDL_SCANCODE_LEFT])
+	{
+		// Set flip to flip horizontally
+		m_flip = SDL_FLIP_HORIZONTAL;
+	}
+	else
+	{
+		// If the left arrow key is not pressed, set flip to default (no flip)
+		m_flip = SDL_FLIP_NONE;
+	}
 }
 
 void Sprite2D::Set2DPosition(float x, float y)
@@ -67,5 +81,6 @@ void Sprite2D::SetRotation(double angle)
 void Sprite2D::SetFlip(SDL_RendererFlip flip)
 {
 	m_flip = flip;
+
 }
 
