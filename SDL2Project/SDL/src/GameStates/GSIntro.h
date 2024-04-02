@@ -22,6 +22,6 @@ public:
 
 private:
 	//Uint32 callback(Uint32 interval, void*param);
-	std::shared_ptr<Sprite2D> m_logo;
+	std::shared_ptr<Sprite2D> m_logo1, m_logo2;
 	float	m_time;
 };
