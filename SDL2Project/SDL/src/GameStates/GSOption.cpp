@@ -47,7 +47,7 @@ void GSOption::Init()
 	m_option = std::make_shared<Text>("Data/Fonts/REVUE.ttf", textColor);
 	m_option->SetSize(300, 50);
 	m_option->Set2DPosition((SCREEN_WIDTH - m_option->GetWidth()) / 2, SCREEN_HEIDHT / 2 - 300);
-	m_option->LoadFromRenderText("ADVENTURE");
+	m_option->LoadFromRenderText("Option");
 
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");

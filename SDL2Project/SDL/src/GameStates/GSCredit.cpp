@@ -47,7 +47,7 @@ void GSCredit::Init()
 	m_credit = std::make_shared<Text>("Data/Fonts/REVUE.ttf", textColor);
 	m_credit->SetSize(300, 50);
 	m_credit->Set2DPosition((SCREEN_WIDTH - m_credit->GetWidth()) / 2, SCREEN_HEIDHT / 2 - 300);
-	m_credit->LoadFromRenderText("ADVENTURE");
+	m_credit->LoadFromRenderText("Credit");
 
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");

@@ -1,0 +1,4 @@
+Mecha Warrior Oghma
+- 50% chance to block ranged 
+attack and reflect melee 
+attacks to attacker.

@@ -19,7 +19,7 @@ void GSIntro::Init()
 
 	auto advanture = ResourceManagers::GetInstance()->GetTexture("img/adventure.png");
 	m_logo1 = std::make_shared<Sprite2D>(advanture, SDL_FLIP_NONE);
-	m_logo1->SetSize(600, 100);
+	m_logo1->SetSize(800, 100);
 	m_logo1->Set2DPosition((float)(SCREEN_WIDTH - m_logo1->GetWidth())/2 , (float)(SCREEN_HEIDHT - m_logo1->GetHeight())/3*2);
 }
 
