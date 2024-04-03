@@ -37,5 +37,4 @@ public:
 	int GetWidth();
 	int GetHeight();
 	void MoveLeft(float deltaTime);
-	void MoveRight(float deltaTime);
 };
