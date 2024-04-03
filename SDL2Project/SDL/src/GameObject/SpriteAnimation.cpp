@@ -62,6 +62,18 @@ void SpriteAnimation::Update(float deltatime)
 			m_currentFrame = m_frameCount-1;
 		}
 	}
+	SDL_PumpEvents();
+	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+	if (keyboardState[SDL_SCANCODE_LEFT])
+	{
+		// Set flip to flip horizontally
+		m_flip = SDL_FLIP_HORIZONTAL;
+	}
+	else
+	{
+		// If the left arrow key is not pressed, set flip to default (no flip)
+		m_flip = SDL_FLIP_NONE;
+	}
 
 	
 		
@@ -81,7 +93,7 @@ void SpriteAnimation::SetRotation(double angle)
 
 void SpriteAnimation::SetFlip(SDL_RendererFlip flip)
 { 
-	m_flip =flip;
+	m_flip ==!flip;
 	
 }
 
@@ -112,4 +124,10 @@ void SpriteAnimation::MoveLeft(float deltaTime)
 	m_position.x += 20 * deltaTime;
 	m_Vec2DPos.x -= m_animSpeed * deltaTime;
 	SetFlip(SDL_FLIP_HORIZONTAL);
+}
+void SpriteAnimation::MoveRight(float deltaTime)
+{
+	m_position.x += 20 * deltaTime;
+	m_Vec2DPos.x -= m_animSpeed * deltaTime;
+	
 }
