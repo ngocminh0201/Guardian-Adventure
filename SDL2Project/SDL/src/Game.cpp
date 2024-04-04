@@ -26,17 +26,21 @@ void Game::Run()
 			//Event handler
 			SDL_Event e;
 			Uint32 lastUpdate = SDL_GetTicks();
+			
+			
+
 			while (!quit)
 			{
 				//Handle events on queue
 				while (SDL_PollEvent(&e) != 0)
 				{
-
+					
 					//User requests quit
 					if (e.type == SDL_QUIT)
 					{
 						quit = true;
 					}
+					
 					if (GameStateMachine::GetInstance()->HasState())
 					{
 						GameStateMachine::GetInstance()->CurrentState()->HandleKeyEvents(e);
@@ -49,6 +53,7 @@ void Game::Run()
 					}
 
 				}
+				
 				// Handle Key States (instead of Key events)
 				/*if (GameStateMachine::GetInstance()->HasState())
 				{

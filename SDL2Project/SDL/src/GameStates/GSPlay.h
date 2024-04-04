@@ -2,6 +2,7 @@
 #include "GameStateBase.h"
 #include "GameObject/MouseButton.h"
 #include "Sound.h"
+#include "GameMap.h"
 class Sprite2D;
 class SpriteAnimation;
 
@@ -40,6 +41,8 @@ private:
 	float m_Velocity = 10.0f;
 	int x = 240;
 	int y = 400;
-	
+	GameMap* map;
+	std::shared_ptr<Sprite2D> m_map;
+	std::list<std::shared_ptr<Sprite2D>> m_listMap;
 };
 

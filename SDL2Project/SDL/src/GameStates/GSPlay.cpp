@@ -22,7 +22,6 @@ void GSPlay::Init()
 	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_map1.png");
 
 	// background
-	
 	m_background = std::make_shared<Sprite2D>( texture, SDL_FLIP_NONE);
 	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
 	m_background->Set2DPosition(0, 0);
@@ -47,6 +46,9 @@ void GSPlay::Init()
 	m_listAnimation.push_back(obj);
 
 	m_KeyPress = 0;
+
+	map = new GameMap;
+	map->loadMap("Data/Textures/img", 1);
 	
 }
 
@@ -170,7 +172,7 @@ void GSPlay::Update(float deltaTime)
 		}
 		it->Update(deltaTime);
 	}
-
+	
 	//Update position of camera
 	//Camera::GetInstance()->Update(deltaTime);
 	//obj->Update(deltaTime);
@@ -178,7 +180,8 @@ void GSPlay::Update(float deltaTime)
 
 void GSPlay::Draw(SDL_Renderer* renderer)
 {
-	m_background->Draw(renderer);
+	//m_background->Draw(renderer);
+	map->render(1, 0, 0);
 	//m_score->Draw();
 	for (auto it : m_listButton)
 	{
@@ -189,4 +192,5 @@ void GSPlay::Draw(SDL_Renderer* renderer)
 	{
 		it->Draw(renderer);
 	}
+	
 }

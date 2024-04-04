@@ -2,6 +2,7 @@
 #include "MouseButton.h"
 #include "Timer.h"
 #include "GameManager/Singleton.h"
+
 class Game :public CSingleton<Game> {
 public:
 	bool Init();
