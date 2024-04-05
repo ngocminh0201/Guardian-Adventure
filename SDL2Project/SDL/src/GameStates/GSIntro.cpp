@@ -12,15 +12,10 @@ GSIntro::~GSIntro()
 
 void GSIntro::Init()
 {
-	auto guardian = ResourceManagers::GetInstance()->GetTexture("img/guardian.png");
-	m_logo2 = std::make_shared<Sprite2D>(guardian, SDL_FLIP_NONE);
-	m_logo2->SetSize(600, 100);
-	m_logo2->Set2DPosition((float)(SCREEN_WIDTH - m_logo2->GetWidth()) / 2, (float)(SCREEN_HEIDHT - m_logo2->GetHeight()) / 3);
-
-	auto advanture = ResourceManagers::GetInstance()->GetTexture("img/adventure.png");
-	m_logo1 = std::make_shared<Sprite2D>(advanture, SDL_FLIP_NONE);
-	m_logo1->SetSize(800, 100);
-	m_logo1->Set2DPosition((float)(SCREEN_WIDTH - m_logo1->GetWidth())/2 , (float)(SCREEN_HEIDHT - m_logo1->GetHeight())/3*2);
+	auto texture = ResourceManagers::GetInstance()->GetTexture("img/intro1.jpg");
+	intro = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
+	intro->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
+	intro->Set2DPosition(0, 0);
 }
 
 void GSIntro::Exit()
@@ -66,6 +61,5 @@ void GSIntro::Update(float deltaTime)
 
 void GSIntro::Draw(SDL_Renderer* renderer)
 {
-	m_logo1->Draw(renderer);
-	m_logo2->Draw(renderer);
+	intro->Draw(renderer);
 }
