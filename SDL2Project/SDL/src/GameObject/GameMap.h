@@ -1,6 +1,8 @@
 #pragma once
 #include "Define.h"
 #include "GameObject.h"
+#include "Renderer.h"
+#include "Sprite2D.h"
 #include "ResourceManagers.h"
 
 class GameMap {
