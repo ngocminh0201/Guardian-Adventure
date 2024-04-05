@@ -7,6 +7,9 @@
 #include <SDL_ttf.h>
 #include <random>
 #include <chrono>
+#include <Renderer.h>
+#include <Sprite2D.h>
+#include <ResourceManagers.h>
 
 typedef std::pair<int, int> pii;
 typedef long long ll;
