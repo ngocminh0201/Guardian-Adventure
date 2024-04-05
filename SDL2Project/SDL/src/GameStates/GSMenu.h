@@ -1,8 +1,9 @@
 #pragma once
 #include "GameStateBase.h"
-#include "GameObject/MouseButton.h"
-#include"GameObject/Text.h"
-#include "GameObject/Sound.h"
+#include "MouseButton.h"
+#include"Text.h"
+#include "Sound.h"
+#include "Define.h"
 class GSMenu :
 	public GameStateBase
 {
@@ -33,4 +34,6 @@ private:
 	std::shared_ptr<MouseButton> btnCredit;
 	int score = 0;
 	
+	std::shared_ptr<Sprite2D> GSMenu_Guardian;
+	std::shared_ptr<Sprite2D> GSMenu_Adventure;
 };

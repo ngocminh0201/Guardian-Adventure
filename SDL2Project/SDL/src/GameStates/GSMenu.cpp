@@ -1,4 +1,10 @@
 #include "GSMenu.h"
+const int POSITION_X_GUARDIAN = 120;
+const int POSITION_Y_GUARDIAN = 5;
+const int POSITION_X_ADVENTURE = 15;
+const int POSITION_Y_ADVENTURE = 180;
+const int Y_GUARDIAN_PER_LOADING = 2;
+const int Y_AVENTURE_PER_LOADING = -4;
 
 GSMenu::GSMenu() : GameStateBase(StateType::STATE_MENU),
 m_background(nullptr), m_listButton(std::list<std::shared_ptr<MouseButton>>{}), m_textGameName(nullptr)
@@ -23,17 +29,6 @@ void GSMenu::Init()
 	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
 	m_background->Set2DPosition(0, 0);
 
-	// play button
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
-	std::shared_ptr<MouseButton> btnPlay = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
-	
-	btnPlay->SetSize(150, 150);
-	btnPlay->Set2DPosition((SCREEN_WIDTH - btnPlay->GetWidth())/2, (SCREEN_HEIDHT - btnPlay->GetHeight()) / 2);
-	btnPlay->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
-		});
-	m_listButton.push_back(btnPlay);
-
 	// exit button
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
 	std::shared_ptr<MouseButton> btnClose = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
@@ -45,20 +40,31 @@ void GSMenu::Init()
 		});
 	m_listButton.push_back(btnClose);
 
-	//Setting game
+	// play button
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
+	std::shared_ptr<MouseButton> btnPlay = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
+	
+	btnPlay->SetSize(150, 150);
+	btnPlay->Set2DPosition((SCREEN_WIDTH - btnPlay->GetWidth())/2, (SCREEN_HEIDHT - btnPlay->GetHeight()) / 2 + 50);
+	btnPlay->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
+		});
+	m_listButton.push_back(btnPlay);
+
+	//Setting button
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_settings.tga");
 	std::shared_ptr<MouseButton> btnOption = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
 	btnOption->SetSize(100, 100);
-	btnOption->Set2DPosition((SCREEN_WIDTH - btnOption->GetWidth()) / 2, SCREEN_HEIDHT / 2 + 100);
+	btnOption->Set2DPosition((SCREEN_WIDTH - btnOption->GetWidth()) / 2, SCREEN_HEIDHT / 2 + 150);
 	btnOption->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OPTION);
 		});
 	m_listButton.push_back(btnOption);
 
-	//CREDIT game
+	//CREDIT button
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_help.tga");
 	btnCredit = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
-	btnCredit->Set2DPosition((SCREEN_WIDTH - btnCredit->GetWidth()) / 2, SCREEN_HEIDHT / 2 + 200);
+	btnCredit->Set2DPosition((SCREEN_WIDTH - btnCredit->GetWidth()) / 2 + 57, SCREEN_HEIDHT / 2 + 250);
 	btnCredit->SetSize(100, 100);
 	btnCredit->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_CREDIT);
@@ -66,12 +72,15 @@ void GSMenu::Init()
 	m_listButton.push_back(btnCredit);
 
 	// game title
-	///Set Font
-	m_textColor = { 255, 255, 0 };
-	m_textGameName = std::make_shared<Text>("Data/Fonts/REVUE.ttf", m_textColor);
-	m_textGameName->SetSize(300, 50);
-	m_textGameName->Set2DPosition((SCREEN_WIDTH - m_textGameName->GetWidth())/2, SCREEN_HEIDHT / 2 - 300);
-	m_textGameName->LoadFromRenderText("ADVENTURE");
+	texture = ResourceManagers::GetInstance()->GetTexture("img/guardian.png");
+	GSMenu_Guardian = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
+	GSMenu_Guardian->SetSize(texture->originWidth, texture->originHeight);
+	GSMenu_Guardian->Set2DPosition(POSITION_X_GUARDIAN, -200);
+
+	texture = ResourceManagers::GetInstance()->GetTexture("img/adventure.png");
+	GSMenu_Adventure = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
+	GSMenu_Adventure->SetSize(texture->originWidth, texture->originHeight);
+	GSMenu_Adventure->Set2DPosition(POSITION_X_ADVENTURE, 721);
 
 	//Set Sound
 	m_Sound = std::make_shared<Sound>();
@@ -138,6 +147,12 @@ void GSMenu::Draw(SDL_Renderer* renderer)
 	{
 		it->Draw(renderer);
 	}
-	
-	m_textGameName->Draw(renderer);
+
+	if (GSMenu_Guardian->GetPosition().y < POSITION_Y_GUARDIAN)
+		GSMenu_Guardian->Set2DPosition(POSITION_X_GUARDIAN, min(POSITION_Y_GUARDIAN, GSMenu_Guardian->GetPosition().y + Y_GUARDIAN_PER_LOADING));
+	GSMenu_Guardian->Draw(renderer);
+
+	if (GSMenu_Adventure->GetPosition().y > POSITION_Y_ADVENTURE && GSMenu_Guardian->GetPosition().y == POSITION_Y_GUARDIAN)
+		GSMenu_Adventure->Set2DPosition(POSITION_X_ADVENTURE, max(POSITION_Y_ADVENTURE, GSMenu_Adventure->Get2DPosition().y + Y_AVENTURE_PER_LOADING));
+	GSMenu_Adventure->Draw(renderer);
 }
