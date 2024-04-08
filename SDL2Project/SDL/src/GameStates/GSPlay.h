@@ -3,6 +3,7 @@
 #include "GameObject/MouseButton.h"
 #include "Sound.h"
 #include "GameMap.h"
+#include "Character.h"
 class Sprite2D;
 class SpriteAnimation;
 
@@ -44,5 +45,9 @@ private:
 	GameMap* map;
 	std::shared_ptr<Sprite2D> m_map;
 	std::list<std::shared_ptr<Sprite2D>> m_listMap;
+
+	Character character[numCharacter];
+	float  m_currentTicks;
+	Uint32 m_lastUpdate;
 };
 

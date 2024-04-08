@@ -30,26 +30,32 @@ void SpriteAnimation::Draw(SDL_Renderer* renderer)
 {
 	if (m_pTexture != nullptr)
 	{
+		//printf("%d %d %d %d %d %d %d %d\n", m_position.x, m_position.y, m_iWidth, m_iHeight, m_spriteRow, m_currentFrame, m_frameCount, m_numAction);
+
 		m_pTexture->RenderFrame(m_position.x, m_position.y, m_iWidth, m_iHeight, m_spriteRow, m_currentFrame, m_frameCount, m_numAction, m_angle, m_flip);
 	}
-	if (m_flip == SDL_FLIP_HORIZONTAL) {
+	/*if (m_flip == SDL_FLIP_HORIZONTAL) {
 		std::cout << "Sprite is flipped horizontally." << std::endl;
 	}
 	else {
 		std::cout << "Sprite is not flipped horizontally." << std::endl;
-	}
+	}*/
 }
 
 void SpriteAnimation::Update(float deltatime)
 {
-	//m_currentTicks += deltatime;
-		//if(m_currentTicks  >= m_frameTime) {
-		//m_currentFrame++;
-		//if (m_currentFrame >= m_frameCount) {
-		//	m_currentFrame = 0;
-		//}
-		//m_currentTicks -= m_frameTime;
-	m_currentTicks = SDL_GetTicks();
+	m_currentTicks += deltatime;
+	if (m_currentTicks >= m_frameTime) {
+		m_currentFrame++;
+		if (m_currentFrame >= m_frameCount) {
+			m_currentFrame = 0;
+			m_spriteRow++;
+			if (m_spriteRow >= m_numAction)
+				m_spriteRow = 1;
+		}
+		m_currentTicks -= m_frameTime;
+	}
+	/*m_currentTicks = SDL_GetTicks();
 	m_frameTime = m_currentTicks - m_lastUpdate;
 	m_lastUpdate = m_currentTicks;
 
@@ -73,12 +79,7 @@ void SpriteAnimation::Update(float deltatime)
 	{
 		// If the left arrow key is not pressed, set flip to default (no flip)
 		m_flip = SDL_FLIP_NONE;
-	}
-
-	
-		
-			
-		
+	}*/
 }
 
 void SpriteAnimation::Set2DPosition(float x, float y)

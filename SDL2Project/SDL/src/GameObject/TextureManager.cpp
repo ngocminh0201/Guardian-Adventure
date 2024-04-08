@@ -95,7 +95,7 @@ void TextureManager::RenderFrame(int x, int y, int width, int height, int sprite
 {
 	float srcWidth = originWidth/ framecount;
 	float srcHeight = originHeight/numAction;
-	SDL_Rect srcRect = { srcWidth * currentframe, srcHeight * (spriteRow - 1), srcWidth, srcHeight }; //pointer to source rect(the area and position where you get the sprite on the texture).
+	SDL_Rect srcRect = {srcWidth * currentframe, srcHeight * (spriteRow - 1), srcWidth, srcHeight}; //pointer to source rect(the area and position where you get the sprite on the texture).
 	SDL_Rect dstRect = { x - Camera::GetInstance()->GetPosition().x, y - Camera::GetInstance()->GetPosition().y, width , height }; // pointer to dest rect(the area and position on the renderer you are going to draw).
 	SDL_RenderCopyEx(Renderer::GetInstance()->GetRenderer(), m_Texture, &srcRect, &dstRect, angle, nullptr, flip);
 }

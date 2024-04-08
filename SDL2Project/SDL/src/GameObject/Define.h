@@ -1,15 +1,16 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <random>
+#include <chrono>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_audio.h>
 #include <SDL_ttf.h>
-#include <random>
-#include <chrono>
-#include <Renderer.h>
-#include <Sprite2D.h>
-#include <ResourceManagers.h>
+#include "Renderer.h"
+#include "Sprite2D.h"
+#include "ResourceManagers.h"
+#include "SpriteAnimation.h"
 
 typedef std::pair<int, int> pii;
 typedef long long ll;
@@ -53,8 +54,8 @@ const SDL_Color backColor = { 45, 38, 32, 255 };
 
 // Character and Mob
 const double gravity = 3;
-const double MAX_FAIL_SPEED = 25;
-const double MAX_RUN_SPPED = 15;
+const double MAX_FALL_SPEED = 25;
+const double MAX_RUN_SPEED = 15;
 
 const int numCharacter = 6;
 const int numItem = 4;

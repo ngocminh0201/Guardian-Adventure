@@ -76,6 +76,7 @@ void Game::Run()
 				{
 					Update(dT);	
 				}
+				
 				//Update screen
 				SDL_RenderPresent(Renderer::GetInstance()->GetRenderer());
 			}

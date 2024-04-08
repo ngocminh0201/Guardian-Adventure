@@ -169,9 +169,11 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameManager\ResourceManagers.cpp" />
     <ClCompile Include="src\GameObject\Camera.cpp" />
+    <ClCompile Include="src\GameObject\Character.cpp" />
     <ClCompile Include="src\GameObject\CMath.cpp" />
     <ClCompile Include="src\GameObject\Define.cpp" />
     <ClCompile Include="src\GameObject\GameMap.cpp" />
+    <ClCompile Include="src\GameObject\GameObject.cpp" />
     <ClCompile Include="src\GameObject\MouseButton.cpp" />
     <ClCompile Include="src\GameObject\Renderer.cpp" />
     <ClCompile Include="src\GameObject\Sound.cpp" />
@@ -195,6 +197,7 @@
     <ClInclude Include="src\GameManager\Singleton.h" />
     <ClInclude Include="src\GameObject\BaseObject.h" />
     <ClInclude Include="src\GameObject\Camera.h" />
+    <ClInclude Include="src\GameObject\Character.h" />
     <ClInclude Include="src\GameObject\CMath.h" />
     <ClInclude Include="src\GameObject\Define.h" />
     <ClInclude Include="src\GameObject\GameMap.h" />

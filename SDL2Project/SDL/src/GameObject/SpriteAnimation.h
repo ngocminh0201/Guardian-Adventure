@@ -3,7 +3,7 @@
 #include <SDL_render.h>
 class TextureManager;
 class SpriteAnimation : public BaseObject{
-protected:
+public:
 	Vector2			m_Vec2DPos;
 	int			m_iHeight;
 	int			m_iWidth;

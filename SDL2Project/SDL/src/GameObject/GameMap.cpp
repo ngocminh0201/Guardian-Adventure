@@ -168,8 +168,6 @@ void GameMap::render(int view, bool map_cleared, bool isBossLevel) {
     SDL_Color rgb;
     Uint32 data;
 
-    SDL_Rect rect = { 0, 0, TILE_SIZE, TILE_SIZE };
-
     int numGrass = 0;
     int pos_x = 0, pos_y = 0;
     int height = TILE_SIZE, width = TILE_SIZE;
@@ -180,8 +178,6 @@ void GameMap::render(int view, bool map_cleared, bool isBossLevel) {
             for (int i = 0; i <= victory_h / TILE_SIZE; i++)
             {
                 info[i][victory_w / TILE_SIZE - 1] = 1;
-                rect.x = victory_w - TILE_SIZE - view;
-                rect.y = i * TILE_SIZE;
                 pos_x = victory_w - TILE_SIZE - view;
                 pos_y = i * TILE_SIZE;
                 Block[Num_Block - 1]->SetSize(width, height);
@@ -205,8 +201,6 @@ void GameMap::render(int view, bool map_cleared, bool isBossLevel) {
             pos_y = i * TILE_SIZE;
 
             if (rgb == white) {
-                rect.w = TILE_SIZE;
-                rect.h = TILE_SIZE;
                 width = TILE_SIZE;
                 height = TILE_SIZE;
                 Block[Num_Block - 1]->SetSize(width, height);
