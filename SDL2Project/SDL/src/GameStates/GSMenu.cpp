@@ -97,7 +97,7 @@ void GSMenu::Exit()
 
 void GSMenu::Pause()
 {
-	m_Sound->StopSound();
+	m_Sound->stopAudio();
 	// button close
 	
 }

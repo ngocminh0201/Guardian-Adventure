@@ -174,7 +174,9 @@
     <ClCompile Include="src\GameObject\Define.cpp" />
     <ClCompile Include="src\GameObject\GameMap.cpp" />
     <ClCompile Include="src\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\GameObject\Mob.cpp" />
     <ClCompile Include="src\GameObject\MouseButton.cpp" />
+    <ClCompile Include="src\GameObject\Projectile.cpp" />
     <ClCompile Include="src\GameObject\Renderer.cpp" />
     <ClCompile Include="src\GameObject\Sound.cpp" />
     <ClCompile Include="src\GameObject\Sprite2D.cpp" />
@@ -203,7 +205,9 @@
     <ClInclude Include="src\GameObject\GameMap.h" />
     <ClInclude Include="src\GameObject\GameObject.h" />
     <ClInclude Include="src\GameObject\KeyState.h" />
+    <ClInclude Include="src\GameObject\Mob.h" />
     <ClInclude Include="src\GameObject\MouseButton.h" />
+    <ClInclude Include="src\GameObject\Projectile.h" />
     <ClInclude Include="src\GameObject\Renderer.h" />
     <ClInclude Include="src\GameObject\Sound.h" />
     <ClInclude Include="src\GameObject\Sprite2D.h" />

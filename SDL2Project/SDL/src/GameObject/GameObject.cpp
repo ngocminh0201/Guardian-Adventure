@@ -1,7 +1,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject() {
-	//pObject = NULL;
+	pObject = NULL;
 	rect.x = 0;
 	rect.y = 0;
 	rect.w = 0;
@@ -13,18 +13,52 @@ GameObject::GameObject() {
 }
 
 GameObject::~GameObject() {
-
+	Free();
 }
 
-/*void GameObject::loadImage(std::string path) {
-	auto texture = ResourceManagers::GetInstance()->GetTexture(path);
-	pObject = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
+bool GameObject::loadImage(std::string path) {
+    SDL_Texture* newTexture = NULL;
+
+    SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+
+    if (loadedSurface == NULL)
+    {
+        printf("Unable to load image %s! SDL_image Error\n", path.c_str(), SDL_GetError());
+    }
+    else
+    {
+        //Create texture from surface pixels
+        newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+        if (newTexture == NULL)
+        {
+            printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+        }
+        else
+        {
+            rect.w = loadedSurface->w;
+            rect.h = loadedSurface->h;
+        }
+        SDL_FreeSurface(loadedSurface);
+    }
+
+    pObject = newTexture;
+
+    return pObject != NULL;
 }
 
-void GameObject::render(int x, int y, int width, int height, int view)
+void GameObject::render(int view)
 {
-	pObject->SetSize(width, height);
-	pObject->Set2DPosition(x - view, y);
-	pObject->Draw(renderer);
+    SDL_Rect nRect = { rect.x - view, rect.y, rect.w, rect.h };
 
-}*/
+    SDL_RenderCopy(renderer, pObject, NULL, &nRect);
+}
+
+void GameObject::Free() {
+    if (pObject != NULL)
+    {
+        SDL_DestroyTexture(pObject);
+        pObject = NULL;
+        rect.w = 0;
+        rect.h = 0;
+    }
+}

@@ -26,8 +26,8 @@ void Game::Run()
 			//Event handler
 			SDL_Event e;
 			Uint32 lastUpdate = SDL_GetTicks();
-			
-			
+
+			//int currentTime, lastTime = 0;
 
 			while (!quit)
 			{

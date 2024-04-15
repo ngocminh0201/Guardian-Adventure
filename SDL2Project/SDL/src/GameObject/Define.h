@@ -68,5 +68,5 @@ const int numBossProjectile = 2;
 const int numLevel = 6;
 
 //Projectiles
-const int numProjectiles = 8;
+const int numProjectile = 8;
 const double pi = acos(-1);

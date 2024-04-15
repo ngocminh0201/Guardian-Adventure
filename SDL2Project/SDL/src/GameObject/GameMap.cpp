@@ -90,7 +90,6 @@ bool GameMap::loadMap(std::string path, int level) {
 
     Map_Sheet = IMG_Load((path + "/level_" + int2str(level) + "/level.png").c_str());
 
-
     auto texture = ResourceManagers::GetInstance()->GetTexture("img/level_" + int2str(level) + "/background.png");
     background = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
 
