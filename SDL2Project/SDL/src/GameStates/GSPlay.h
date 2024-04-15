@@ -4,6 +4,7 @@
 #include "Sound.h"
 #include "GameMap.h"
 #include "Character.h"
+#include "Mob.h"
 class Sprite2D;
 class SpriteAnimation;
 
@@ -29,7 +30,7 @@ public:
 	void	Draw(SDL_Renderer* renderer) override;
 	int m_KeyPress;
 	
-
+	int getIsRunning() { return this->isRunning; }
 private:
 	std::shared_ptr<Sprite2D>	m_background;
 	//std::shared_ptr<Text>		m_score;
@@ -43,10 +44,19 @@ private:
 	int x = 240;
 	int y = 400;
 	GameMap* map;
+	std::vector<Mob> vMob;
 	std::shared_ptr<Sprite2D> m_map;
 	std::list<std::shared_ptr<Sprite2D>> m_listMap;
+	int isRunning;
+	Character* character[numCharacter];
+	std::vector<Projectile> vProjectile;
+	std::vector<Explosion> vExplosion;
+	SDL_Texture* explosion;
+	int pr_w[numProjectile];
+	int pr_h[numProjectile];
+	SDL_Texture* pr[numProjectile];
+	Sound Audio_Player;
 
-	Character character[numCharacter];
 	float  m_currentTicks;
 	Uint32 m_lastUpdate;
 };
