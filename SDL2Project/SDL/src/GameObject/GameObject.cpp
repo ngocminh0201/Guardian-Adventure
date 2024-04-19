@@ -16,22 +16,24 @@ GameObject::~GameObject() {
 	Free();
 }
 
-bool GameObject::loadImage(std::string path) {
+bool GameObject::loadImage(std::string path, SDL_Renderer* renderer) {
     SDL_Texture* newTexture = NULL;
 
     SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 
     if (loadedSurface == NULL)
     {
-        printf("Unable to load image %s! SDL_image Error\n", path.c_str(), SDL_GetError());
+        printf("Unable to load image %s!\n", path.c_str());
     }
     else
     {
         //Create texture from surface pixels
         newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+        //pObject = SDL_CreateTextureFromSurface(renderer, loadedSurface);
         if (newTexture == NULL)
         {
             printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+            //SDL_FreeSurface(loadedSurface);
         }
         else
         {
@@ -40,13 +42,18 @@ bool GameObject::loadImage(std::string path) {
         }
         SDL_FreeSurface(loadedSurface);
     }
-
     pObject = newTexture;
 
+    /*if (pObject != NULL) {
+        SDL_DestroyTexture(newTexture);
+        newTexture = NULL;
+        return true;
+    }
+    return false;*/
     return pObject != NULL;
 }
 
-void GameObject::render(int view)
+void GameObject::render(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { rect.x - view, rect.y, rect.w, rect.h };
 

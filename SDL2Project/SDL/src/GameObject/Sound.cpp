@@ -32,6 +32,8 @@ Sound::Sound()
     jump = NULL;
 
     nextMove = 0;
+    music = sfx = true;
+
 }
 
 Sound::~Sound()
@@ -100,6 +102,7 @@ bool Sound::Init()
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
         ret = false;
     }
+    Mix_Volume(-1, MIX_MAX_VOLUME);
     return ret;
 }
 
@@ -200,55 +203,57 @@ void Sound::CleanUp()
 
 void Sound::loadAudioFiles()
 {
-    startScreen = Mix_LoadMUS("audio/startScreen.wav");
-    levelSelection = Mix_LoadMUS("audio/levelSelection.wav");
+    startScreen = Mix_LoadMUS("Data/Sounds/startScreen.wav");
+    levelSelection = Mix_LoadMUS("Data/Sounds/levelSelection.wav");
     for (int i = 0; i < numLevel; i++)
     {
-        std::string path = "audio/bgm_" + int2str(i + 1) + ".wav";
+        std::string path = "Data/Sounds/bgm_" + int2str(i + 1) + ".wav";
         bgm_level[i] = Mix_LoadMUS(path.c_str());
     }
-    collect_item = Mix_LoadWAV("audio/collect_item.wav");
-    change_map = Mix_LoadWAV("audio/change_map.wav");
-    select_character = Mix_LoadWAV("audio/select_character.wav");
-    unlock = Mix_LoadWAV("audio/unlock.wav");
-    upgrade = Mix_LoadWAV("audio/upgrade.wav");
-    click = Mix_LoadWAV("audio/click.wav");
-    play_button = Mix_LoadWAV("audio/play.wav");
-    win = Mix_LoadWAV("audio/win.wav");
-    lose = Mix_LoadWAV("audio/lose.wav");
-    mob_die = Mix_LoadWAV("audio/mob_die.wav");
-    heal = Mix_LoadWAV("audio/heal.wav");
-    explosion = Mix_LoadWAV("audio/explosion.wav");
-    walk = Mix_LoadWAV("audio/walk.wav");
-    fly = Mix_LoadWAV("audio/fly.wav");
-    jump = Mix_LoadWAV("audio/jump.wav");
+    collect_item = Mix_LoadWAV("Data/Sounds/collect_item.wav");
+    change_map = Mix_LoadWAV("Data/Sounds/change_map.wav");
+    select_character = Mix_LoadWAV("Data/Sounds/select_character.wav");
+    unlock = Mix_LoadWAV("Data/Sounds/unlock.wav");
+    upgrade = Mix_LoadWAV("Data/Sounds/upgrade.wav");
+    click = Mix_LoadWAV("Data/Sounds/click.wav");
+    play_button = Mix_LoadWAV("Data/Sounds/play.wav");
+    win = Mix_LoadWAV("Data/Sounds/win.wav");
+    lose = Mix_LoadWAV("Data/Sounds/lose.wav");
+    mob_die = Mix_LoadWAV("Data/Sounds/mob_die.wav");
+    heal = Mix_LoadWAV("Data/Sounds/heal.wav");
+    explosion = Mix_LoadWAV("Data/Sounds/explosion.wav");
+    walk = Mix_LoadWAV("Data/Sounds/walk.wav");
+    fly = Mix_LoadWAV("Data/Sounds/fly.wav");
+    jump = Mix_LoadWAV("Data/Sounds/jump.wav");
 
     for (int i = 0; i < numCharacter; i++)
     {
-        std::string path = "audio/attack_" + int2str(i) + ".wav";
+        std::string path = "Data/Sounds/attack_" + int2str(i) + ".wav";
         char_attack[i] = Mix_LoadWAV(path.c_str());
     }
 
     for (int i = 0; i < numStatus; i++)
     {
-        std::string path = "audio/boss_" + int2str(i) + ".wav";
+        std::string path = "Data/Sounds/boss_" + int2str(i) + ".wav";
         bossAudio[i] = Mix_LoadWAV(path.c_str());
     }
 }
 
-void Sound::playBackgroundMusic(int isRunning, int level)
+void Sound::playBackgroundMusic(int currentState, int level)
 {
     if (Mix_PlayingMusic() == false)
     {
-        if (isRunning == 1)
+        if ((currentState == STATE::MENU || currentState == STATE::CREDIT || 
+            currentState == STATE::SETTING || currentState == STATE::HELP) && music)
             Mix_PlayMusic(startScreen, -1);
-        else if (isRunning == 2)
+        else if (currentState == STATE::SELECT && music)
             Mix_PlayMusic(levelSelection, -1);
-        else if (isRunning == 3)
+        else if (currentState == STATE::PLAY && music)
             Mix_PlayMusic(bgm_level[level - 1], -1);
+        //Mix_Volume(-1, MIX_MAX_VOLUME);
     }
 
-    if (Mix_PlayingMusic() == false)
+    if (Mix_PlayingMusic() == false && music)
     {
         printf("Failed to load music! SDL_mixer Error: %s\n", Mix_GetError());
     }
@@ -256,71 +261,85 @@ void Sound::playBackgroundMusic(int isRunning, int level)
 
 void Sound::collectItem()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, collect_item, 0);
 }
 
 void Sound::changeMap()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, change_map, 0);
 }
 
 void Sound::selectCharacter()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, select_character, 0);
 }
 
 void Sound::unlockCharacter()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, unlock, 0);
 }
 
 void Sound::upgradeCharacter()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, upgrade, 0);
 }
 
 void Sound::mouse_click()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, click, 0);
 }
 
 void Sound::playButton()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, play_button, 0);
 }
 
 void Sound::winGame()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, win, 0);
 }
 
 void Sound::loseGame()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, lose, 0);
 }
 
 void Sound::mobDie()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, mob_die, 0);
 }
 
 void Sound::character_heal()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, heal, 0);
 }
 
 void Sound::bomb_explosion()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, explosion, 0);
 }
 
 void Sound::character_attack(int cur_character)
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, char_attack[cur_character], 0);
 }
 
 void Sound::character_move(int type)
 {
+    if (!sfx) return;
     if (nextMove == 0) {
         if (type) Mix_PlayChannel(-1, fly, 0);
         else Mix_PlayChannel(-1, walk, 0);
@@ -331,11 +350,13 @@ void Sound::character_move(int type)
 
 void Sound::character_jump()
 {
+    if (!sfx) return;
     Mix_PlayChannel(-1, jump, 0);
 }
 
 void Sound::play_boss_audio(int status)
 {
     if (bossAudio[status] == NULL) return;
+    if (!sfx) return;
     Mix_PlayChannel(-1, bossAudio[status], 0);
 }

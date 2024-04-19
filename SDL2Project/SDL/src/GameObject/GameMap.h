@@ -9,8 +9,8 @@ class GameMap {
 public:
     GameMap();
     ~GameMap();
-    bool loadMap(std::string path, int level);
-    void render(int view, bool map_cleared, bool isBossLevel);
+    bool loadMap(std::string path, SDL_Renderer* renderer, int level);
+    void render(SDL_Renderer* renderer, int view, bool map_cleared, bool isBossLevel);
     void setNumBlock(int Num_Block) { this->Num_Block = Num_Block; }
     int getNumBlock() { return this->Num_Block; }
     void setNumDecor(int Num_Decor) { this->Num_Decor = Num_Decor; }
@@ -30,7 +30,6 @@ public:
     void pop() { this->lp_pos.pop_back(); }
 
 protected:
-    SDL_Renderer* renderer = Renderer::GetInstance()->GetRenderer();
     std::vector<std::shared_ptr<Sprite2D>> Block;
     std::vector<std::shared_ptr<Sprite2D>> Decor;
     SDL_Surface* Map_Sheet;

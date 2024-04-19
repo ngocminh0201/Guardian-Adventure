@@ -25,7 +25,7 @@ Character::Character()
         diedAnimation[i] = NULL;
         attackAnimation[i] = NULL;
     }
-    
+    portrait = NULL;
     velX = MAX_RUN_SPEED;
 }
 
@@ -45,82 +45,78 @@ Character::~Character()
         SDL_DestroyTexture(diedAnimation[i]);
         SDL_DestroyTexture(attackAnimation[i]);
     }
-    std::cout << victoryAnimation << '\n';
     SDL_DestroyTexture(victoryAnimation);
-    
+    SDL_DestroyTexture(portrait);
     Free();
-
 }
 
-bool Character::loadCharacter(std::string path, int _id)
+bool Character::loadCharacter(std::string path, SDL_Renderer* renderer, int _id)
 {
     bool success = true;
     for (int i = 0; i <= 1; i++) {
         std::string s = int2str(i) + ".png";
         // idle
-        success = loadImage(path + "/idle" + s);
+        success = loadImage(path + "/idle" + s, renderer);
         if (success == false) return success;
         idleAnimation[i] = getObject();
 
         // jump
-        success = loadImage(path + "/jump" + s);
+        success = loadImage(path + "/jump" + s, renderer);
         if (success == false) return success;
         jumpAnimation[i] = getObject();
 
         // move
-        success = loadImage(path + "/move" + s);
+        success = loadImage(path + "/move" + s, renderer);
         if (success == false) return success;
         moveAnimation[i] = getObject();
         
         // died
-        success = loadImage(path + "/died" + s);
+        success = loadImage(path + "/died" + s, renderer);
         if (success == false) return success;
         diedAnimation[i] = getObject();
         
         // attack
-        success = loadImage(path + "/attack" + s);
+        success = loadImage(path + "/attack" + s, renderer);
         if (success == false) return success;
         attackAnimation[i] = getObject();
     }
 
     // victory
-    success = loadImage(path + "/victory.png");
+    success = loadImage(path + "/victory.png", renderer);
     if (success == false) return success;
     victoryAnimation = getObject();
 
     // portrait
-    success = loadImage(path + "/portrait.png");
+    success = loadImage(path + "/portrait.png", renderer);
     if (success == false) return success;
     portrait = getObject();
 
     id = _id;
 
-    {
-        std::ifstream file(path + "/char_info.txt");
-        file >> rect.w >> rect.h;
-        file >> type;
-        file >> _idle.first >> _idle.second;
-        file >> _move.first >> _move.second;
-        file >> _attack.first >> _attack.second;
-        file >> _died.first >> _died.second;
-        file >> _victory.first >> _victory.second;
-        file >> framePerAttack;
-        file >> baseHp >> baseDmg;
-        maxHp = baseHp;
-        if (type == TYPE::MELEE) {
-            file >> melee.x >> melee.y >> melee.w >> melee.h;
-            file >> frameAttack;
-        }
-        else {
-            file >> idProjectile >> prSpeed >> prLastTime;
-        }
-        file.close();
+    std::ifstream file(path + "/char_info.txt");
+    file >> rect.w >> rect.h;
+    file >> type;
+    file >> _idle.first >> _idle.second;
+    file >> _move.first >> _move.second;
+    file >> _attack.first >> _attack.second;
+    file >> _died.first >> _died.second;
+    file >> _victory.first >> _victory.second;
+    file >> framePerAttack;
+    file >> baseHp >> baseDmg;
+    maxHp = baseHp;
+    if (type == TYPE::MELEE) {
+        file >> melee.x >> melee.y >> melee.w >> melee.h;
+        file >> frameAttack;
     }
+    else {
+        file >> idProjectile >> prSpeed >> prLastTime;
+    }
+    file.close();
     
     return success;
 }
 
-void Character::drawIdle(int view)
+void Character::drawIdle(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -137,7 +133,7 @@ void Character::drawIdle(int view)
     if (frame == _idle.second) frame -= _idle.second;
 }
 
-void Character::drawMove(int view)
+void Character::drawMove(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -154,7 +150,7 @@ void Character::drawMove(int view)
     if (frame == _move.second) frame -= _move.second;
 }
 
-void Character::drawDied(int view)
+void Character::drawDied(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -172,7 +168,7 @@ void Character::drawDied(int view)
     frame++;
 }
 
-void Character::drawVictory(int view)
+void Character::drawVictory(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -190,7 +186,7 @@ void Character::drawVictory(int view)
     frame++;
 }
 
-void Character::drawAttack(int view)
+void Character::drawAttack(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -210,22 +206,22 @@ void Character::drawAttack(int view)
     frame++;
 }
 
-void Character::show(int view)
+void Character::show(SDL_Renderer* renderer, int view)
 {
-    //SDL_Rect pRect = { 10, 10, portraitSize, portraitSize };
+    SDL_Rect pRect = { 10, 10, portraitSize, portraitSize };
 
-    //SDL_RenderCopy(renderer, portrait, NULL, &pRect);
+    SDL_RenderCopy(renderer, portrait, NULL, &pRect);
 
     if (nStatus != status && (finishAttack || nextAttack == 0)) frame = 0;
 
     if (nStatus == STATUS::DIED)
     {
-        drawDied(view);
+        drawDied(renderer, view);
         return;
     }
     if (nStatus == STATUS::VICTORY)
     {
-        drawVictory(view);
+        drawVictory(renderer, view);
         return;
     }
 
@@ -233,7 +229,7 @@ void Character::show(int view)
 
     if (nStatus == STATUS::ATTACK)
     {
-        drawAttack(view);
+        drawAttack(renderer, view);
     }
     else if (isJumping || isFalling)
     {
@@ -242,8 +238,8 @@ void Character::show(int view)
         status = STATUS::JUMP;
         return;
     }
-    else if (nStatus == STATUS::IDLE) drawIdle(view);
-    else if (nStatus == STATUS::MOVE) drawMove(view);
+    else if (nStatus == STATUS::IDLE) drawIdle(renderer, view);
+    else if (nStatus == STATUS::MOVE) drawMove(renderer, view);
 }
 
 void Character::handleInput(SDL_Event event)
@@ -273,7 +269,6 @@ void Character::handleInput(SDL_Event event)
         break;
         case SDLK_k:
         {
-            //pressed['k'] = 1;
             if (nextAttack >= framePerAttack) {
                 pressed['k'] = 1;
             }
@@ -311,7 +306,7 @@ void Character::handleInput(SDL_Event event)
     }
 }
 
-void Character::Update(GameMap* MAP)
+void Character::Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rectMob, std::vector<Projectile>& vProjectile)
 {
     if (isJumping || isFalling) {
         velY += gravity;
@@ -392,7 +387,7 @@ void Character::Update(GameMap* MAP)
 
         if (facing) tempRect.x -= 2 * melee.x + melee.w - rect.w;
 
-        /*for (int i = 0; i < rectMob.size(); i++) {
+        for (int i = 0; i < rectMob.size(); i++) {
             if (collision(tempRect, rectMob[i].first)) {
                 rectMob[i].second -= dmg;
                 if (id == 0)
@@ -412,11 +407,11 @@ void Character::Update(GameMap* MAP)
                     std::swap(vProjectile[i], vProjectile.back());
                     vProjectile.pop_back();
                 }
-            }*/
+            }
 
     }
 
-    /*if (nStatus == STATUS::ATTACK && nextAttack == 0 && type == TYPE::RANGED) {
+   if (nStatus == STATUS::ATTACK && nextAttack == 0 && type == TYPE::RANGED) {
         Projectile pr;
         SDL_Rect tRect = rect;
         if (facing) tRect.x -= SCREEN_WIDTH;
@@ -426,14 +421,11 @@ void Character::Update(GameMap* MAP)
         pr.setLastTime(prLastTime);
         pr.shoot(tRect, rect, idProjectile, dmg, prSpeed);
         vProjectile.push_back(pr);
-    }*/
-
-    
+    }
 }
 
 void Character::collisionX(GameMap* MAP)
 {
-
     int pos_x1 = (rect.x - 1) / TILE_SIZE;
     int pos_x2 = (rect.x + rect.w) / TILE_SIZE;
     int pos_y1 = rect.y / TILE_SIZE;
@@ -497,27 +489,8 @@ void Character::collisionY(GameMap* MAP)
     if (ok) isFalling = true;
 
 }
-std::pair<int, int> Character::getAttackBar()
-{
-    return { nextAttack, framePerAttack };
-}
 
-void Character::setStatus(int status)
-{
-    nStatus = status;
-}
-
-int Character::getStatus()
-{
-    return nStatus;
-}
-
-bool Character::getAttack()
-{
-    return finishAttack;
-}
-
-SDL_Rect Character::getMelee()
+SDL_Rect Character::getMelee() const
 {
     SDL_Rect tempRect = rect;
     tempRect.x += melee.x;

@@ -67,7 +67,7 @@ Uint32 getpixel(SDL_Surface* surface, int x, int y)
     }
 }
 
-bool GameMap::loadMap(std::string path, int level) {
+bool GameMap::loadMap(std::string path, SDL_Renderer* renderer, int level) {
     std::ifstream file_map((path + "/level_" + int2str(level) + "/map_info.txt").c_str());
 
     file_map >> Map_Width;
@@ -90,25 +90,25 @@ bool GameMap::loadMap(std::string path, int level) {
 
     Map_Sheet = IMG_Load((path + "/level_" + int2str(level) + "/level.png").c_str());
 
-    auto texture = ResourceManagers::GetInstance()->GetTexture("img/level_" + int2str(level) + "/background.png");
+    auto texture = ResourceManagers::GetInstance()->GetTexture(path + "/level_" + int2str(level) + "/background.png");
     background = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
 
-    texture = ResourceManagers::GetInstance()->GetTexture("img/castle.png");
+    texture = ResourceManagers::GetInstance()->GetTexture(path + "/castle.png");
     castle = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
 
-    texture = ResourceManagers::GetInstance()->GetTexture("img/flag.png");
+    texture = ResourceManagers::GetInstance()->GetTexture(path + "/flag.png");
     flag = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
 
     for (int i = 0; i < Num_Block; i++) {
 
-        texture = ResourceManagers::GetInstance()->GetTexture("img/level_" + int2str(level) + "/block_" + int2str(i) + ".png");
+        texture = ResourceManagers::GetInstance()->GetTexture(path + "/level_" + int2str(level) + "/block_" + int2str(i) + ".png");
         std::shared_ptr<Sprite2D> obj = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
         Block.push_back(obj);
     }
 
     for (int i = 0; i < Num_Decor; i++) {
 
-        texture = ResourceManagers::GetInstance()->GetTexture("img/level_" + int2str(level) + "/decor_" + int2str(i) + ".png");
+        texture = ResourceManagers::GetInstance()->GetTexture(path + "/level_" + int2str(level) + "/decor_" + int2str(i) + ".png");
         std::shared_ptr<Sprite2D> obj = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
         Decor.push_back(obj);
     }
@@ -159,8 +159,8 @@ bool GameMap::loadMap(std::string path, int level) {
     return Map_Sheet != NULL && background != NULL;
 }
 
-void GameMap::render(int view, bool map_cleared, bool isBossLevel) {
-    background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
+void GameMap::render(SDL_Renderer* renderer, int view, bool map_cleared, bool isBossLevel) {
+    background->SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     background->Set2DPosition(0, 0);
     background->Draw(renderer);
 

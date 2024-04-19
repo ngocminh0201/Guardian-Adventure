@@ -7,7 +7,7 @@ class Projectile : public GameObject {
 public:
     Projectile();
     ~Projectile();
-    void tick(GameMap* MAP);
+    void update(GameMap* MAP);
     void shoot(SDL_Rect character, SDL_Rect mob, int _id, int _dmg, int _speed);
     void setSpeed(double _speed) { speed = _speed; }
     bool done();

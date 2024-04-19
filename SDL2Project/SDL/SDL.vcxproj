@@ -191,6 +191,7 @@
     <ClCompile Include="src\GameStates\GSMenu.cpp" />
     <ClCompile Include="src\GameStates\GSOption.cpp" />
     <ClCompile Include="src\GameStates\GSPlay.cpp" />
+    <ClCompile Include="src\GameStates\GSSelect.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +222,7 @@
     <ClInclude Include="src\GameStates\GSMenu.h" />
     <ClInclude Include="src\GameStates\GSOption.h" />
     <ClInclude Include="src\GameStates\GSPlay.h" />
+    <ClInclude Include="src\GameStates\GSSelect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

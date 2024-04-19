@@ -26,7 +26,7 @@ void GSMenu::Init()
 	// background
 	//auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	m_background = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
-	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
+	m_background->SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	m_background->Set2DPosition(0, 0);
 
 	// exit button
@@ -45,7 +45,7 @@ void GSMenu::Init()
 	std::shared_ptr<MouseButton> btnPlay = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
 	
 	btnPlay->SetSize(150, 150);
-	btnPlay->Set2DPosition((SCREEN_WIDTH - btnPlay->GetWidth())/2, (SCREEN_HEIDHT - btnPlay->GetHeight()) / 2 + 50);
+	btnPlay->Set2DPosition((SCREEN_WIDTH - btnPlay->GetWidth())/2, (SCREEN_HEIGHT - btnPlay->GetHeight()) / 2 + 50);
 	btnPlay->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 		});
@@ -55,7 +55,7 @@ void GSMenu::Init()
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_settings.tga");
 	std::shared_ptr<MouseButton> btnOption = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
 	btnOption->SetSize(100, 100);
-	btnOption->Set2DPosition((SCREEN_WIDTH - btnOption->GetWidth()) / 2, SCREEN_HEIDHT / 2 + 150);
+	btnOption->Set2DPosition((SCREEN_WIDTH - btnOption->GetWidth()) / 2, SCREEN_HEIGHT / 2 + 150);
 	btnOption->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OPTION);
 		});
@@ -64,7 +64,7 @@ void GSMenu::Init()
 	//CREDIT button
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_help.tga");
 	btnCredit = std::make_shared<MouseButton>(texture, SDL_FLIP_NONE);
-	btnCredit->Set2DPosition((SCREEN_WIDTH - btnCredit->GetWidth()) / 2 + 57, SCREEN_HEIDHT / 2 + 250);
+	btnCredit->Set2DPosition((SCREEN_WIDTH - btnCredit->GetWidth()) / 2 + 57, SCREEN_HEIGHT / 2 + 250);
 	btnCredit->SetSize(100, 100);
 	btnCredit->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_CREDIT);

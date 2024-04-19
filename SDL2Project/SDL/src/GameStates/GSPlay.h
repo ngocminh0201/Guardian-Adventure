@@ -5,6 +5,7 @@
 #include "GameMap.h"
 #include "Character.h"
 #include "Mob.h"
+#include "GSSelect.h"
 class Sprite2D;
 class SpriteAnimation;
 
@@ -30,7 +31,10 @@ public:
 	void	Draw(SDL_Renderer* renderer) override;
 	int m_KeyPress;
 	
-	int getIsRunning() { return this->isRunning; }
+	int getCurrentState() { return this->currentState; }
+	bool loadLevel(int level, SDL_Renderer* renderer);
+	void load(SDL_Renderer* renderer);
+	void character1();
 private:
 	std::shared_ptr<Sprite2D>	m_background;
 	//std::shared_ptr<Text>		m_score;
@@ -43,19 +47,37 @@ private:
 	float m_Velocity = 10.0f;
 	int x = 240;
 	int y = 400;
+	int view;
 	GameMap* map;
 	std::vector<Mob> vMob;
 	std::shared_ptr<Sprite2D> m_map;
 	std::list<std::shared_ptr<Sprite2D>> m_listMap;
-	int isRunning;
-	Character* character[numCharacter];
+	int currentState, current_level, current_character;
+	bool currentMusic, currentSFX;
+	Character* _character[numCharacter];
 	std::vector<Projectile> vProjectile;
 	std::vector<Explosion> vExplosion;
+	std::vector<std::pair<SDL_Rect, int> > rectMob;
 	SDL_Texture* explosion;
 	int pr_w[numProjectile];
 	int pr_h[numProjectile];
 	SDL_Texture* pr[numProjectile];
+	SDL_Texture* itemDrop[numItem];
+	SDL_Texture* lpTexture;
+	SDL_Texture* lp_Animation[3];
 	Sound Audio_Player;
+	SDL_Event event;
+	GSSelect* scr;
+	int* character_level;
+	int numGem, numCoin;
+	int lastLevel;
+	bool paused;
+	int frame_back;
+	int frame_char3;
+	int id;
+	int prev, prev_map, prev_char;
+	int* prev_char_level;
+	int** char_growth;
 
 	float  m_currentTicks;
 	Uint32 m_lastUpdate;

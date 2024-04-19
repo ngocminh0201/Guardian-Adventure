@@ -19,7 +19,7 @@ public:
 	void CleanUp();
 
     void loadAudioFiles();
-    void playBackgroundMusic(int isRunning, int level);
+    void playBackgroundMusic(int currentState, int level);
     void stopAudio();
     void collectItem();
     void changeMap();
@@ -39,11 +39,14 @@ public:
     void setMove() { nextMove = 0; }
     void play_boss_audio(int status);
 
+    void setMusic(bool music) { this->music = music; }
+    void setSfx(bool sfx) { this->sfx = sfx; }
+
 private:
 	std::string m_PathMusic;
 	Mix_Music* m_Music = NULL;
 	std::vector<Mix_Chunk*>	sfxs;
-
+    bool music, sfx;
     Mix_Music* bgm_level[numLevel];
     Mix_Music* startScreen;
     Mix_Music* levelSelection;

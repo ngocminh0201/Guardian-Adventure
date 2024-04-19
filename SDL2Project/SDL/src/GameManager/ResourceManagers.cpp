@@ -44,7 +44,7 @@ std::shared_ptr<TextureManager> ResourceManagers::GetTexture(const std::string& 
 		return it->second;
 	}
 	std::shared_ptr<TextureManager> texture = std::make_shared<TextureManager>();
-	std::string file = m_TexturePath + name;
+	std::string file = name;
 	texture->LoadImage(file.c_str());
 	m_MapTexture.insert(std::pair<std::string, std::shared_ptr<TextureManager>>(name, texture));
 	return texture;

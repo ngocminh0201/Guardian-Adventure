@@ -10,8 +10,8 @@ public:
     SDL_Rect getRect() { return rect; }
     SDL_Texture* getObject() { return pObject; }
 
-    bool loadImage(std::string path);
-    void render(int view);
+    bool loadImage(std::string path, SDL_Renderer* renderer);
+    void render(SDL_Renderer* renderer, int view);
     void Free();
 
     int getX() { return rect.x; }
@@ -39,9 +39,9 @@ public:
     void setMaxHp(int maxHp) { this->maxHp = maxHp; }
     void setLevel(int level) { this->level = level; }
     void setObjectId(int objectId, bool ok) { if (this->objectId == 0 || ok) this->objectId = objectId; }
+
     void takeDamage(int damage) { hp = max(0, hp - damage); }
 protected:
-    SDL_Renderer* renderer = Renderer::GetInstance()->GetRenderer();
     SDL_Texture* pObject;
 	SDL_Rect rect;
 	int velX, velY;

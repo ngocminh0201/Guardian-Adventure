@@ -2,6 +2,7 @@
 #include "MouseButton.h"
 #include "Timer.h"
 #include "GameManager/Singleton.h"
+#include "GSPlay.h"
 
 class Game :public CSingleton<Game> {
 public:
@@ -14,4 +15,5 @@ private:
 	Timer* fpsTimer;
 	float m_LastTime;
 	std::shared_ptr<Timer> capTimer;
+	GSPlay gsplay;
 };

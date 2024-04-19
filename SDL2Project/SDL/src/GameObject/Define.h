@@ -23,7 +23,7 @@ struct Explosion {
 };
 
 const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIDHT = 720;
+const int SCREEN_HEIGHT = 720;
 
 #define LIMIT_FPS 60
 #define min(a, b) ((a) < (b) ? a : b)
@@ -70,3 +70,14 @@ const int numLevel = 6;
 //Projectiles
 const int numProjectile = 8;
 const double pi = acos(-1);
+
+// STATE
+enum STATE {
+	NONE,
+	MENU,
+	SELECT,
+	PLAY,
+	CREDIT,
+	SETTING,
+	HELP
+};

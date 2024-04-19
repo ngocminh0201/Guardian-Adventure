@@ -10,29 +10,24 @@ class Mob : public GameObject {
 public:
 	Mob();
 	~Mob();
-	bool loadMob(std::string path);
-    void show(int view);
-    void drawIdle(int view);
-    void drawAttack(int view);
-    void drawMove(int view);
+	bool loadMob(std::string path, SDL_Renderer* renderer);
+    void show(SDL_Renderer* renderer, int view);
+    void drawIdle(SDL_Renderer* renderer, int view);
+    void drawAttack(SDL_Renderer* renderer, int view);
+    void drawMove(SDL_Renderer* renderer, int view);
     void collisionX(GameMap* MAP);
     void collisionY(GameMap* MAP);
-    void tick(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* character, std::vector<Explosion>& vExplosion, Sound* audio);
-    void setType(int _type);
-    void setWeapon(int _type);
-    void setRange(int l, int r);
+    void update(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* character, std::vector<Explosion>& vExplosion, Sound* audio);
+    void setType(int type) { this->type = type; }
+    void setWeapon(int weapon) { this->weapon = weapon; }
+    void setRange(int minX, int maxX) { this->minX = minX; this->maxX = maxX; }
     //void spawnItem(std::vector<Item>& vItem);
 
-    int getId();
-    void setId(int _id);
+    int getId() const { return this->mobId; }
+    void setId(int mobId) { this->mobId = mobId; }
 
-    std::pair<int, int> getAttackBar();
+    pii getAttackBar() { return { nextAttack, framePerAttack }; }
 protected:
-    SDL_Renderer* renderer = Renderer::GetInstance()->GetRenderer();
-    //std::shared_ptr<SpriteAnimation> animation;
-    //std::vector<std::shared_ptr<SpriteAnimation>> idleAnimation;
-    //std::vector<std::shared_ptr<SpriteAnimation>> attackAnimation;
-    //std::vector<std::shared_ptr<SpriteAnimation>> moveAnimation;
     SDL_Texture* idleAnimation[2];
     SDL_Texture* attackAnimation[2];
     SDL_Texture* moveAnimation[2];
@@ -57,9 +52,9 @@ protected:
     int framePerAttack;
     int mobId;
     bool facing, direction;
-    std::pair<int, int> _idle;
-    std::pair<int, int> _attack;
-    std::pair<int, int> _move;
+    pii _idle;
+    pii _attack;
+    pii _move;
     int maxX, minX;
     int itemDrop[3];
     int prSpeed;

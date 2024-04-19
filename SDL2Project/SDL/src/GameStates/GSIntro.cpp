@@ -14,7 +14,7 @@ void GSIntro::Init()
 {
 	auto texture = ResourceManagers::GetInstance()->GetTexture("img/intro1.jpg");
 	intro = std::make_shared<Sprite2D>(texture, SDL_FLIP_NONE);
-	intro->SetSize(SCREEN_WIDTH, SCREEN_HEIDHT);
+	intro->SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	intro->Set2DPosition(0, 0);
 }
 

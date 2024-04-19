@@ -9,13 +9,15 @@ Projectile::Projectile()
     lastTime = 100;
     hostile = false;
     radius = 0;
+    id = 0;
+    speed = 0;
 }
 Projectile::~Projectile()
 {
     
 }
 
-void Projectile::tick(GameMap* MAP)
+void Projectile::update(GameMap* MAP)
 {
     if (threw)
     {

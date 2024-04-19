@@ -15,71 +15,91 @@ Game::Game()
 bool Game::Init()
 {
 	bool success=	Renderer::GetInstance()->Init();
-	GameStateMachine::GetInstance()->PushState(StateType::STATE_INTRO);
+	GameStateMachine::GetInstance()->PushState(StateType::STATE_PLAY);
 	return success;
 }
 
 void Game::Run()
 {
-			//Main loop flag
-			bool quit = false;
-			//Event handler
-			SDL_Event e;
-			Uint32 lastUpdate = SDL_GetTicks();
+	//std::cout << "game: " << Renderer::GetInstance()->GetRenderer() << '\n';
+	TTF_Init();
+	gsplay.load(Renderer::GetInstance()->GetRenderer());
 
-			//int currentTime, lastTime = 0;
+	int currentTime, lastTime = 0;
 
-			while (!quit)
-			{
-				//Handle events on queue
-				while (SDL_PollEvent(&e) != 0)
-				{
-					
-					//User requests quit
-					if (e.type == SDL_QUIT)
-					{
-						quit = true;
-					}
-					
-					if (GameStateMachine::GetInstance()->HasState())
-					{
-						GameStateMachine::GetInstance()->CurrentState()->HandleKeyEvents(e);
-					}
+	while (gsplay.getCurrentState() != STATE::NONE)
+	{
+		currentTime = SDL_GetTicks();
 
-					//Handle Touch Event
-					if (GameStateMachine::GetInstance()->HasState())
-					{
-						GameStateMachine::GetInstance()->CurrentState()->HandleTouchEvents(e);
-					}
+		if (currentTime - lastTime >= 33) {
 
-				}
-				
-				// Handle Key States (instead of Key events)
-				/*if (GameStateMachine::GetInstance()->HasState())
-				{
-					GameStateMachine::GetInstance()->CurrentState()->HandleKeyStates();
-				}*/
-				KeyState::HandleKeyState();
-				
-				Uint32 current = SDL_GetTicks();
+			gsplay.Update(0.2f);
 
-				float dT = (current - lastUpdate) / 1000.0f; // to convert to seconds
+			gsplay.Draw(Renderer::GetInstance()->GetRenderer());
 
-				lastUpdate = current;
-				////Limit FPS
-				if (dT < targetTime)
-				{
-					Update(targetTime);
-					SDL_Delay(targetTime - dT);
-				}
-				else
-				{
-					Update(dT);	
-				}
-				
-				//Update screen
-				SDL_RenderPresent(Renderer::GetInstance()->GetRenderer());
-			}
+			lastTime = currentTime;
+		}
+
+	}
+			////Main loop flag
+			//bool quit = false;
+			////Event handler
+			//SDL_Event e;
+			//Uint32 lastUpdate = SDL_GetTicks();
+
+			////int currentTime, lastTime = 0;
+
+			//while (!quit)
+			//{
+			//	//Handle events on queue
+			//	while (SDL_PollEvent(&e) != 0)
+			//	{
+			//		
+			//		//User requests quit
+			//		if (e.type == SDL_QUIT)
+			//		{
+			//			quit = true;
+			//		}
+			//		
+			//		if (GameStateMachine::GetInstance()->HasState())
+			//		{
+			//			GameStateMachine::GetInstance()->CurrentState()->HandleKeyEvents(e);
+			//		}
+
+			//		//Handle Touch Event
+			//		if (GameStateMachine::GetInstance()->HasState())
+			//		{
+			//			GameStateMachine::GetInstance()->CurrentState()->HandleTouchEvents(e);
+			//		}
+
+			//	}
+			//	
+			//	// Handle Key States (instead of Key events)
+			//	/*if (GameStateMachine::GetInstance()->HasState())
+			//	{
+			//		GameStateMachine::GetInstance()->CurrentState()->HandleKeyStates();
+			//	}*/
+			//	KeyState::HandleKeyState();
+			//	
+			//	Uint32 current = SDL_GetTicks();
+
+			//	float dT = (current - lastUpdate) / 1000.0f; // to convert to seconds
+
+			//	lastUpdate = current;
+			//	////Limit FPS
+			//	if (dT < targetTime)
+			//	{
+			//		Update(targetTime);
+			//		SDL_Delay(targetTime - dT);
+			//	}
+			//	else
+			//	{
+			//		Update(dT);	
+			//	}
+			//	
+			//	//Update screen
+			//	SDL_RenderPresent(Renderer::GetInstance()->GetRenderer());
+			//}
 }
 
 void Game::Update(float deltaTime)

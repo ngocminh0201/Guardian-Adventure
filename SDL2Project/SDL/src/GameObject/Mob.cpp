@@ -6,6 +6,8 @@ Mob::Mob() {
         attackAnimation[i] = NULL;
         moveAnimation[i] = NULL;
     }
+    laser = NULL;
+    melee = { 0, 0, 0, 0 };
     move = attack = idle = false;
     facing = direction = 1;
     frame = 0;
@@ -18,6 +20,11 @@ Mob::Mob() {
     mobId = 0;
     hostile = true;
     weapon = 0;
+    frameAttack = 0;
+    framePerAttack = 0;
+    laser = NULL;
+    prRadius = 0;
+    prSpeed = 0;
 
     _idle = { 0, 0 };
     _move = { 0, 0 };
@@ -37,14 +44,16 @@ Mob::~Mob() {
         SDL_DestroyTexture(moveAnimation[i]);
         SDL_DestroyTexture(attackAnimation[i]);
     }
+    SDL_DestroyTexture(laser);
     for (int i = 0; i <= 1; i++) {
         idleAnimation[i] = NULL;
         attackAnimation[i] = NULL;
         moveAnimation[i] = NULL;
     }
+    laser = NULL;
 }
 
-bool Mob::loadMob(std::string path) {
+bool Mob::loadMob(std::string path, SDL_Renderer* renderer) {
     bool success = true;
 
     for (int i = 0; i <= 1; i++) {
@@ -52,21 +61,21 @@ bool Mob::loadMob(std::string path) {
         std::string st = int2str(i) + ".png";
 
         // idle
-        success = loadImage(path + "/idle" + st);
+        success = loadImage(path + "/idle" + st, renderer);
         if (success == true) {
             idleAnimation[i] = getObject();
             idle = true;
         }
 
         // move
-        success = loadImage(path + "/move" + st);
+        success = loadImage(path + "/move" + st, renderer);
         if (success == true) {
             moveAnimation[i] = getObject();
             move = true;
         }
 
         // attack
-        success = loadImage(path + "/attack" + st);
+        success = loadImage(path + "/attack" + st, renderer);
         if (success == true) {
             attackAnimation[i] = getObject();
             attack = true;
@@ -75,9 +84,10 @@ bool Mob::loadMob(std::string path) {
 
     if (type == TYPE::LASER)
     {
-        success = loadImage(path + "/laser.png");
-        if (success == true)
+        success = loadImage(path + "/laser.png", renderer);
+        if (success == true) {
             laser = getObject();
+        }
     }
 
     std::ifstream file(path + "/mob_info.txt");
@@ -117,7 +127,7 @@ bool Mob::loadMob(std::string path) {
     return true;
 }
 
-void Mob::drawIdle(int view)
+void Mob::drawIdle(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -131,7 +141,7 @@ void Mob::drawIdle(int view)
     if (frame >= _idle.second) frame %= _idle.second;
 }
 
-void Mob::drawMove(int view)
+void Mob::drawMove(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -143,7 +153,7 @@ void Mob::drawMove(int view)
     if (frame >= _move.second) frame %= _move.second;
 }
 
-void Mob::drawAttack(int view)
+void Mob::drawAttack(SDL_Renderer* renderer, int view)
 {
     SDL_Rect nRect = { 0, 0, charSize, charSize };
     SDL_Rect tRect = { rect.x - charSize / 3 - view - (charSize / 3 - rect.w) * facing, rect.y - charSize / 3 - (charSize / 3 - rect.h), charSize, charSize };
@@ -154,19 +164,19 @@ void Mob::drawAttack(int view)
     frame++;
 }
 
-void Mob::show(int view)
+void Mob::show(SDL_Renderer* renderer, int view)
 {
     if (type != TYPE::FOLLOW && type != TYPE::LASER)
     {
         if (nextAttack >= _attack.second)
         {
             if (nextAttack == _attack.second) frame = 0;
-            if (idle) drawIdle(view);
-            else drawMove(view);
+            if (idle) drawIdle(renderer, view);
+            else drawMove(renderer, view);
         }
         else
         {
-            drawAttack(view);
+            drawAttack(renderer, view);
         }
 
         nextAttack++;
@@ -179,7 +189,7 @@ void Mob::show(int view)
     
 }
 
-void Mob::tick(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* character, std::vector<Explosion>& vExplosion, Sound* audio)
+void Mob::update(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* character, std::vector<Explosion>& vExplosion, Sound* audio)
 {
     if (type != TYPE::FOLLOW && type != TYPE::LASER)
     {
@@ -227,6 +237,15 @@ void Mob::tick(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* ch
         vProjectile.push_back(temp);
     }
 
+    if (nextAttack == 0 && type == TYPE::THROW && abs(rect.x - character->getX()) <= SCREEN_WIDTH / 2)
+    {
+        Projectile temp;
+        temp.setThrew(true);
+        temp.setRadius(prRadius);
+        temp.shoot(character->getRect(), rect, idProjectile, dmg, prSpeed);
+        temp.setHostile(true);
+        vProjectile.push_back(temp);
+    }
 
     if (nextAttack == frameAttack && type == TYPE::MELEE) {
 
@@ -244,6 +263,37 @@ void Mob::tick(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* ch
             if (chance == 1 && character->getId() == 2)
                 hp = max(0, hp - dmg);
         }
+    }
+
+    if (nextAttack == _attack.second - 1 && type == TYPE::BOMB && abs(rect.x - character->getX()) <= SCREEN_WIDTH / 2)
+    {
+        vExplosion.push_back({ rect, prRadius, dmg, 15 });
+        audio->bomb_explosion();
+    }
+
+    if (type == TYPE::FOLLOW)
+    {
+        if (abs(rect.x - character->getX()) <= SCREEN_WIDTH / 2)
+        {
+            if (rect.x > character->getX()) rect.x -= velX;
+            else if (rect.x < character->getX()) rect.x += velX;
+
+            if (rect.y > character->getY()) rect.y -= velY;
+            else if (rect.y < character->getY()) rect.y += velY;
+
+            inFollowRange = true;
+        }
+        else inFollowRange = false;
+        if (collision(character->getRect(), rect) && nextAttack == 0)
+            character->takeDamage(dmg);
+    }
+
+    if (type == TYPE::LASER)
+    {
+        SDL_Rect range = { rect.x + rect.w / 2, rect.y + 20, SCREEN_WIDTH, 100 };
+        if (!facing) range.x -= SCREEN_WIDTH;
+        if (laserTick % 20 == 0 && laserTick < 90 && collision(character->getRect(), range))
+            character->takeDamage(dmg);
     }
 
 }
@@ -304,34 +354,4 @@ void Mob::collisionY(GameMap* MAP)
             rect.y = pos_y2 * TILE_SIZE - rect.h - 1;
             break;
         }
-}
-
-std::pair<int, int> Mob::getAttackBar()
-{
-    return { nextAttack, framePerAttack };
-}
-
-void Mob::setType(int _type)
-{
-    type = _type;
-}
-
-void Mob::setWeapon(int _weapon)
-{
-    weapon = _weapon;
-}
-
-void Mob::setId(int _id)
-{
-    mobId = _id;
-}
-
-int Mob::getId()
-{
-    return mobId;
-}
-
-void Mob::setRange(int l, int r)
-{
-    minX = l, maxX = r;
 }
