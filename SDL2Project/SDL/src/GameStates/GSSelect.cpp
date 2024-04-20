@@ -310,6 +310,7 @@ void GSSelect::loadTexture(SDL_Renderer* renderer) {
 
 	paused_box.setX((SCREEN_WIDTH - paused_box.getW()) / 2);
 	paused_box.setY((SCREEN_HEIGHT - paused_box.getH()) / 2);
+	SDL_SetTextureAlphaMod(paused_box.getObject(), 200);
 
 	paused_return[0].setW(380);
 	paused_return[0].setH(paused_return[0].getW() * 125 / 500);
