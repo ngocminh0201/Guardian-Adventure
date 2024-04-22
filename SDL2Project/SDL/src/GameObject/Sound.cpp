@@ -30,6 +30,8 @@ Sound::Sound()
     walk = NULL;
     fly = NULL;
     jump = NULL;
+    _character_hurt = NULL;
+    mob_hurt = NULL;
 
     nextMove = 0;
     music = sfx = true;
@@ -48,42 +50,24 @@ Sound::~Sound()
     for (int i = 0; i < numStatus; i++)
         Mix_FreeChunk(bossAudio[i]);
     Mix_FreeMusic(startScreen);
-    //printf("startScreen\n");
-
     Mix_FreeMusic(levelSelection);
-    //printf("levelSelection\n");
-
     Mix_FreeChunk(collect_item);
-   // printf("collect_item\n");
-
     Mix_FreeChunk(change_map);
-    //printf("cchange_map\n");
     Mix_FreeChunk(select_character);
-    //printf("select_character\n");
     Mix_FreeChunk(upgrade);
-    //printf("upgrade\n");
     Mix_FreeChunk(unlock);
-   // printf("unlock\n");
     Mix_FreeChunk(click);
-   // printf("click\n");
     Mix_FreeChunk(play_button);
-   // printf("play_button\n");
     Mix_FreeChunk(win);
-   // printf("win\n");
-   // std::cout << lose << '\n';
     Mix_FreeChunk(lose);
-   // printf("lose\n");
-    //std::cout << mob_die << '\n';
     Mix_FreeChunk(mob_die);
-    //printf("mob_die\n");
-
+    Mix_FreeChunk(mob_hurt);
     Mix_FreeChunk(heal);
-    //printf("heal\n");
     Mix_FreeChunk(explosion);
     Mix_FreeChunk(fly);
     Mix_FreeChunk(walk);
     Mix_FreeChunk(jump);
-
+    Mix_FreeChunk(_character_hurt);
 }
 
 bool Sound::Init()
@@ -148,6 +132,10 @@ void Sound::stopAudio()
 {
     //Stop the music
     Mix_HaltMusic();
+}
+
+void Sound::stopSfx() {
+    Mix_HaltChannel(-1);
 }
 
 void Sound::LoadSound(std::string pathMusic)
@@ -219,12 +207,14 @@ void Sound::loadAudioFiles()
     play_button = Mix_LoadWAV("Data/Sounds/play.wav");
     win = Mix_LoadWAV("Data/Sounds/win.wav");
     lose = Mix_LoadWAV("Data/Sounds/lose.wav");
-    mob_die = Mix_LoadWAV("Data/Sounds/mob_die.wav");
+    mob_die = Mix_LoadWAV("Data/Sounds/mob_die.mp3");
+    mob_hurt = Mix_LoadWAV("Data/Sounds/mob_hurt.wav");
     heal = Mix_LoadWAV("Data/Sounds/heal.wav");
     explosion = Mix_LoadWAV("Data/Sounds/explosion.wav");
     walk = Mix_LoadWAV("Data/Sounds/walk.wav");
     fly = Mix_LoadWAV("Data/Sounds/fly.wav");
-    jump = Mix_LoadWAV("Data/Sounds/jump.wav");
+    jump = Mix_LoadWAV("Data/Sounds/jump.mp3");
+    _character_hurt = Mix_LoadWAV("Data/Sounds/character_hurt.mp3");
 
     for (int i = 0; i < numCharacter; i++)
     {
@@ -319,6 +309,11 @@ void Sound::mobDie()
     Mix_PlayChannel(-1, mob_die, 0);
 }
 
+void Sound::mobHurt() {
+    if (!sfx) return;
+    Mix_PlayChannel(-1, mob_hurt, 0);
+}
+
 void Sound::character_heal()
 {
     if (!sfx) return;
@@ -352,6 +347,11 @@ void Sound::character_jump()
 {
     if (!sfx) return;
     Mix_PlayChannel(-1, jump, 0);
+}
+
+void Sound::character_hurt() {
+    if (!sfx) return;
+    Mix_PlayChannel(-1, _character_hurt, 0);
 }
 
 void Sound::play_boss_audio(int status)

@@ -21,6 +21,7 @@ public:
     void loadAudioFiles();
     void playBackgroundMusic(int currentState, int level);
     void stopAudio();
+    void stopSfx();
     void collectItem();
     void changeMap();
     void selectCharacter();
@@ -31,11 +32,13 @@ public:
     void winGame();
     void loseGame();
     void mobDie();
+    void mobHurt();
     void character_heal();
     void bomb_explosion();
     void character_attack(int cur_character);
     void character_move(int type);
     void character_jump();
+    void character_hurt();
     void setMove() { nextMove = 0; }
     void play_boss_audio(int status);
 
@@ -60,6 +63,7 @@ private:
     Mix_Chunk* win;
     Mix_Chunk* lose;
     Mix_Chunk* mob_die;
+    Mix_Chunk* mob_hurt;
     Mix_Chunk* explosion;
     Mix_Chunk* heal;
     Mix_Chunk* char_attack[numCharacter];
@@ -67,5 +71,6 @@ private:
     Mix_Chunk* fly;
     int nextMove;
     Mix_Chunk* jump;
+    Mix_Chunk* _character_hurt;
     Mix_Chunk* bossAudio[numStatus];
 };

@@ -258,7 +258,12 @@ void Mob::update(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* 
         if (facing) tempRect.x -= 2 * melee.x + melee.w - rect.w;
 
         if (collision(tempRect, character->getRect())) {
+            int lastHp = character->getHp();
             character->takeDamage(dmg);
+            if (lastHp > 0) {
+                audio->stopSfx();
+                audio->character_hurt();
+            }
             int chance = Rand(1, 2);
             if (chance == 1 && character->getId() == 2)
                 hp = max(0, hp - dmg);
@@ -284,16 +289,30 @@ void Mob::update(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* 
             inFollowRange = true;
         }
         else inFollowRange = false;
-        if (collision(character->getRect(), rect) && nextAttack == 0)
+        if (collision(character->getRect(), rect) && nextAttack == 0) {
+            int lastHp = character->getHp();
             character->takeDamage(dmg);
+            if (lastHp > 0) {
+                audio->stopSfx();
+                audio->character_hurt();
+            }
+        }
+            
     }
 
     if (type == TYPE::LASER)
     {
         SDL_Rect range = { rect.x + rect.w / 2, rect.y + 20, SCREEN_WIDTH, 100 };
         if (!facing) range.x -= SCREEN_WIDTH;
-        if (laserTick % 20 == 0 && laserTick < 90 && collision(character->getRect(), range))
+        if (laserTick % 20 == 0 && laserTick < 90 && collision(character->getRect(), range)) {
+            int lastHp = character->getHp();
             character->takeDamage(dmg);
+            if (lastHp > 0) {
+                audio->stopSfx();
+                audio->character_hurt();
+            }
+        }
+            
     }
 
 }

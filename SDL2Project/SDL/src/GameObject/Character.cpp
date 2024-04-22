@@ -306,7 +306,7 @@ void Character::handleInput(SDL_Event event)
     }
 }
 
-void Character::Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rectMob, std::vector<Projectile>& vProjectile)
+void Character::Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rectMob, std::vector<Projectile>& vProjectile, Sound* audio)
 {
     if (isJumping || isFalling) {
         velY += gravity;
@@ -396,10 +396,13 @@ void Character::Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rec
                     if (chance == 1)
                         rectMob[i].second -= dmg / 2;
                 }
+                if (rectMob[i].second > 0)
+                    audio->mobHurt();
+                //std::cout << "cc\n";
             }
         }
 
-        if (vProjectile.size())
+        if (vProjectile.size()) {
             for (int i = vProjectile.size() - 1; i >= 0; i--)
             {
                 if (collision(tempRect, vProjectile[i].getRect()) && vProjectile[i].getThrew() == false)
@@ -408,7 +411,7 @@ void Character::Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rec
                     vProjectile.pop_back();
                 }
             }
-
+        }
     }
 
    if (nStatus == STATUS::ATTACK && nextAttack == 0 && type == TYPE::RANGED) {

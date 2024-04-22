@@ -3,6 +3,7 @@
 #include "Define.h"
 #include "GameMap.h"
 #include "Projectile.h"
+#include "Sound.h"
 
 class Character : public GameObject
 {
@@ -12,7 +13,7 @@ public:
     void show(SDL_Renderer* renderer, int view);
     void handleInput(SDL_Event event);
     bool loadCharacter(std::string path, SDL_Renderer* renderer, int _id);
-    void Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rectMob, std::vector<Projectile>& vProjectile);
+    void Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rectMob, std::vector<Projectile>& vProjectile, Sound* audio);
     void collisionX(GameMap* MAP);
     void collisionY(GameMap* MAP);
     void drawIdle(SDL_Renderer* renderer, int view);

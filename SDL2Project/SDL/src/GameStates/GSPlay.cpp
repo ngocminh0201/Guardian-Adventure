@@ -423,7 +423,6 @@ void GSPlay::Update(float deltaTime)
 
             if (prev == STATE::SELECT && currentState == STATE::PLAY)
             {
-                
                 Audio_Player.playButton();
                 click = false;
                 _character[current_character]->setX(0);
@@ -503,8 +502,8 @@ void GSPlay::Update(float deltaTime)
         else
             _character[current_character]->setVelX(MAX_RUN_SPEED);
 
-        //        if(_character[current_character].jumped())
-        //            Audio_Player.character_jump();
+        if(_character[current_character]->jumped())
+            Audio_Player.character_jump();
 
         if (_character[current_character]->getMove() && _character[current_character]->getStatus() < 4 && _character[current_character]->onGround())
         {
@@ -518,7 +517,7 @@ void GSPlay::Update(float deltaTime)
         //if (current_level == numLevel)
             //boss.update(&_character[current_character], vItem);
 
-        _character[current_character]->Update(map, rectMob, vProjectile);
+        _character[current_character]->Update(map, rectMob, vProjectile, &Audio_Player);
 
 
         if (_character[current_character]->startAttack() && _character[current_character]->getStatus() == 3)
@@ -537,7 +536,6 @@ void GSPlay::Update(float deltaTime)
                     Audio_Player.winGame();
             }
             frame_back++;
-            //std::cout << "aaa: " << frame_back << '\n';
             if (frame_back == 5 * 30) {
                 currentState = STATE::SELECT;
                 if (_character[current_character]->getStatus() == 5 && lastLevel == current_level)
@@ -650,7 +648,13 @@ void GSPlay::Update(float deltaTime)
                             int chance = Rand(1, 2);
                             if (current_character != 2 || chance == 1)
                             {
+                                int lastHp = _character[current_character]->getHp();
                                 _character[current_character]->takeDamage(vProjectile[i].getDmg());
+                                if (lastHp > 0) {
+                                    Audio_Player.stopSfx();
+                                    Audio_Player.character_hurt();
+
+                                }
                             }
                             if (vProjectile[i].getThrew())
                             {
@@ -703,6 +707,8 @@ void GSPlay::Update(float deltaTime)
                                     }
                                     rectMob[j].second = max(0, rectMob[j].second - vProjectile[i].getDmg());
                                     vMob[j].setHp(rectMob[j].second);
+                                    if (rectMob[j].second > 0)
+                                        Audio_Player.mobHurt();
                                     std::swap(vProjectile[i], vProjectile.back());
                                     vProjectile.pop_back();
                                     break;
@@ -730,7 +736,13 @@ void GSPlay::Update(float deltaTime)
         {
             if (distance(vExplosion[i].rect, _character[current_character]->getRect()) <= vExplosion[i].radius && vExplosion[i].frame == 15)
             {
+                int lastHp = _character[current_character]->getHp();
                 _character[current_character]->takeDamage(vExplosion[i].dmg);
+                if (lastHp > 0) {
+                    Audio_Player.stopSfx();
+                    Audio_Player.character_hurt();
+
+                }
             }
             vExplosion[i].frame--;
         }
@@ -791,7 +803,7 @@ void GSPlay::character1()
             if (vMob.size())
                 for (int j = vMob.size() - 1; j >= 0; j--)
                 {
-
+                    
                     if (collision(rectMob[j].first, vProjectile[i].getHitBox()) && vMob[j].getObjectId() != vProjectile[i].getObjectId())
                     {
                         vMob[j].setObjectId(vProjectile[i].getObjectId(), 1);
