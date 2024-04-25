@@ -22,7 +22,7 @@ struct Explosion {
 	int frame;
 };
 
-const int SCREEN_WIDTH = 1280;
+const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 720;
 
 #define LIMIT_FPS 60
