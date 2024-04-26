@@ -19,10 +19,10 @@ GSPlay::GSPlay()
 	for (int i = 0; i < numProjectile; i++)
 		pr[i] = NULL;
 
-	lpTexture = NULL;
+	SupportItemTexture = NULL;
 
 	for (int i = 0; i < 3; i++)
-		lp_Animation[i] = NULL;
+		SupportItem_Animation[i] = NULL;
 
 	explosion = NULL;
 
@@ -54,10 +54,10 @@ GSPlay::~GSPlay()
 	for (int i = 0; i < numProjectile; i++)
 		SDL_DestroyTexture(pr[i]);
 
-	SDL_DestroyTexture(lpTexture);
+	SDL_DestroyTexture(SupportItemTexture);
 
 	for (int i = 0; i < 3; i++)
-		SDL_DestroyTexture(lp_Animation[i]);
+		SDL_DestroyTexture(SupportItem_Animation[i]);
 
 	SDL_DestroyTexture(explosion);
 
@@ -217,8 +217,8 @@ void GSPlay::load(SDL_Renderer* renderer) {
     //////////////
 
     for (int i = 0; i < numCharacter; i++) {
-        _character[i] = new Character;
-        if (!_character[i]->loadCharacter("Data/Textures/Character/" + int2str(i), renderer, i))
+        character[i] = new Character;
+        if (!character[i]->loadCharacter("Data/Textures/Character/" + int2str(i), renderer, i))
         {
             std::cout << "Can't load character " << i << "!!!";
             exit(-1);
@@ -241,7 +241,7 @@ void GSPlay::load(SDL_Renderer* renderer) {
         pr_h[i] = sf->h;
         pr[i] = SDL_CreateTextureFromSurface(renderer, sf);
 
-        SDL_FreeSurface(sf);
+        SDL_FreeSurface(sf); sf = NULL;
     }
 
     std::string path = "Data/Textures/img/explosion.png";
@@ -263,27 +263,37 @@ void GSPlay::load(SDL_Renderer* renderer) {
             exit(-1);
         }
         itemDrop[i] = SDL_CreateTextureFromSurface(renderer, sf);
-        SDL_FreeSurface(sf);
+        SDL_FreeSurface(sf); sf = NULL;
     }
 
     //////////////
 
     SDL_Surface* loadSurface = IMG_Load("Data/Textures/img/lp.png");
 
-    lpTexture = SDL_CreateTextureFromSurface(renderer, loadSurface);
+    SupportItemTexture = SDL_CreateTextureFromSurface(renderer, loadSurface);
 
     for (int i = 0; i < 3; i++)
     {
         std::string path = "Data/Textures/img/lp" + int2str(i) + ".png";
         loadSurface = IMG_Load(path.c_str());
-        lp_Animation[i] = SDL_CreateTextureFromSurface(renderer, loadSurface);
+        if (loadSurface == NULL)
+        {
+            std::cout << "Missing lp image!!!";
+            exit(-1);
+        }
+        SupportItem_Animation[i] = SDL_CreateTextureFromSurface(renderer, loadSurface);
+        SDL_FreeSurface(loadSurface); loadSurface = NULL;
     }
 
+    std::ifstream file("Data/setting_sound.txt");
+    file >> currentMusic >> currentSFX;
+    file.close();
+
     Audio_Player.loadAudioFiles();
+    Audio_Player.setMusic(currentMusic);
+    Audio_Player.setSfx(currentSFX);
 
     //boss.loadBoss(renderer);
-
-    SDL_FreeSurface(loadSurface);
 }
 
 bool GSPlay::loadLevel(int level, SDL_Renderer* renderer)
@@ -334,45 +344,25 @@ bool GSPlay::loadLevel(int level, SDL_Renderer* renderer)
             return false;
         }
     }
+    
 
-    /*if (level < numLevel)
+    if (level < numLevel)
     {
-        lp new_lp;
-        new_lp.setType(1);
-        new_lp.setW(70);
-        new_lp.setH(70);
-        new_lp.setX(MAP->get_lp_pos().back());
-        MAP->pop();
-        new_lp.loadVar({ 4, 14 }, { 4, 11 }, { 4, 17 });
-        v_lp.push_back(new_lp);
-    }*/
+        SupportItem new_SupportItem;
+        new_SupportItem.setType(1);
+        new_SupportItem.setW(70);
+        new_SupportItem.setH(70);
+        new_SupportItem.setX(map->get_supportItem_pos().back());
+        map->pop();
+        new_SupportItem.loadVar({ 4, 14 }, { 4, 11 }, { 4, 17 });
+        v_SupportItem.push_back(new_SupportItem);
+    }
 
     return 1;
 }
 
 void GSPlay::Update(float deltaTime)
-{
-	//switch (m_KeyPress)//Handle Key event
-	//{
-	//default:
-	//	break;
-	//}
-	//// Key State event
-
-	//for (auto it : m_listButton)
-	//{
-	//	it->Update(deltaTime);
-	//}
-	//for (auto it : m_listAnimation)
-	//{
-	//	if (m_KeyPress == 1)
-	//	{
-	//		
-	//	//	it->MoveLeft(deltaTime);
-	//	}
-	//	it->Update(deltaTime);
-	//}
-	
+{	
     SDL_Renderer* renderer = Renderer::GetInstance()->GetRenderer();
     prev_map = current_level;
     prev_char = current_character;
@@ -392,6 +382,10 @@ void GSPlay::Update(float deltaTime)
                 player_info << character_level[i] << ' ' << char_growth[i][0] << ' ' << char_growth[i][1] << '\n';
 
             player_info.close();
+
+            std::ofstream setting_info("Data/setting_sound.txt");
+            setting_info << currentMusic << ' ' << currentSFX;
+            setting_info.close();
         }
         if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT) {
             
@@ -425,34 +419,34 @@ void GSPlay::Update(float deltaTime)
             {
                 Audio_Player.playButton();
                 click = false;
-                _character[current_character]->setX(0);
-                _character[current_character]->setY(0);
+                character[current_character]->setX(0);
+                character[current_character]->setY(0);
                 vMob.clear();
                 rectMob.clear();
-                //vItem.clear();
-                //vItem_temp.clear();
+                vItem.clear();
+                vItem_temp.clear();
                 vProjectile.clear();
                 vExplosion.clear();
-                //v_lp.clear();
-                _character[current_character]->setLevel(character_level[current_character]);
+                v_SupportItem.clear();
+                character[current_character]->setLevel(character_level[current_character]);
 
-                int newDmg = _character[current_character]->getBaseDmg();
+                int newDmg = character[current_character]->getBaseDmg();
                 if (character_level[current_character] > 0)
                     newDmg += (character_level[current_character] - 1) * char_growth[current_character][0];
-                _character[current_character]->setDmg(newDmg);
+                character[current_character]->setDmg(newDmg);
 
-                int newHp = _character[current_character]->getBaseHp();
+                int newHp = character[current_character]->getBaseHp();
                 if (character_level[current_character] > 0)
                     newHp += (character_level[current_character] - 1) * char_growth[current_character][1];
-                _character[current_character]->setMaxHp(newHp);
+                character[current_character]->setMaxHp(newHp);
 
-                _character[current_character]->setHp(_character[current_character]->getMaxHp());
-                _character[current_character]->setStatus(0);
-                _character[current_character]->setFrame(0);
+                character[current_character]->setHp(character[current_character]->getMaxHp());
+                character[current_character]->setStatus(Character_STATUS::IDLE);
+                character[current_character]->setFrame(0);
                 frame_back = 0;
                 delete(map);
                 map = new GameMap;
-                //boss.reset();
+                boss.reset();
                 loadLevel(current_level, renderer);
             }
             if (click) Audio_Player.mouse_click();
@@ -462,7 +456,7 @@ void GSPlay::Update(float deltaTime)
             scr->handleKeyInput(event, paused, currentState);
         }
         if (currentState == STATE::PLAY) {
-            _character[current_character]->handleInput(event);
+            character[current_character]->handleInput(event);
         }
     }
 
@@ -482,8 +476,8 @@ void GSPlay::Update(float deltaTime)
         Audio_Player.playBackgroundMusic(currentState, current_level);
     }
     else if (currentState == STATE::SELECT) {
-        int baseHp = _character[current_character]->getBaseHp();
-        int baseDmg = _character[current_character]->getBaseDmg();
+        int baseHp = character[current_character]->getBaseHp();
+        int baseDmg = character[current_character]->getBaseDmg();
         scr->levelSelection(renderer, current_level, current_character, character_level, numCoin, numGem, lastLevel, baseHp, baseDmg, char_growth);
         Audio_Player.playBackgroundMusic(currentState, current_level);
     }
@@ -498,14 +492,16 @@ void GSPlay::Update(float deltaTime)
         frame_char3++;
 
         if (frame_char3 <= 3 * 30)
-            _character[current_character]->setVelX(MAX_RUN_SPEED + 10);
+            character[current_character]->setVelX(MAX_RUN_SPEED + 10);
         else
-            _character[current_character]->setVelX(MAX_RUN_SPEED);
+            character[current_character]->setVelX(MAX_RUN_SPEED);
 
-        if(_character[current_character]->jumped())
+        if(character[current_character]->jumped())
             Audio_Player.character_jump();
 
-        if (_character[current_character]->getMove() && _character[current_character]->getStatus() < 4 && _character[current_character]->onGround())
+        if (character[current_character]->getMove() && 
+                                        character[current_character]->getStatus() < Character_STATUS::DIED && 
+                                                character[current_character]->onGround())
         {
             if (current_character == 1 || current_character == 2)
                 Audio_Player.character_move(1);
@@ -514,23 +510,24 @@ void GSPlay::Update(float deltaTime)
         }
         else Audio_Player.setMove();
 
-        //if (current_level == numLevel)
-            //boss.update(&_character[current_character], vItem);
+        if (current_level == numLevel)
+            boss.Update(character[current_character], vItem);
 
-        _character[current_character]->Update(map, rectMob, vProjectile, &Audio_Player);
+        character[current_character]->Update(map, rectMob, vProjectile, &Audio_Player);
 
 
-        if (_character[current_character]->startAttack() && _character[current_character]->getStatus() == 3)
+        if (character[current_character]->startAttack() && character[current_character]->getStatus() == Character_STATUS::ATTACK)
             Audio_Player.character_attack(current_character);
 
-        _character[current_character]->setObjectId(++id, 0);
+        character[current_character]->setObjectId(++id, 0);
 
-        if (_character[current_character]->getStatus() == 4 || _character[current_character]->getStatus() == 5)
+        if (character[current_character]->getStatus() == Character_STATUS::DIED || 
+               character[current_character]->getStatus() == Character_STATUS::VICTORY)
         {
             if (frame_back == 0)
             {
                 Audio_Player.stopAudio();
-                if (_character[current_character]->getStatus() == 4)
+                if (character[current_character]->getStatus() == Character_STATUS::DIED)
                     Audio_Player.loseGame();
                 else
                     Audio_Player.winGame();
@@ -538,9 +535,9 @@ void GSPlay::Update(float deltaTime)
             frame_back++;
             if (frame_back == 5 * 30) {
                 currentState = STATE::SELECT;
-                if (_character[current_character]->getStatus() == 5 && lastLevel == current_level)
+                if (character[current_character]->getStatus() == Character_STATUS::VICTORY && lastLevel == current_level)
                     lastLevel++;
-                _character[current_character]->setStatus(0);
+                character[current_character]->setStatus(Character_STATUS::IDLE);
                 Audio_Player.stopAudio();
             }
         }
@@ -549,22 +546,22 @@ void GSPlay::Update(float deltaTime)
             Audio_Player.playBackgroundMusic(currentState, current_level);
         }
 
-        /*if (vItem.size())
+        if (vItem.size())
             for (int i = vItem.size() - 1; i >= 0; i--)
             {
-                vItem[i].update(_character[current_character].getRect(), MAP);
+                vItem[i].Update(character[current_character]->getRect(), map);
 
                 vItem[i].setObjectId(++id, 0);
 
-                if (collision(vItem[i].getRect(), _character[current_character].getRect()) && vItem[i].getFell())
+                if (collision(vItem[i].getRect(), character[current_character]->getRect()) && vItem[i].getFell())
                 {
                     if (vItem[i].getId() == 3)
-                        vItem[i].dropItem(vItem_temp, Rand(1, MAP->getNumCoin()), Rand(1, MAP->getNumGem()), _character[current_character].getMaxHp());
+                        vItem[i].dropItem(vItem_temp, Rand(1, map->getNumCoin()), Rand(1, map->getNumGem()), character[current_character]->getMaxHp());
                     else if (vItem[i].getId() == 2)
                     {
-                        if (_character[current_character].getStatus() < 4) {
-                            int nHp = min(_character[current_character].getMaxHp(), _character[current_character].getHp() + vItem[i].getVal());
-                            _character[current_character].setHp(nHp);
+                        if (character[current_character]->getStatus() < Character_STATUS::DIED) {
+                            int nHp = min(character[current_character]->getMaxHp(), character[current_character]->getHp() + vItem[i].getVal());
+                            character[current_character]->setHp(nHp);
                             Audio_Player.character_heal();
                         }
                     }
@@ -592,17 +589,17 @@ void GSPlay::Update(float deltaTime)
         {
             vItem.push_back(vItem_temp.back());
             vItem_temp.pop_back();
-        }*/
+        }
 
-        /*if (map->get_lp_pos().size() && map->get_lp_pos().back() <= _character[current_character]->getX())
+        if (map->get_supportItem_pos().size() && map->get_supportItem_pos().back() <= character[current_character]->getX())
         {
-            lp new_lp;
-            new_lp.setX(SCREEN_WIDTH);
-            new_lp.setVelX(-5);
-            new_lp.setType(0);
-            MAP->pop();
-            v_lp.push_back(new_lp);
-        }*/
+            SupportItem new_supportItem;
+            new_supportItem.setX(SCREEN_WIDTH);
+            new_supportItem.setVelX(-5);
+            new_supportItem.setType(0);
+            map->pop();
+            v_SupportItem.push_back(new_supportItem);
+        }
 
         if (vMob.size())
             for (int i = vMob.size() - 1; i >= 0; i--)
@@ -612,14 +609,14 @@ void GSPlay::Update(float deltaTime)
                 if (rectMob[i].second == 0)
                 {
                     Audio_Player.mobDie();
-                    //vMob[i].spawnItem(vItem);
+                    vMob[i].spawnItem(vItem);
                     std::swap(rectMob[i], rectMob.back());
                     std::swap(vMob[i], vMob.back());
                     rectMob.pop_back();
                     vMob.pop_back();
                 }
                 else
-                    vMob[i].update(map, vProjectile, _character[current_character], vExplosion, &Audio_Player);
+                    vMob[i].update(map, vProjectile, character[current_character], vExplosion, &Audio_Player);
             }
         if (vProjectile.size())
         {
@@ -643,13 +640,13 @@ void GSPlay::Update(float deltaTime)
                     }
                     else if (vProjectile[i].getHostile())
                     {
-                        if (collision(vProjectile[i].getHitBox(), _character[current_character]->getRect()))
+                        if (collision(vProjectile[i].getHitBox(), character[current_character]->getRect()))
                         {
                             int chance = Rand(1, 2);
                             if (current_character != 2 || chance == 1)
                             {
-                                int lastHp = _character[current_character]->getHp();
-                                _character[current_character]->takeDamage(vProjectile[i].getDmg());
+                                int lastHp = character[current_character]->getHp();
+                                character[current_character]->takeDamage(vProjectile[i].getDmg());
                                 if (lastHp > 0) {
                                     Audio_Player.stopSfx();
                                     Audio_Player.character_hurt();
@@ -667,7 +664,7 @@ void GSPlay::Update(float deltaTime)
                     }
                     else if (!vProjectile[i].getHostile())
                     {
-                        /*if (current_level == numLevel)
+                        if (current_level == numLevel)
                         {
                             if (collision(vProjectile[i].getHitBox(), boss.getBossHitbox()) && boss.vulnerable())
                             {
@@ -678,8 +675,8 @@ void GSPlay::Update(float deltaTime)
                                     int chance = Rand(1, 4);
                                     if (chance == 3)
                                     {
-                                        int newHp = _character[current_character].getHp() + _character[current_character].getMaxHp() / 10;
-                                        _character[current_character].setHp(newHp);
+                                        int newHp = character[current_character]->getHp() + character[current_character]->getMaxHp() / 10;
+                                        character[current_character]->setHp(newHp);
                                         Audio_Player.character_heal();
                                     }
                                 }
@@ -687,7 +684,7 @@ void GSPlay::Update(float deltaTime)
                                 std::swap(vProjectile[i], vProjectile.back());
                                 vProjectile.pop_back();
                             }
-                        }*/
+                        }
                         if (vMob.size())
                             for (int j = vMob.size() - 1; j >= 0; j--)
                             {
@@ -700,8 +697,8 @@ void GSPlay::Update(float deltaTime)
                                         int chance = Rand(1, 4);
                                         if (chance == 3)
                                         {
-                                            int newHp = _character[current_character]->getHp() + _character[current_character]->getMaxHp() / 10;
-                                            _character[current_character]->setHp(newHp);
+                                            int newHp = character[current_character]->getHp() + character[current_character]->getMaxHp() / 10;
+                                            character[current_character]->setHp(newHp);
                                             Audio_Player.character_heal();
                                         }
                                     }
@@ -719,25 +716,25 @@ void GSPlay::Update(float deltaTime)
             }
         }
 
-        /*if (v_lp.size())
+        if (v_SupportItem.size())
         {
-            for (int i = v_lp.size() - 1; i >= 0; i--)
+            for (int i = v_SupportItem.size() - 1; i >= 0; i--)
             {
-                v_lp[i].update(_character[current_character].getRect(), MAP, vItem);
-                if (v_lp[i].get_done())
+                v_SupportItem[i].update(character[current_character]->getRect(), map, vItem);
+                if (v_SupportItem[i].get_done())
                 {
-                    std::swap(v_lp[i], v_lp.back());
-                    v_lp.pop_back();
+                    std::swap(v_SupportItem[i], v_SupportItem.back());
+                    v_SupportItem.pop_back();
                 }
             }
-        }*/
+        }
         rectMob.clear();
         for (int i = 0; i < vExplosion.size(); i++)
         {
-            if (distance(vExplosion[i].rect, _character[current_character]->getRect()) <= vExplosion[i].radius && vExplosion[i].frame == 15)
+            if (distance(vExplosion[i].rect, character[current_character]->getRect()) <= vExplosion[i].radius && vExplosion[i].frame == 15)
             {
-                int lastHp = _character[current_character]->getHp();
-                _character[current_character]->takeDamage(vExplosion[i].dmg);
+                int lastHp = character[current_character]->getHp();
+                character[current_character]->takeDamage(vExplosion[i].dmg);
                 if (lastHp > 0) {
                     Audio_Player.stopSfx();
                     Audio_Player.character_hurt();
@@ -772,10 +769,10 @@ void GSPlay::character1()
         if (vProjectile[i].done())
         {
             if (vProjectile[i].getThrew()) {
-                if (distance(vProjectile[i].getHitBox(), _character[current_character]->getRect()) <= vProjectile[i].getRadius())
+                if (distance(vProjectile[i].getHitBox(), character[current_character]->getRect()) <= vProjectile[i].getRadius())
                 {
-                    int curHp = _character[current_character]->getHp() - vProjectile[i].getDmg();
-                    _character[current_character]->setHp(curHp);
+                    int curHp = character[current_character]->getHp() - vProjectile[i].getDmg();
+                    character[current_character]->setHp(curHp);
                 }
                 vExplosion.push_back({ vProjectile[i].getHitBox(), vProjectile[i].getRadius(), vProjectile[i].getDmg(), 15 });
                 Audio_Player.bomb_explosion();
@@ -785,10 +782,10 @@ void GSPlay::character1()
         }
         else if (vProjectile[i].getHostile())
         {
-            if (collision(vProjectile[i].getHitBox(), _character[current_character]->getRect()))
+            if (collision(vProjectile[i].getHitBox(), character[current_character]->getRect()))
             {
-                int curHp = _character[current_character]->getHp() - vProjectile[i].getDmg();
-                _character[current_character]->setHp(curHp);
+                int curHp = character[current_character]->getHp() - vProjectile[i].getDmg();
+                character[current_character]->setHp(curHp);
                 if (vProjectile[i].getThrew())
                 {
                     vExplosion.push_back({ vProjectile[i].getHitBox(), vProjectile[i].getRadius(), vProjectile[i].getDmg(), 15 });
@@ -803,7 +800,6 @@ void GSPlay::character1()
             if (vMob.size())
                 for (int j = vMob.size() - 1; j >= 0; j--)
                 {
-                    
                     if (collision(rectMob[j].first, vProjectile[i].getHitBox()) && vMob[j].getObjectId() != vProjectile[i].getObjectId())
                     {
                         vMob[j].setObjectId(vProjectile[i].getObjectId(), 1);
@@ -811,13 +807,13 @@ void GSPlay::character1()
                         vMob[j].setHp(rectMob[j].second);
                     }
                 }
-            /*if (current_level == numLevel)
+            if (current_level == numLevel)
             {
                 if (collision(vProjectile[i].getHitBox(), boss.getBossHitbox()) && boss.vulnerable())
                 {
                     boss.takeDamage(vProjectile[i].getDmg());
                 }
-            }*/
+            }
         }
 
     }
@@ -825,34 +821,23 @@ void GSPlay::character1()
 
 void GSPlay::Draw(SDL_Renderer* renderer)
 {
-	for (auto it : m_listButton)
-	{
-		it->Draw(renderer);
-	}
-//	obj->Draw(renderer);
-	for (auto it : m_listAnimation)
-	{
-		it->Draw(renderer);
-	}
     if (currentState == STATE::PLAY) {
 
-        if (_character[current_character]->getX() >= SCREEN_WIDTH / 2)
-            view = _character[current_character]->getX() - (SCREEN_WIDTH / 2);
+        if (character[current_character]->getX() >= SCREEN_WIDTH / 2)
+            view = character[current_character]->getX() - (SCREEN_WIDTH / 2);
         else view = 0;
-        //printf("x=%d width/2=%d view=%d\n", _character[current_character].getX(), SCREEN_WIDTH / 2, view);
 
         if (current_level == numLevel) view = 0;
 
         map->render(renderer, view, vMob.empty(), current_character == numLevel);
 
-        /*for (int i = 0; i < vItem.size(); i++) {
+        for (int i = 0; i < vItem.size(); i++) {
             SDL_Rect nRect = vItem[i].getRect();
             nRect.x -= view;
             SDL_RenderCopy(renderer, itemDrop[vItem[i].getId()], NULL, &nRect);
-        }*/
+        }
 
         for (int i = 0; i < vMob.size(); i++) {
-            //std::cout << i << ' ' << vMob[i].getBaseHp() << '\n';
             vMob[i].show(renderer, view);
 
             /// h / mh = x / 40 x = h * 40
@@ -895,26 +880,26 @@ void GSPlay::Draw(SDL_Renderer* renderer)
         }
 
         int level_end = 0;
-        if (_character[current_character]->getStatus() == 4) level_end = 1;
-        else if (_character[current_character]->getStatus() == 5) level_end = 2;
-        scr->ingame(renderer, _character[current_character]->getHp(), _character[current_character]->getDmg(), numCoin, numGem, paused, level_end);
+        if (character[current_character]->getStatus() == Character_STATUS::DIED) level_end = 1;
+        else if (character[current_character]->getStatus() == Character_STATUS::VICTORY) level_end = 2;
+        scr->ingame(renderer, character[current_character]->getHp(), character[current_character]->getDmg(), numCoin, numGem, paused, level_end);
 
-        _character[current_character]->show(renderer, view);
+        character[current_character]->show(renderer, view);
 
-        //if (current_level == numLevel)
-            //boss.show(renderer, &Audio_Player);
+        if (current_level == numLevel)
+            boss.show(renderer, &Audio_Player);
 
         {
 
-            SDL_Rect rect = { _character[current_character]->getX() - view, _character[current_character]->getY() - 20, 42, 7 };
+            SDL_Rect rect = { character[current_character]->getX() - view, character[current_character]->getY() - 20, 42, 7 };
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
             SDL_RenderFillRect(renderer, &rect);
 
-            int w = _character[current_character]->getHp() * 40 / _character[current_character]->getMaxHp();
+            int w = character[current_character]->getHp() * 40 / character[current_character]->getMaxHp();
 
-            rect = { _character[current_character]->getX() + 1 - view, _character[current_character]->getY() - 19, w, 5 };
+            rect = { character[current_character]->getX() + 1 - view, character[current_character]->getY() - 19, w, 5 };
 
             SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
@@ -928,7 +913,7 @@ void GSPlay::Draw(SDL_Renderer* renderer)
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderFillRect(renderer, &rect);
 
-            std::pair<int, int> temp = _character[current_character]->getAttackBar();
+            std::pair<int, int> temp = character[current_character]->getAttackBar();
             temp.first = min(temp.first, temp.second);
 
             rect.x++;
@@ -952,13 +937,13 @@ void GSPlay::Draw(SDL_Renderer* renderer)
             SDL_RenderCopyEx(renderer, pr[vProjectile[i].getId()], NULL, &tRect, vProjectile[i].getAngle(), NULL, SDL_FLIP_NONE);
         }
 
-        /*for (int i = 0; i < v_lp.size(); i++)
+        for (int i = 0; i < v_SupportItem.size(); i++)
         {
-            if (v_lp[i].getType() == 1)
-                v_lp[i].show(renderer, view, lp_Animation[v_lp[i].getStatus()]);
+            if (v_SupportItem[i].getType() == 1)
+                v_SupportItem[i].show(renderer, view, SupportItem_Animation[v_SupportItem[i].getStatus()]);
             else
-                v_lp[i].show(renderer, view, lpTexture);
-        }*/
+                v_SupportItem[i].show(renderer, view, SupportItemTexture);
+        }
 
         if (vExplosion.size())
             for (int i = vExplosion.size() - 1; i >= 0; i--) {

@@ -9,8 +9,6 @@
 #include <SDL_ttf.h>
 #include "Renderer.h"
 #include "Sprite2D.h"
-#include "ResourceManagers.h"
-#include "SpriteAnimation.h"
 
 typedef std::pair<int, int> pii;
 typedef long long ll;
@@ -24,8 +22,9 @@ struct Explosion {
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
+const std::string SCREEN_NAME = "Guardian Adventure";
 
-#define LIMIT_FPS 60
+#define LIMIT_FPS 33
 #define min(a, b) ((a) < (b) ? a : b)
 #define max(a, b) ((a) > (b) ? a : b)
 
@@ -56,6 +55,14 @@ const SDL_Color backColor = { 45, 38, 32, 255 };
 const double gravity = 3;
 const double MAX_FALL_SPEED = 25;
 const double MAX_RUN_SPEED = 15;
+enum Character_STATUS {
+	IDLE = 0,
+	MOVE = 1,
+	JUMP = 2,
+	ATTACK = 3,
+	DIED = 4,
+	VICTORY = 5,
+};
 
 const int numCharacter = 6;
 const int numItem = 4;
@@ -66,6 +73,13 @@ const int numStatus = 11;
 const int numBossProjectile = 2;
 
 const int numLevel = 6;
+
+// Boss
+const int hpBoss = 10000;
+const int dmg_attack1 = 200;
+const int dmg_attack2 = 200;
+const int dmg_attack3 = 200;
+const int dmg_attack4 = 200;
 
 //Projectiles
 const int numProjectile = 8;

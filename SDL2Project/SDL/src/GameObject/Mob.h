@@ -5,6 +5,7 @@
 #include "Character.h"
 #include "Sound.h"
 #include "Projectile.h"
+#include "Item.h"
 
 class Mob : public GameObject {
 public:
@@ -21,7 +22,7 @@ public:
     void setType(int type) { this->type = type; }
     void setWeapon(int weapon) { this->weapon = weapon; }
     void setRange(int minX, int maxX) { this->minX = minX; this->maxX = maxX; }
-    //void spawnItem(std::vector<Item>& vItem);
+    void spawnItem(std::vector<Item>& vItem) const;
 
     int getId() const { return this->mobId; }
     void setId(int mobId) { this->mobId = mobId; }

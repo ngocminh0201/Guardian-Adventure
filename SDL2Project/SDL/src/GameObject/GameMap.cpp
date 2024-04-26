@@ -12,6 +12,10 @@ GameMap::GameMap() {
     decor_width = NULL;
     decor_height = NULL;
 
+    Num_Block = Num_Decor = 0;
+    Map_Width = Map_Height = 0;
+    numCoin = numGem = 0;
+
     victory_w = 1300;
     victory_h = 0;
 }
@@ -113,10 +117,10 @@ bool GameMap::loadMap(std::string path, SDL_Renderer* renderer, int level) {
         Decor.push_back(obj);
     }
 
-    SDL_Color rgb;
+    SDL_Color rgb{};
     Uint32 data;
 
-    int lp_x;
+    int supportItem_x;
 
     for (int i = 0; i < Map_Height; i++)
         for (int j = 0; j < Map_Width; j++)
@@ -130,7 +134,7 @@ bool GameMap::loadMap(std::string path, SDL_Renderer* renderer, int level) {
                 info[i][j] = 0;
                 if (level < numLevel)
                 {
-                    if (rgb == yellow) lp_x = j * TILE_SIZE + 11 * TILE_SIZE;
+                    if (rgb == yellow) supportItem_x = j * TILE_SIZE + 11 * TILE_SIZE;
                     if (rgb == pink)
                     {
                         victory_w = j * TILE_SIZE;
@@ -141,20 +145,20 @@ bool GameMap::loadMap(std::string path, SDL_Renderer* renderer, int level) {
         }
 
     std::ifstream file((path + "/level_" + int2str(level) + "/lp_pos.txt").c_str());
-    int num_lp;
-    file >> num_lp;
+    int num_supportItem;
+    file >> num_supportItem;
 
-    for (int i = 0; i < num_lp; i++)
+    for (int i = 0; i < num_supportItem; i++)
     {
         int temp_pos;
         file >> temp_pos;
-        lp_pos.push_back(temp_pos);
+        supportItem_pos.push_back(temp_pos);
     }
     file.close();
-    std::sort(lp_pos.begin(), lp_pos.end(), std::greater<int>());
+    std::sort(supportItem_pos.begin(), supportItem_pos.end(), std::greater<int>());
 
     if (level < numLevel)
-        lp_pos.push_back(lp_x);
+        supportItem_pos.push_back(supportItem_x);
 
     return Map_Sheet != NULL && background != NULL;
 }
@@ -164,7 +168,7 @@ void GameMap::render(SDL_Renderer* renderer, int view, bool map_cleared, bool is
     background->Set2DPosition(0, 0);
     background->Draw(renderer);
 
-    SDL_Color rgb;
+    SDL_Color rgb{};
     Uint32 data;
 
     int numGrass = 0;

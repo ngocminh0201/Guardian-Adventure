@@ -240,7 +240,6 @@ void Sound::playBackgroundMusic(int currentState, int level)
             Mix_PlayMusic(levelSelection, -1);
         else if (currentState == STATE::PLAY && music)
             Mix_PlayMusic(bgm_level[level - 1], -1);
-        //Mix_Volume(-1, MIX_MAX_VOLUME);
     }
 
     if (Mix_PlayingMusic() == false && music)

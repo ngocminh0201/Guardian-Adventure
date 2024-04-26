@@ -60,15 +60,6 @@ protected:
     bool isFalling;
     int status;
     int nStatus;
-    
-    enum STATUS {
-        IDLE = 0,
-        MOVE = 1,
-        JUMP = 2,
-        ATTACK = 3,
-        DIED = 4,
-        VICTORY = 5,
-    };
 
     bool pressed[300] = { false };
     bool finishAttack;

@@ -43,7 +43,9 @@ public:
     void play_boss_audio(int status);
 
     void setMusic(bool music) { this->music = music; }
+    bool getMusic() const { return this->music; }
     void setSfx(bool sfx) { this->sfx = sfx; }
+    bool getSfx() const { return this->sfx; }
 
 private:
 	std::string m_PathMusic;

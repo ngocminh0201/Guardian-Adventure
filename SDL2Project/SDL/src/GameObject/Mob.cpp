@@ -82,14 +82,6 @@ bool Mob::loadMob(std::string path, SDL_Renderer* renderer) {
         }
     }
 
-    if (type == TYPE::LASER)
-    {
-        success = loadImage(path + "/laser.png", renderer);
-        if (success == true) {
-            laser = getObject();
-        }
-    }
-
     std::ifstream file(path + "/mob_info.txt");
 
     if (!file.is_open())
@@ -103,7 +95,7 @@ bool Mob::loadMob(std::string path, SDL_Renderer* renderer) {
     file >> rect.w >> rect.h;
     file >> hp >> dmg;
     maxHp = hp;
-    file >> type;
+    file >> type;   
     file >> velX;
     if (type == TYPE::MELEE) {
         file >> melee.x >> melee.y >> melee.w >> melee.h;
@@ -121,7 +113,13 @@ bool Mob::loadMob(std::string path, SDL_Renderer* renderer) {
     {
         file >> prRadius;
     }
-    file >> itemDrop[0];
+    file >> itemDrop[0] >> itemDrop[1];
+    if (type == TYPE::LASER)
+    {
+        SDL_Surface* loadedSurface = IMG_Load((path + "/laser.png").c_str());
+        laser = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+        SDL_FreeSurface(loadedSurface); loadedSurface = NULL;
+    }
     file.close();
 
     return true;
@@ -185,6 +183,44 @@ void Mob::show(SDL_Renderer* renderer, int view)
             nextAttack -= framePerAttack;
             frame = 0;
         }
+    }
+    else if (type == FOLLOW)
+    {
+        nextAttack++;
+        if (nextAttack >= framePerAttack)
+            nextAttack = 0;
+        if (inFollowRange)
+        {
+            if (frame >= _attack.second)
+                frame -= _attack.second;
+            drawAttack(renderer, view);
+        }
+        else
+            drawIdle(renderer, view);
+
+    }
+    else
+    {
+        if (nextAttack >= framePerAttack)
+        {
+            laserTick = 0;
+            nextAttack = 0;
+        }
+        if (laserTick < 90)
+        {
+            if (frame >= _attack.second)
+                frame %= _attack.second;
+            drawAttack(renderer, view);
+            SDL_Rect range = { rect.x - view + rect.w / 2, rect.y, SCREEN_WIDTH, 70 };
+            if (!facing) range.x -= SCREEN_WIDTH;
+            SDL_RenderCopy(renderer, laser, NULL, &range);
+        }
+        else
+        {
+            drawIdle(renderer, view);
+        }
+        nextAttack++;
+        laserTick++;
     }
     
 }
@@ -319,7 +355,6 @@ void Mob::update(GameMap* MAP, std::vector<Projectile>& vProjectile, Character* 
 
 void Mob::collisionX(GameMap* MAP)
 {
-
     int pos_x1 = (rect.x - 1) / TILE_SIZE;
     int pos_x2 = (rect.x + rect.w) / TILE_SIZE;
     int pos_y1 = rect.y / TILE_SIZE;
@@ -372,5 +407,24 @@ void Mob::collisionY(GameMap* MAP)
             ok = 0;
             rect.y = pos_y2 * TILE_SIZE - rect.h - 1;
             break;
+        }
+}
+
+void Mob::spawnItem(std::vector<Item>& vItem) const
+{
+    for (int id = 0; id < 3; id++)
+        for (int i = 0; i < min(itemDrop[id], 10); i++) {
+            Item nItem;
+            nItem.setX((rect.x * 2 + rect.w) / 2);
+            nItem.setY((rect.y * 2 + rect.h) / 2);
+            nItem.setVelY(-30);
+            nItem.setVelX(Rand(-10, 10));
+            nItem.setW(30);
+            nItem.setH(30);
+            nItem.setId(id);
+            int val = itemDrop[id] / 10;
+            if (i < itemDrop[id] % 10) val++;
+            nItem.setVal(val);
+            vItem.push_back(nItem);
         }
 }

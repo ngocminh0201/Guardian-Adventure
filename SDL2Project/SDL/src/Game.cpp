@@ -23,19 +23,19 @@ void Game::Run()
 {
 	//std::cout << "game: " << Renderer::GetInstance()->GetRenderer() << '\n';
 	TTF_Init();
-	gsplay.load(Renderer::GetInstance()->GetRenderer());
-
+	SDL_Renderer* renderer = Renderer::GetInstance()->GetRenderer();
+	gsplay.load(renderer);
 	int currentTime, lastTime = 0;
 
 	while (gsplay.getCurrentState() != STATE::NONE)
 	{
 		currentTime = SDL_GetTicks();
 
-		if (currentTime - lastTime >= 33) {
+		if (currentTime - lastTime >= LIMIT_FPS) {
 
 			gsplay.Update(0.2f);
 
-			gsplay.Draw(Renderer::GetInstance()->GetRenderer());
+			gsplay.Draw(renderer);
 
 			lastTime = currentTime;
 		}

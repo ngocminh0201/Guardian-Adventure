@@ -29,8 +29,12 @@ GSSelect::GSSelect() {
 	frame = 0;
 	ptSize = 150;
 	cost = new long long[numCharacter];
-	for (int i = 0; i < numCharacter; i++)
-		cost[i] = 20;
+	cost[0] = 20;
+	cost[1] = 100;
+	cost[2] = 300;
+	cost[3] = 500;
+	cost[4] = 1000;
+	cost[5] = 3000;
 	prev = 0;
 	cw = 0;
 	ch = 0;
@@ -212,6 +216,9 @@ void GSSelect::loadTexture(SDL_Renderer* renderer) {
 
 	intro_background.setW(SCREEN_WIDTH);
 	intro_background.setH(SCREEN_HEIGHT);
+	
+	menu_background.setW(SCREEN_WIDTH);
+	menu_background.setH(SCREEN_HEIGHT);
 
 	credit_background.setX(150);
 	credit_background.setY(150);
@@ -223,49 +230,88 @@ void GSSelect::loadTexture(SDL_Renderer* renderer) {
 	back_button[1].setX(SCREEN_WIDTH - back_button[1].getW());
 	back_button[1].setY(0);
 
-	Guardian.setX(120);
+	//Guardian.setW(832 - 100);
+	Guardian.setH(Guardian.getW() * 131 / 1040);
+	Guardian.setX((SCREEN_WIDTH - Guardian.getW()) / 2);
 	Guardian.setY(-200);
-	Adventure.setX(15);
+
+	//Adventure.setW(998 - 100);
+	Adventure.setH(Adventure.getW() * 131 / 1248);
+	Adventure.setX((SCREEN_WIDTH - Adventure.getW()) / 2);
 	Adventure.setY(721);
+
 	Guardian.setVelY(13);
 	Adventure.setVelY(-20);
 
-	start_button[0].setX(240);
-	start_button[0].setY(380);
+	// start button
+	start_button[0].setW(start_button[0].getW() * SCREEN_WIDTH / 1280);
+	start_button[0].setH(start_button[0].getH() * SCREEN_HEIGHT / 720);
+	start_button[0].setX((SCREEN_WIDTH - 2 * (start_button[0].getW())) / 3);
+	start_button[0].setY(150 + Adventure.getH() + (SCREEN_HEIGHT - 150 - Adventure.getH() - 2 * (start_button[0].getH())) / 3);
+
+	start_button[1].setW(start_button[1].getW() * SCREEN_WIDTH / 1280);
+	start_button[1].setH(start_button[1].getH() * SCREEN_HEIGHT / 720);
 	start_button[1].setX(start_button[0].getX() - 10);
 	start_button[1].setY(start_button[0].getY() - 10);
 
+	// setting button
+	setting_button[0].setW(setting_button[0].getW() * SCREEN_WIDTH / 1280);
+	setting_button[0].setH(setting_button[0].getH() * SCREEN_HEIGHT / 720);
 	setting_button[0].setX(start_button[0].getX());
-	setting_button[0].setY(start_button[0].getY() + 170);
+	setting_button[0].setY(start_button[0].getY() + start_button[0].getH() + (SCREEN_HEIGHT - 150 - Adventure.getH() - 2 * (start_button[0].getH())) / 3);
+
+	setting_button[1].setW(setting_button[1].getW() * SCREEN_WIDTH / 1280);
+	setting_button[1].setH(setting_button[1].getH() * SCREEN_HEIGHT / 720);
 	setting_button[1].setX(setting_button[0].getX() - 9);
-	setting_button[1].setY(setting_button[0].getY() - 9);
+	setting_button[1].setY(setting_button[0].getY() - 11);
 
-	credit_button[0].setX(start_button[0].getX() + start_button[0].getW() + 100);
+	// credit button
+	credit_button[0].setW(credit_button[0].getW() * SCREEN_WIDTH / 1280);
+	credit_button[0].setH(credit_button[0].getH() * SCREEN_HEIGHT / 720);
+	credit_button[0].setX(2 * start_button[0].getX() + start_button[0].getW());
 	credit_button[0].setY(start_button[0].getY());
-	credit_button[1].setX(start_button[1].getX() + start_button[1].getW() + 80);
-	credit_button[1].setY(start_button[1].getY());
 
-	exit_button[0].setX(setting_button[0].getX() + setting_button[0].getW() + 100);
+	credit_button[1].setW(credit_button[1].getW() * SCREEN_WIDTH / 1280);
+	credit_button[1].setH(credit_button[1].getH() * SCREEN_HEIGHT / 720);
+	credit_button[1].setX(credit_button[0].getX() - 11);
+	credit_button[1].setY(credit_button[0].getY() - 10);
+
+	// exit button
+	exit_button[0].setW(exit_button[0].getW() * SCREEN_WIDTH / 1280);
+	exit_button[0].setH(exit_button[0].getH() * SCREEN_HEIGHT / 720);
+	exit_button[0].setX(credit_button[0].getX());
 	exit_button[0].setY(setting_button[0].getY());
-	exit_button[1].setX(setting_button[1].getX() + setting_button[1].getW() + 80);
-	exit_button[1].setY(setting_button[1].getY());
 
+	exit_button[1].setW(exit_button[1].getW() * SCREEN_WIDTH / 1280);
+	exit_button[1].setH(exit_button[1].getH() * SCREEN_HEIGHT / 720);
+	exit_button[1].setX(exit_button[0].getX() - 10);
+	exit_button[1].setY(exit_button[0].getY() - 8);
+
+	// help button
 	for (int i = 0; i <= 1; i++) {
-		help_button[i].setW(100);
-		help_button[i].setH(100);
+		help_button[i].setW(80);
+		help_button[i].setH(help_button[i].getW());
 		help_button[i].setX(0);
 		help_button[i].setY(SCREEN_HEIGHT - help_button[i].getH());
 	}
 	
-	hpIcon.setX(15 + portraitSize);
-	hpIcon.setY(20);
+	hpIcon.setW(hpIcon.getW() * SCREEN_WIDTH / 1280);
+	hpIcon.setH(hpIcon.getH() * SCREEN_HEIGHT / 720);
+	hpIcon.setX(10 + portraitSize);
+	hpIcon.setY(15);
 
-	dmgIcon.setX(15 + portraitSize);
-	dmgIcon.setY(70);
+	dmgIcon.setW(dmgIcon.getW() * SCREEN_WIDTH / 1280);
+	dmgIcon.setH(dmgIcon.getH() * SCREEN_HEIGHT / 720);
+	dmgIcon.setX(10 + portraitSize);
+	dmgIcon.setY(60);
 
+	option_box.setW(option_box.getW() * SCREEN_WIDTH / 1280);
+	option_box.setH(option_box.getH() * SCREEN_HEIGHT / 720);
 	option_box.setX((SCREEN_WIDTH - option_box.getW()) / 2);
 	option_box.setY(30);
 
+	bar.setW(bar.getW() * SCREEN_WIDTH / 1280);
+	bar.setH(bar.getH() * SCREEN_HEIGHT / 720);
 	bar.setX(option_box.getX() + 5);
 	bar.setY(35);
 
@@ -273,15 +319,19 @@ void GSSelect::loadTexture(SDL_Renderer* renderer) {
 	rectBar[1] = bar.getRect();
 	rectBar[1].x += bar.getW() + 5;
 
+	arrow[0].setW(arrow[0].getW() * SCREEN_WIDTH / 1280);
+	arrow[0].setH(arrow[0].getH() * SCREEN_HEIGHT / 720);
 	arrow[0].setX(SCREEN_WIDTH / 4 - arrow[0].getW() - 40);
 	arrow[0].setY((SCREEN_HEIGHT - arrow[0].getH()) / 2);
 
 	arrow_range = { arrow[0].getX(), arrow[0].getX() + 40 };
 
+	arrow[1].setW(arrow[1].getW() * SCREEN_WIDTH / 1280);
+	arrow[1].setH(arrow[1].getH() * SCREEN_HEIGHT / 720);
 	arrow[1].setX(3 * SCREEN_WIDTH / 4 + 40);
 	arrow[1].setY((SCREEN_HEIGHT - arrow[1].getH()) / 2);
 	
-	play_button[0].setW(156);
+	play_button[0].setW(150);
 	play_button[0].setH(play_button[0].getW() * 73 / 156);
 	play_button[0].setX((SCREEN_WIDTH - play_button[0].getW()) / 2);
 	play_button[0].setY(3 * SCREEN_HEIGHT / 4 + 35);
@@ -291,23 +341,35 @@ void GSSelect::loadTexture(SDL_Renderer* renderer) {
 	play_button[1].setX(play_button[0].getX() - 4);
 	play_button[1].setY(play_button[0].getY() - 4);
 
+	itemBox.setW(itemBox.getW() * SCREEN_WIDTH / 1280);
+	itemBox.setH(itemBox.getH() * SCREEN_HEIGHT / 720);
 	itemBox.setX(10);
 	itemBox.setY(10);
 
+	charBox.setW(charBox.getW() * SCREEN_WIDTH / 1280);
+	charBox.setH(charBox.getH() * SCREEN_HEIGHT / 720);
 	charBox.setX(10);
 	charBox.setY(itemBox.getY() + 20 + 2 * itemBox.getH());
 
+	infoBox.setW(infoBox.getW() * SCREEN_WIDTH / 1280);
+	infoBox.setH(infoBox.getH() * SCREEN_HEIGHT / 720);
 	infoBox.setX(20 + charBox.getW() + charBox.getX());
 	infoBox.setY(charBox.getY());
 
+	costBox.setW(costBox.getW() * SCREEN_WIDTH / 1280);
+	costBox.setH(costBox.getH() * SCREEN_HEIGHT / 720);
 	costBox.setX(infoBox.getX() + (infoBox.getW() - costBox.getW()) / 2);
 	costBox.setY(infoBox.getY() + infoBox.getH() - costBox.getH() - 20);
 
+	selected.setW(selected.getW() * SCREEN_WIDTH / 1280);
+	selected.setH(selected.getH() * SCREEN_HEIGHT / 720);
 	selected.setH(150);
 	selected.setW(150);
 
 	selected_range = { 150, 170 };
 
+	paused_box.setW(paused_box.getW() * SCREEN_WIDTH / 1280);
+	paused_box.setH(paused_box.getH() * SCREEN_HEIGHT / 720);
 	paused_box.setX((SCREEN_WIDTH - paused_box.getW()) / 2);
 	paused_box.setY((SCREEN_HEIGHT - paused_box.getH()) / 2);
 	SDL_SetTextureAlphaMod(paused_box.getObject(), 200);
@@ -332,17 +394,28 @@ void GSSelect::loadTexture(SDL_Renderer* renderer) {
 	paused_continue[1].setX(paused_continue[0].getX() - 7);
 	paused_continue[1].setY(paused_continue[0].getY() - 5);
 
+	win.setW(win.getW()* SCREEN_WIDTH / 1280);
+	win.setH(win.getH()* SCREEN_HEIGHT / 720);
 	win.setX((SCREEN_WIDTH - win.getW()) / 2);
 	win.setY((SCREEN_HEIGHT / 4));
 
+	lose.setW(lose.getW() * SCREEN_WIDTH / 1280);
+	lose.setH(lose.getH() * SCREEN_HEIGHT / 720);
 	lose.setX((SCREEN_WIDTH - lose.getW()) / 2);
 	lose.setY((SCREEN_HEIGHT / 4));
 
+	dmgIconStat.setW(dmgIconStat.getW() * SCREEN_WIDTH / 1280);
+	dmgIconStat.setH(dmgIconStat.getH() * SCREEN_HEIGHT / 720);
 	dmgIconStat.setX(infoBox.getX() + 20);
 	dmgIconStat.setY(costBox.getY() - 20 - dmgIconStat.getH());
 
+	hpIconStat.setW(hpIconStat.getW() * SCREEN_WIDTH / 1280);
+	hpIconStat.setH(hpIconStat.getH() * SCREEN_HEIGHT / 720);
 	hpIconStat.setX(dmgIconStat.getX());
 	hpIconStat.setY(dmgIconStat.getY() - 10 - hpIconStat.getH());
+
+	statsRect.setW(statsRect.getW()* SCREEN_WIDTH / 1280);
+	statsRect.setH(statsRect.getH()* SCREEN_HEIGHT / 720);
 
 	std::ifstream file_instruction("Data/instruction.txt");
 	std::string str;
@@ -364,8 +437,8 @@ void GSSelect::startScreen(SDL_Renderer* renderer)
 		Guardian.setY(min(5, Guardian.getY() +
 			Guardian.getVelY()));
 
-	if (Adventure.getY() > 180 && Guardian.getY() == 5)
-		Adventure.setY(max(180, Adventure.getY() +
+	if (Adventure.getY() > 150 && Guardian.getY() == 5)
+		Adventure.setY(max(150, Adventure.getY() +
 			Adventure.getVelY()));
 
 	Guardian.render(renderer, 0);
@@ -408,7 +481,7 @@ void GSSelect::startScreen(SDL_Renderer* renderer)
 		else
 			help_button[0].render(renderer, 0);
 	}
-	if (curAlpha < 255 && Adventure.getY() == 180) curAlpha += 17;
+	if (curAlpha < 255 && Adventure.getY() == 150) curAlpha += 17;
 	
 }
 
@@ -419,21 +492,19 @@ void GSSelect::screenCredit(SDL_Renderer* renderer) {
 	/// back_button
 	int x, y;
 	SDL_GetMouseState(&x, &y);
-	if (curAlpha == 255) {
+	if (inRect(x, y, back_button[0].getRect()))
+		back_button[1].render(renderer, 0);
 
-		if (inRect(x, y, back_button[0].getRect()))
-			back_button[1].render(renderer, 0);
-
-		else
-			back_button[0].render(renderer, 0);
-	}
+	else
+		back_button[0].render(renderer, 0);
+	
 
 	std::string s = "Credit By";
 	SDL_Surface* sf_font = NULL;
-	sf_font = TTF_RenderText_Solid(font, s.c_str(), white);
+	sf_font = TTF_RenderText_Solid(font, s.c_str(), black);
 	int w = sf_font->w, h = sf_font->h;
 	SDL_Texture* nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
-	SDL_Rect nRect = { 0, 0, w + 100, h + 50 };
+	SDL_Rect nRect = { 0, 0, w, h };
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
 	nRect.y = credit_background.getY() + 10;
 
@@ -446,7 +517,7 @@ void GSSelect::screenCredit(SDL_Renderer* renderer) {
 	nRect.w = sf_font->w, nRect.h = sf_font->h;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
-	nRect.y += 130;
+	nRect.y += 70;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_FreeSurface(sf_font); sf_font = NULL;
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
@@ -456,7 +527,7 @@ void GSSelect::screenCredit(SDL_Renderer* renderer) {
 	nRect.w = sf_font->w, nRect.h = sf_font->h;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
-	nRect.y += 90;
+	nRect.y += 60;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_FreeSurface(sf_font); sf_font = NULL;
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
@@ -466,7 +537,7 @@ void GSSelect::screenCredit(SDL_Renderer* renderer) {
 	nRect.w = sf_font->w, nRect.h = sf_font->h;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
-	nRect.y += 90;
+	nRect.y += 60;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_FreeSurface(sf_font); sf_font = NULL;
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
@@ -480,21 +551,19 @@ void GSSelect::screenSetting(SDL_Renderer* renderer, bool& current_music, bool& 
 	/// back_button
 	int x, y;
 	SDL_GetMouseState(&x, &y);
-	if (curAlpha == 255) {
+	if (inRect(x, y, back_button[0].getRect()))
+		back_button[1].render(renderer, 0);
 
-		if (inRect(x, y, back_button[0].getRect()))
-			back_button[1].render(renderer, 0);
-
-		else
-			back_button[0].render(renderer, 0);
-	}
+	else
+		back_button[0].render(renderer, 0);
+	
 
 	std::string s = "Setting";
 	SDL_Surface* sf_font = NULL;
-	sf_font = TTF_RenderText_Solid(font, s.c_str(), white);
+	sf_font = TTF_RenderText_Solid(font, s.c_str(), black);
 	int w = sf_font->w, h = sf_font->h;
 	SDL_Texture* nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
-	SDL_Rect nRect = { 0, 0, w + 100, h + 50 };
+	SDL_Rect nRect = { 0, 0, w, h };
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
 	nRect.y = credit_background.getY() + 10;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
@@ -506,14 +575,14 @@ void GSSelect::screenSetting(SDL_Renderer* renderer, bool& current_music, bool& 
 	nRect.w = sf_font->w, nRect.h = sf_font->h;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
-	nRect.y += 150;
+	nRect.y += 90;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_FreeSurface(sf_font); sf_font = NULL;
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
 
 	for (int i = 0; i <= 1; i++) {
-		music_button[i].setW(100);
-		music_button[i].setH(100);
+		music_button[i].setW(80);
+		music_button[i].setH(music_button[i].getW());
 		music_button[i].setX(nRect.x + nRect.w + 20);
 		music_button[i].setY(nRect.y - (music_button[i].getH() - nRect.h) / 2);
 	}
@@ -527,14 +596,14 @@ void GSSelect::screenSetting(SDL_Renderer* renderer, bool& current_music, bool& 
 	nRect.w = sf_font->w, nRect.h = sf_font->h;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
-	nRect.y += 110;
+	nRect.y += 90;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_FreeSurface(sf_font); sf_font = NULL;
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
 
 	for (int i = 0; i <= 1; i++) {
-		sfx_button[i].setW(100);
-		sfx_button[i].setH(100);
+		sfx_button[i].setW(music_button[i].getW());
+		sfx_button[i].setH(music_button[i].getH());
 		sfx_button[i].setX(nRect.x + nRect.w + 20);
 		sfx_button[i].setY(nRect.y - (sfx_button[i].getH() - nRect.h) / 2);
 	}
@@ -558,10 +627,10 @@ void GSSelect::screenHelp(SDL_Renderer* renderer) {
 
 	std::string s = "Help";
 	SDL_Surface* sf_font = NULL;
-	sf_font = TTF_RenderText_Solid(font, s.c_str(), white);
+	sf_font = TTF_RenderText_Solid(font, s.c_str(), black);
 	int w = sf_font->w, h = sf_font->h;
 	SDL_Texture* nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
-	SDL_Rect nRect = { 0, 0, w + 100, h + 50 };
+	SDL_Rect nRect = { 0, 0, w, h };
 	nRect.x = (2 * credit_background.getX() + credit_background.getW() - nRect.w) / 2;
 	nRect.y = credit_background.getY() + 10;
 
@@ -578,8 +647,8 @@ void GSSelect::screenHelp(SDL_Renderer* renderer) {
 		SDL_Surface* sf = TTF_RenderText_Solid(font, instruction[i].c_str(), white);
 		SDL_Texture* tt = SDL_CreateTextureFromSurface(renderer, sf);
 
-		dRect.w = sf->w + 10;
-		dRect.h = sf->h;
+		dRect.w = (sf->w + 10) * SCREEN_WIDTH / 1280;
+		dRect.h = sf->h * SCREEN_HEIGHT / 720;
 
 		SDL_RenderCopy(renderer, tt, NULL, &dRect);
 		SDL_DestroyTexture(tt); tt = NULL;
@@ -589,94 +658,8 @@ void GSSelect::screenHelp(SDL_Renderer* renderer) {
 	}
 }
 
-void GSSelect::ingame(SDL_Renderer* renderer, int char_hp, int char_dmg, int numCoin, int numGem, bool paused, int level_end)
-{
-	statsRect.render(renderer, 0);
-	hpIcon.render(renderer, 0);
-	dmgIcon.render(renderer, 0);
-
-	SDL_Surface* textSurface = TTF_RenderText_Solid(font, int2str(char_hp).c_str(), white);
-
-	SDL_Texture* nTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-
-	SDL_Rect temp = { 160, 15, textSurface->w, textSurface->h };
-
-	SDL_RenderCopy(renderer, nTexture, NULL, &temp);
-
-	textSurface = TTF_RenderText_Solid(font, int2str(char_dmg).c_str(), white);
-
-	nTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-
-	temp = { 160, 65, textSurface->w, textSurface->h };
-
-	SDL_RenderCopy(renderer, nTexture, NULL, &temp);
-
-	SDL_FreeSurface(textSurface); textSurface = NULL;
-
-	SDL_DestroyTexture(nTexture); nTexture = NULL;
-
-	/// Gem and Coin box
-
-	SDL_Rect nRect = itemBox.getRect();
-	nRect.x = SCREEN_WIDTH / 2;
-	nRect.y = 5;
-	SDL_RenderCopy(renderer, itemBox.getObject(), NULL, &nRect);
-
-	nRect.x += itemBox.getW() + 10;
-	SDL_RenderCopy(renderer, itemBox.getObject(), NULL, &nRect);
-
-	nRect.x += 5;
-	nRect.y += 5;
-	nRect.w = nRect.h = 30;
-	SDL_RenderCopy(renderer, gem, NULL, &nRect);
-
-	nRect.x = SCREEN_WIDTH / 2 + 5;
-	SDL_RenderCopy(renderer, coin, NULL, &nRect);
-
-	/// Coin text
-	SDL_Surface* sf_font = TTF_RenderText_Solid(textFont, int2str(numCoin).c_str(), white);
-	int w = sf_font->w, h = sf_font->h;
-	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
-	nRect.x = SCREEN_WIDTH / 2 + itemBox.getW() - 10 - w;
-	nRect.y = 15;
-	nRect.w = w, nRect.h = h;
-	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
-	SDL_DestroyTexture(nTexture); nTexture = NULL;
-	SDL_FreeSurface(sf_font); sf_font = NULL;
-
-	///Gem text
-	sf_font = TTF_RenderText_Solid(textFont, int2str(numGem).c_str(), white);
-	w = sf_font->w, h = sf_font->h;
-	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
-	nRect.x = SCREEN_WIDTH / 2 + 2 * itemBox.getW() - w;
-	nRect.w = w, nRect.h = h;
-	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
-	SDL_DestroyTexture(nTexture); nTexture = NULL;
-	SDL_FreeSurface(sf_font); sf_font = NULL;
-
-	if (paused == true)
-	{
-		paused_box.render(renderer, 0);
-		int x, y;
-		SDL_GetMouseState(&x, &y);
-		if (inRect(x, y, paused_return[0].getRect()))
-			paused_return[1].render(renderer, 0);
-		else
-			paused_return[0].render(renderer, 0);
-		
-		if (inRect(x, y, paused_continue[0].getRect()))
-			paused_continue[1].render(renderer, 0);
-		else
-			paused_continue[0].render(renderer, 0);
-		
-	}
-
-	if (level_end == 2) win.render(renderer, 0);
-	else if (level_end == 1) lose.render(renderer, 0);
-}
-
-void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_character, int* character_level, 
-								int numCoin, int numGem, int lastLevel, int baseHp, int baseDmg, int** char_growth)
+void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_character, int* character_level,
+	int numCoin, int numGem, int lastLevel, int baseHp, int baseDmg, int** char_growth)
 {
 	/// arrow
 	if (arrow_flag == 0)
@@ -709,7 +692,6 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 	SDL_GetMouseState(&x, &y);
 	if (inRect(x, y, back_button[0].getRect()))
 		back_button[1].render(renderer, 0);
-
 	else
 		back_button[0].render(renderer, 0);
 
@@ -753,7 +735,8 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 	nRect.x += 5;
 	nRect.y += 5;
-	nRect.w = nRect.h = 30;
+	nRect.w = 30 * SCREEN_WIDTH / 1280;
+	nRect.h = 30 * SCREEN_HEIGHT / 720;
 	SDL_RenderCopy(renderer, gem, NULL, &nRect);
 
 	nRect.y = itemBox.getY() + 5;
@@ -761,10 +744,10 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 	/// Coin text
 	sf_font = TTF_RenderText_Solid(textFont, int2str(numCoin).c_str(), white);
-	w = sf_font->w, h = sf_font->h;
+	w = sf_font->w * SCREEN_WIDTH / 1280, h = sf_font->h * SCREEN_HEIGHT / 720;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = itemBox.getX() + itemBox.getW() - 10 - w;
-	nRect.y = itemBox.getY() + 10;
+	nRect.y = itemBox.getY() + 7;
 	nRect.w = w, nRect.h = h;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
@@ -772,10 +755,10 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 	/// Gem text
 	sf_font = TTF_RenderText_Solid(textFont, int2str(numGem).c_str(), white);
-	w = sf_font->w, h = sf_font->h;
+	w = sf_font->w * SCREEN_WIDTH / 1280, h = sf_font->h * SCREEN_HEIGHT / 720;
 	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
 	nRect.x = itemBox.getX() + itemBox.getW() - 10 - w;
-	nRect.y = itemBox.getY() + 10 + itemBox.getH() + 5;
+	nRect.y = itemBox.getY() + 7 + itemBox.getH() + 5;
 	nRect.w = w, nRect.h = h;
 	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
 	SDL_DestroyTexture(nTexture); nTexture = NULL;
@@ -818,14 +801,16 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 			path = "Data/Textures/img/Level_" + int2str(cur_level) + "/name.png";
 			level_name.loadImage(path, renderer);
+			level_name.setW(level_name.getW() * SCREEN_WIDTH / 1280);
+			level_name.setH(level_name.getH() * SCREEN_HEIGHT / 720);
 			level_name.setX(SCREEN_WIDTH / 4 + (SCREEN_WIDTH / 2 - level_name.getW()) / 2);
 			level_name.setY(SCREEN_HEIGHT / 4 + 10);
 
-			SDL_FreeSurface(sf);
+			SDL_FreeSurface(sf); sf = NULL;
 			change_level = false;
 		}
 
-		SDL_Rect nRect, tRect;
+		SDL_Rect nRect{}, tRect;
 		nRect.x = SCREEN_WIDTH / 4;
 		nRect.y = SCREEN_HEIGHT / 4;
 		nRect.w = SCREEN_WIDTH / 2;
@@ -892,17 +877,20 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		infoBox.render(renderer, 0);
 		costBox.render(renderer, 0);
 		int col = 5;
-		int row = (numCharacter - 1) / 5;
+		int row = (numCharacter - 1) / col;
 		int dis = 20;
 		/// draw charBox
 		for (int i = 0; i <= row; i++)
-			for (int j = 0; j < 5; j++)
+			for (int j = 0; j < col; j++)
 			{
-				int id = i * 5 + j;
+				int id = i * col + j;
 				if (id >= numCharacter) break;
 				SDL_Rect nRect = { 0, 0, ptSize, ptSize };
+				nRect.w = nRect.w * SCREEN_WIDTH / 1280;
+				nRect.h = nRect.h * SCREEN_HEIGHT / 720;
 				nRect.x = charBox.getX() + dis + j * (dis + ptSize);
 				nRect.y = charBox.getY() + dis + i * (dis + ptSize);
+				
 				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 				if (id == cur_character)
 					SDL_RenderFillRect(renderer, &nRect);
@@ -914,7 +902,8 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 				nnRect.x = nnRect.x + nnRect.w - 40;
 				nnRect.y = nnRect.y + 10;
-				nnRect.w = nnRect.h = 30;
+				nnRect.w = 30 * SCREEN_WIDTH / 1280;
+				nnRect.h = 30 * SCREEN_HEIGHT / 720;
 				if (character_level[id] == 0)
 					SDL_RenderCopy(renderer, lock, NULL, &nnRect);
 
@@ -948,7 +937,7 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		sf = TTF_RenderText_Solid(textFont, int2str(newDmg).c_str(), textColor);
 		tt = SDL_CreateTextureFromSurface(renderer, sf);
 
-		dmgRect = { 0, 0, sf->w ,sf->h };
+		dmgRect = { 0, 0, sf->w * SCREEN_WIDTH / 1280,sf->h * SCREEN_HEIGHT / 720 };
 		dmgRect.x = dmgIconStat.getX() + dmgIconStat.getW() + 10;
 		dmgRect.y = dmgIconStat.getY() + (dmgIconStat.getH() - sf->h) / 2;
 		SDL_RenderCopy(renderer, tt, NULL, &dmgRect);
@@ -959,8 +948,8 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		{
 			sf = TTF_RenderText_Solid(textFontBig, int2str(newDmg + char_growth[cur_character][0]).c_str(), green);
 			tt = SDL_CreateTextureFromSurface(renderer, sf);
-			dmgRect.w = sf->w;
-			dmgRect.h = sf->h;
+			dmgRect.w = sf->w * SCREEN_WIDTH / 1280;
+			dmgRect.h = sf->h * SCREEN_HEIGHT / 720;
 			dmgRect.x = 40 + infoBox.getX() + infoBox.getW() / 2;
 			dmgRect.y -= 5;
 			SDL_RenderCopy(renderer, tt, NULL, &dmgRect);
@@ -971,7 +960,7 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		sf = TTF_RenderText_Solid(textFont, int2str(newHp).c_str(), textColor);
 		tt = SDL_CreateTextureFromSurface(renderer, sf);
 
-		hpRect = { 0, 0, sf->w ,sf->h };
+		hpRect = { 0, 0, sf->w * SCREEN_WIDTH / 1280 ,sf->h * SCREEN_HEIGHT / 720 };
 		hpRect.x = hpIconStat.getX() + hpIconStat.getW() + 10;
 		hpRect.y = hpIconStat.getY() + (hpIconStat.getH() - sf->h) / 2;
 		SDL_RenderCopy(renderer, tt, NULL, &hpRect);
@@ -982,8 +971,8 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		{
 			sf = TTF_RenderText_Solid(textFontBig, int2str(newHp + char_growth[cur_character][1]).c_str(), green);
 			tt = SDL_CreateTextureFromSurface(renderer, sf);
-			hpRect.w = sf->w;
-			hpRect.h = sf->h;
+			hpRect.w = sf->w * SCREEN_WIDTH / 1280;
+			hpRect.h = sf->h * SCREEN_HEIGHT / 720;
 			hpRect.x = 40 + infoBox.getX() + infoBox.getW() / 2;
 			hpRect.y -= 5;
 			SDL_RenderCopy(renderer, tt, NULL, &hpRect);
@@ -991,11 +980,11 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 			SDL_FreeSurface(sf); sf = NULL;
 		}
 
-		/// draw Level
+		/// draw Level Character
 		sf = TTF_RenderText_Solid(textFont, ("Lv. " + int2str(character_level[cur_character])).c_str(), textColor);
 		tt = SDL_CreateTextureFromSurface(renderer, sf);
-		SDL_Rect lvRect = { 0, 0, sf->w, sf->h };
-		lvRect.x = hpIconStat.getX() + hpIconStat.getW() + 10;
+		SDL_Rect lvRect = { 0, 0, sf->w * SCREEN_WIDTH / 1280 ,sf->h * SCREEN_HEIGHT / 720 };
+		lvRect.x = hpIconStat.getX() + hpIconStat.getW() + 0;
 		lvRect.y = hpIconStat.getY() - lvRect.h - 10;
 		SDL_RenderCopy(renderer, tt, NULL, &lvRect);
 		SDL_DestroyTexture(tt); tt = NULL;
@@ -1005,8 +994,8 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		{
 			sf = TTF_RenderText_Solid(textFontBig, ("Lv. " + int2str(character_level[cur_character] + 1)).c_str(), green);
 			tt = SDL_CreateTextureFromSurface(renderer, sf);
-			lvRect.w = sf->w;
-			lvRect.h = sf->h;
+			lvRect.w = sf->w * SCREEN_WIDTH / 1280;
+			lvRect.h = sf->h * SCREEN_HEIGHT / 720;
 			lvRect.x = 40 + infoBox.getX() + infoBox.getW() / 2;
 			lvRect.y -= 5;
 			SDL_RenderCopy(renderer, tt, NULL, &lvRect);
@@ -1016,13 +1005,13 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 		if (character_level[cur_character] > 0)
 		{
-			SDL_Rect aRect = { 0, 0, 25, 23 };
+			SDL_Rect aRect = { 0, 0, 25 * SCREEN_WIDTH / 1280, 23 * SCREEN_HEIGHT / 720 };
 
-			aRect.x = dmgIconStat.getX() + 130;
+			aRect.x = dmgIconStat.getX() + (130 * SCREEN_WIDTH / 1280);
 			aRect.y = dmgIconStat.getY() + (hpIconStat.getH() - aRect.h) / 2;
 			SDL_RenderCopy(renderer, statArrow, NULL, &aRect);
 
-			aRect.x = hpIconStat.getX() + 130;
+			aRect.x = hpIconStat.getX() + (130 * SCREEN_WIDTH / 1280);
 			aRect.y = hpIconStat.getY() + (hpIconStat.getH() - aRect.h) / 2;
 			SDL_RenderCopy(renderer, statArrow, NULL, &aRect);
 
@@ -1033,7 +1022,7 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 		///Draw Description
 
-		SDL_Rect dRect;
+		SDL_Rect dRect{};
 		dRect.x = infoBox.getX() + 10;
 		dRect.y = infoBox.getY() + charSize - 130;
 
@@ -1042,8 +1031,8 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 			sf = TTF_RenderText_Solid(textFontSmall, description[i].c_str(), textColor);
 			tt = SDL_CreateTextureFromSurface(renderer, sf);
 
-			dRect.w = sf->w;
-			dRect.h = sf->h;
+			dRect.w = sf->w * SCREEN_WIDTH / 1280;
+			dRect.h = sf->h * SCREEN_HEIGHT / 720;
 
 			SDL_RenderCopy(renderer, tt, NULL, &dRect);
 			SDL_DestroyTexture(tt); tt = NULL;
@@ -1062,14 +1051,15 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		sf = TTF_RenderText_Solid(textFont, temp.c_str(), black);
 		tt = SDL_CreateTextureFromSurface(renderer, sf);
 
-		lvRect = { 0, 0, sf->w, sf->h };
+		lvRect = { 0, 0, sf->w * SCREEN_WIDTH / 1280 ,sf->h * SCREEN_HEIGHT / 720 };
 		lvRect.x = costBox.getX() + 40;
 		lvRect.y = costBox.getY() + (costBox.getH() - sf->h) / 2;
 		SDL_RenderCopy(renderer, tt, NULL, &lvRect);
 
 		lvRect.x += 30 + sf->w;
 		lvRect.y = costBox.getY() + (costBox.getH() - 30) / 2;
-		lvRect.w = lvRect.h = 30;
+		lvRect.w = 30 * SCREEN_WIDTH / 1280;
+		lvRect.h = 30 * SCREEN_HEIGHT / 720;
 		if (character_level[cur_character] > 0)
 			SDL_RenderCopy(renderer, coin, NULL, &lvRect);
 		else
@@ -1086,10 +1076,10 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 
 		tt = SDL_CreateTextureFromSurface(renderer, sf);
 
-		lvRect.w = sf->w;
-		lvRect.h = sf->h;
-		lvRect.x += 10 + 30;
-		lvRect.y = costBox.getY() + (costBox.getH() - sf->h) / 2;
+		lvRect.w = sf->w * SCREEN_WIDTH / 1280;
+		lvRect.h = sf->h * SCREEN_HEIGHT / 720;
+		lvRect.x += 40;
+		lvRect.y = costBox.getY() + (costBox.getH() - (sf->h * SCREEN_HEIGHT / 720)) / 2;
 		SDL_RenderCopy(renderer, tt, NULL, &lvRect);
 
 		frame++;
@@ -1099,6 +1089,96 @@ void GSSelect::levelSelection(SDL_Renderer* renderer, int cur_level, int cur_cha
 		SDL_FreeSurface(sf); sf = NULL;
 		SDL_DestroyTexture(tt); tt = NULL;
 	}
+}
+
+void GSSelect::ingame(SDL_Renderer* renderer, int char_hp, int char_dmg, int numCoin, int numGem, bool paused, int level_end)
+{
+	statsRect.render(renderer, 0);
+	hpIcon.render(renderer, 0);
+	dmgIcon.render(renderer, 0);
+
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, int2str(char_hp).c_str(), white);
+
+	SDL_Texture* nTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+	SDL_Rect temp = { 160, 8, textSurface->w, textSurface->h };
+
+	SDL_RenderCopy(renderer, nTexture, NULL, &temp);
+
+	SDL_FreeSurface(textSurface); textSurface = NULL;
+
+	SDL_DestroyTexture(nTexture); nTexture = NULL;
+
+	textSurface = TTF_RenderText_Solid(font, int2str(char_dmg).c_str(), white);
+
+	nTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+	temp = { 160, 55, textSurface->w, textSurface->h };
+
+	SDL_RenderCopy(renderer, nTexture, NULL, &temp);
+
+	SDL_FreeSurface(textSurface); textSurface = NULL;
+
+	SDL_DestroyTexture(nTexture); nTexture = NULL;
+
+	/// Gem and Coin box
+
+	SDL_Rect nRect = itemBox.getRect();
+	nRect.x = SCREEN_WIDTH / 2;
+	nRect.y = 5;
+	SDL_RenderCopy(renderer, itemBox.getObject(), NULL, &nRect);
+
+	nRect.x += itemBox.getW() + 10;
+	SDL_RenderCopy(renderer, itemBox.getObject(), NULL, &nRect);
+
+	nRect.x += 5;
+	nRect.y += 5;
+	nRect.w = nRect.h = 30;
+	SDL_RenderCopy(renderer, gem, NULL, &nRect);
+
+	nRect.x = SCREEN_WIDTH / 2 + 5;
+	SDL_RenderCopy(renderer, coin, NULL, &nRect);
+
+	/// Coin text
+	SDL_Surface* sf_font = TTF_RenderText_Solid(textFont, int2str(numCoin).c_str(), white);
+	int w = sf_font->w, h = sf_font->h;
+	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
+	nRect.x = SCREEN_WIDTH / 2 + itemBox.getW() - 10 - w;
+	nRect.y = 15;
+	nRect.w = w, nRect.h = h;
+	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
+	SDL_DestroyTexture(nTexture); nTexture = NULL;
+	SDL_FreeSurface(sf_font); sf_font = NULL;
+
+	/// Gem text
+	sf_font = TTF_RenderText_Solid(textFont, int2str(numGem).c_str(), white);
+	w = sf_font->w, h = sf_font->h;
+	nTexture = SDL_CreateTextureFromSurface(renderer, sf_font);
+	nRect.x = SCREEN_WIDTH / 2 + 2 * itemBox.getW() - w;
+	nRect.w = w, nRect.h = h;
+	SDL_RenderCopy(renderer, nTexture, NULL, &nRect);
+	SDL_DestroyTexture(nTexture); nTexture = NULL;
+	SDL_FreeSurface(sf_font); sf_font = NULL;
+
+	if (paused == true)
+	{
+		paused_box.render(renderer, 0);
+		int x, y;
+		SDL_GetMouseState(&x, &y);
+		if (inRect(x, y, paused_return[0].getRect()))
+			paused_return[1].render(renderer, 0);
+		else
+			paused_return[0].render(renderer, 0);
+
+		if (inRect(x, y, paused_continue[0].getRect()))
+			paused_continue[1].render(renderer, 0);
+		else
+			paused_continue[0].render(renderer, 0);
+
+	}
+
+	if (level_end == 2) win.render(renderer, 0);
+	else if (level_end == 1) lose.render(renderer, 0);
 }
 
 void GSSelect::handleMouseInput(int x, int y, int& currentState, int& cur_level, int& cur_character, int* character_level, 
@@ -1157,13 +1237,13 @@ void GSSelect::handleMouseInput(int x, int y, int& currentState, int& cur_level,
 		else
 		{
 			int col = 5;
-			int row = (numCharacter - 1) / 5;
+			int row = (numCharacter - 1) / col;
 			int dis = 20;
 			int ptSize = 150;
 			for (int i = 0; i <= row; i++)
-				for (int j = 0; j < 5; j++)
+				for (int j = 0; j < col; j++)
 				{
-					int id = i * 5 + j;
+					int id = i * col + j;
 					if (id >= numCharacter) break;
 					SDL_Rect nRect = { 0, 0, ptSize, ptSize };
 					nRect.x = charBox.getX() + dis + j * (dis + ptSize);
