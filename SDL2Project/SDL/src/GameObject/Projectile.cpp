@@ -112,7 +112,6 @@ void Projectile::shoot(SDL_Rect finish, SDL_Rect start, int _id, int _dmg, int _
 
     if (finish.y <= start.y) angle = 360.0 - angle;
 
-
     double X = (2 * finish.x + finish.w - 2 * start.x - start.w) / 2;
     double Y = (2 * finish.y + finish.h - 2 * start.y - start.h) / 2;
 

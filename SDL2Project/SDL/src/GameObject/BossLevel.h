@@ -37,6 +37,7 @@ protected:
     std::pair<int, int> fr[numStatus];
     int timer, timer1, timer2, timer3, timer4;
     int frame;
+    bool bossHurt, characterHurt;
     GameObject Boss;
     int status, nStatus, curAttack;
     enum STATUS {

@@ -41,6 +41,7 @@ public:
     void character_hurt();
     void setMove() { nextMove = 0; }
     void play_boss_audio(int status);
+    void boss_hurt();
 
     void setMusic(bool music) { this->music = music; }
     bool getMusic() const { return this->music; }
@@ -73,6 +74,7 @@ private:
     Mix_Chunk* fly;
     int nextMove;
     Mix_Chunk* jump;
-    Mix_Chunk* _character_hurt;
+    Mix_Chunk* characterHurt;
     Mix_Chunk* bossAudio[numStatus];
+    Mix_Chunk* bossHurt;
 };

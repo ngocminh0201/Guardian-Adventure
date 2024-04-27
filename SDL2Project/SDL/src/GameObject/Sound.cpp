@@ -12,6 +12,7 @@ Sound::Sound()
 
     for (int i = 0; i < numStatus; i++)
         bossAudio[i] = NULL;
+    bossHurt = NULL;
 
     startScreen = NULL;
     levelSelection = NULL;
@@ -30,7 +31,7 @@ Sound::Sound()
     walk = NULL;
     fly = NULL;
     jump = NULL;
-    _character_hurt = NULL;
+    characterHurt = NULL;
     mob_hurt = NULL;
 
     nextMove = 0;
@@ -49,6 +50,7 @@ Sound::~Sound()
 
     for (int i = 0; i < numStatus; i++)
         Mix_FreeChunk(bossAudio[i]);
+    Mix_FreeChunk(bossHurt);
     Mix_FreeMusic(startScreen);
     Mix_FreeMusic(levelSelection);
     Mix_FreeChunk(collect_item);
@@ -67,7 +69,7 @@ Sound::~Sound()
     Mix_FreeChunk(fly);
     Mix_FreeChunk(walk);
     Mix_FreeChunk(jump);
-    Mix_FreeChunk(_character_hurt);
+    Mix_FreeChunk(characterHurt);
 }
 
 bool Sound::Init()
@@ -214,7 +216,7 @@ void Sound::loadAudioFiles()
     walk = Mix_LoadWAV("Data/Sounds/walk.wav");
     fly = Mix_LoadWAV("Data/Sounds/fly.wav");
     jump = Mix_LoadWAV("Data/Sounds/jump.mp3");
-    _character_hurt = Mix_LoadWAV("Data/Sounds/character_hurt.mp3");
+    characterHurt = Mix_LoadWAV("Data/Sounds/character_hurt.mp3");
 
     for (int i = 0; i < numCharacter; i++)
     {
@@ -227,6 +229,7 @@ void Sound::loadAudioFiles()
         std::string path = "Data/Sounds/boss_" + int2str(i) + ".wav";
         bossAudio[i] = Mix_LoadWAV(path.c_str());
     }
+    bossHurt = Mix_LoadWAV("Data/Sounds/boss_hurt.mp3");
 }
 
 void Sound::playBackgroundMusic(int currentState, int level)
@@ -247,6 +250,8 @@ void Sound::playBackgroundMusic(int currentState, int level)
         printf("Failed to load music! SDL_mixer Error: %s\n", Mix_GetError());
     }
 }
+
+
 
 void Sound::collectItem()
 {
@@ -350,7 +355,7 @@ void Sound::character_jump()
 
 void Sound::character_hurt() {
     if (!sfx) return;
-    Mix_PlayChannel(-1, _character_hurt, 0);
+    Mix_PlayChannel(-1, characterHurt, 0);
 }
 
 void Sound::play_boss_audio(int status)
@@ -358,4 +363,9 @@ void Sound::play_boss_audio(int status)
     if (bossAudio[status] == NULL) return;
     if (!sfx) return;
     Mix_PlayChannel(-1, bossAudio[status], 0);
+}
+
+void Sound::boss_hurt() {
+    if (!sfx) return;
+    Mix_PlayChannel(-1, bossHurt, 0);
 }

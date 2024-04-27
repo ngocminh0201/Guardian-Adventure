@@ -27,6 +27,7 @@ BossLevel::BossLevel()
     status = -1;
     Boss.setMaxHp(hpBoss);
     Boss.setHp(hpBoss);
+    bossHurt = characterHurt = false;
     font = NULL;
     cnt = 0;
 }
@@ -57,6 +58,7 @@ void BossLevel::reset()
     frame = 0;
     nStatus = STATUS::WALK;
     finish_entrance = false;
+    bossHurt = characterHurt = false;
     curAttack = 0;
     status = -1;
     Boss.setMaxHp(hpBoss);
@@ -69,77 +71,66 @@ void BossLevel::reset()
         dropHP.push_back(i);
     rRect.w = 0;
 }
-void BossLevel::show(SDL_Renderer* renderer, Sound* audio)
+
+void BossLevel::loadBoss(SDL_Renderer* renderer)
 {
-    for (int i = 0; i < vAttack3.size(); i++)
+    std::string path = "Data/Textures/img/Level_" + int2str(numLevel) + "/";
+    SDL_Surface* sf = NULL;
+    for (int i = 0; i < numStatus; i++)
     {
-        SDL_Rect dRect = { 0, 0, SCREEN_WIDTH, Boss.getH() / 2 };
-        dRect.y = vAttack3[i].first.y;
-        SDL_RenderCopy(renderer, range, NULL, &dRect);
+        sf = IMG_Load((path + int2str(i) + ".png").c_str());
+        tex[i] = SDL_CreateTextureFromSurface(renderer, sf);
+        SDL_FreeSurface(sf); sf = NULL;
     }
-
-    if (nStatus != status)
+    std::ifstream file((path + "info.txt").c_str());
+    for (int i = 0; i < numStatus; i++)
     {
-        frame = 0;
-        if (nStatus != STATUS::DIE)
-            audio->play_boss_audio(nStatus);
+        file >> fr[i].first >> fr[i].second;
     }
-    else if (frame == 0 && (nStatus == STATUS::ATTACK1 || nStatus == STATUS::ATTACK2 || nStatus == STATUS::SCREAM))
-    {
-        audio->play_boss_audio(nStatus);
+    file.close();
+    for (int i = 0; i < numBossProjectile; i++) {
+        sf = IMG_Load((path + "pr" + int2str(i) + ".png").c_str());
+        pr[i] = SDL_CreateTextureFromSurface(renderer, sf);
+        pr_w[i] = sf->w;
+        pr_h[i] = sf->h;
+        SDL_FreeSurface(sf); sf = NULL;
     }
+    bossIcon.loadImage(path + "bossIcon.png", renderer);
+    healthbar.loadImage(path + "healthbar.png", renderer);
 
-    status = nStatus;
+    sf = IMG_Load((path + "range.png").c_str());
+    range = SDL_CreateTextureFromSurface(renderer, sf);
 
-    SDL_Rect nRect = { Boss.getX() + Boss.getW() - 2 * bossSize / 3, Boss.getY() + Boss.getH() - 2 * bossSize / 3, bossSize, bossSize };
-    SDL_Rect tRect = { (frame % fr[nStatus].first) * bossSize, (frame / fr[nStatus].first) * bossSize, bossSize, bossSize };
+    SDL_FreeSurface(sf); sf = NULL;
 
-    SDL_RenderCopy(renderer, tex[nStatus], &tRect, &nRect);
-    frame++;
-    if (status != STATUS::DIE)
-        frame %= fr[status].second;
-    else if (frame == fr[status].second - 1)
-    {
-        audio->play_boss_audio(status);
-    }
+    bossIcon.setX((SCREEN_WIDTH - bossIcon.getW()) / 2);
+    bossIcon.setY(20);
 
-    for (int i = 0; i < vAttack1.size(); i++)
-        SDL_RenderCopy(renderer, pr[0], NULL, &vAttack1[i]);
+    healthbar.setX((SCREEN_WIDTH - healthbar.getW()) / 2);
+    healthbar.setY(60);
 
-    for (int i = 0; i < vAttack2.size(); i++)
-    {
-        SDL_Rect dRect = vAttack2[i].first.getRect();
-        if (vAttack2[i].second == 0)
-        {
-            dRect.w /= 2;
-            dRect.h /= 2;
-        }
-        SDL_RenderCopy(renderer, pr[1], NULL, &dRect);
-    }
+    rRect = healthbar.getRect();
 
-    for (int i = 0; i < vAttack3.size(); i++)
-    {
-        SDL_Rect nnRect = { 0, 0, bossSize / 2, bossSize / 2 };
-        nnRect.x = vAttack3[i].first.x + vAttack3[i].first.w - bossSize / 3;
-        nnRect.y = vAttack3[i].first.y + vAttack3[i].first.h - bossSize / 3;
-        SDL_Rect ttRect = { (vAttack3[i].second % fr[5].first) * bossSize, (vAttack3[i].second / fr[5].first) * bossSize, bossSize, bossSize };
+    rRect.x += 5;
+    rRect.y += 5;
+    rRect.h -= 10;
+    rRect.w = 0;
 
-        SDL_RenderCopy(renderer, tex[5], &ttRect, &nnRect);
-        vAttack3[i].second++;
-        vAttack3[i].second %= fr[5].second;
-    }
-    showBossHealthbar(renderer);
+    font = TTF_OpenFont("Data/Fonts/REVUE.ttf", 30);
 }
 
 void BossLevel::Update(Character* character, std::vector<Item>& vItem)
 {
+    bossHurt = characterHurt = false;
     cnt++;
 
     if (character->meleeAttack() && collision(Boss.getRect(), character->getMelee()) && vulnerable())
     {
+        int lastHp = Boss.getHp();
         Boss.takeDamage(character->getDmg());
-        //std::cout << "0hp: " << Boss.getHp() << '\n';
-
+        int curHp = Boss.getHp();
+        if (lastHp - curHp > 0)
+            bossHurt = true;
     }
 
     if (character->getX() > 920)
@@ -233,12 +224,11 @@ void BossLevel::Update(Character* character, std::vector<Item>& vItem)
                 int chance = Rand(1, 2);
                 if (character->getId() != 2 || chance == 1)
                 {
-                    //int lastHp = character->getHp();
+                    int lastHp = character->getHp();
                     character->takeDamage(dmg_attack1);
-                    //int curHp = character->getHp();
-                    /*if (curHp - lastHp > 0) {
-                        
-                    }*/
+                    int curHp = character->getHp();
+                    if (lastHp - curHp > 0)
+                        characterHurt = true;
                 }
 
                 std::swap(vAttack1[i], vAttack1.back());
@@ -266,7 +256,11 @@ void BossLevel::Update(Character* character, std::vector<Item>& vItem)
                     int chance = Rand(1, 2);
                     if (character->getId() != 2 || chance == 1)
                     {
+                        int lastHp = character->getHp();
                         character->takeDamage(dmg_attack2 / 2);
+                        int curHp = character->getHp();
+                        if (lastHp - curHp > 0)
+                            characterHurt = true;
                     }
                 }
                 else
@@ -274,7 +268,11 @@ void BossLevel::Update(Character* character, std::vector<Item>& vItem)
                     int chance = Rand(1, 2);
                     if (character->getId() != 2 || chance == 1)
                     {
+                        int lastHp = character->getHp();
                         character->takeDamage(dmg_attack2);
+                        int curHp = character->getHp();
+                        if (lastHp - curHp > 0)
+                            characterHurt = true;
                     }
                 }
                 std::swap(vAttack2[i], vAttack2.back());
@@ -339,7 +337,11 @@ void BossLevel::Update(Character* character, std::vector<Item>& vItem)
                 int chance = Rand(1, 2);
                 if (character->getId() != 2 || chance == 1)
                 {
+                    int lastHp = character->getHp();
                     character->takeDamage(dmg_attack3);
+                    int curHp = character->getHp();
+                    if (lastHp - curHp > 0)
+                        characterHurt = true;
                 }
                 std::swap(vAttack3[i], vAttack3.back());
                 vAttack3.pop_back();
@@ -347,6 +349,74 @@ void BossLevel::Update(Character* character, std::vector<Item>& vItem)
             else vAttack3[i].first.x -= 50;
         }
     }
+    //std::cout << characterHurt << ' ' << bossHurt << '\n';
+
+}
+
+void BossLevel::show(SDL_Renderer* renderer, Sound* audio)
+{
+    for (int i = 0; i < vAttack3.size(); i++)
+    {
+        SDL_Rect dRect = { 0, 0, SCREEN_WIDTH, Boss.getH() / 2 };
+        dRect.y = vAttack3[i].first.y;
+        SDL_RenderCopy(renderer, range, NULL, &dRect);
+    }
+
+    if (nStatus != status)
+    {
+        frame = 0;
+        if (nStatus != STATUS::DIE)
+            audio->play_boss_audio(nStatus);
+    }
+    else if (frame == 0 && (nStatus == STATUS::ATTACK1 || nStatus == STATUS::ATTACK2 || nStatus == STATUS::SCREAM))
+    {
+        audio->play_boss_audio(nStatus);
+    }
+
+    //std::cout << characterHurt << ' ' << bossHurt << '\n';
+    if (characterHurt) audio->character_hurt();
+    if (bossHurt) audio->boss_hurt();
+
+    status = nStatus;
+
+    SDL_Rect nRect = { Boss.getX() + Boss.getW() - 2 * bossSize / 3, Boss.getY() + Boss.getH() - 2 * bossSize / 3, bossSize, bossSize };
+    SDL_Rect tRect = { (frame % fr[nStatus].first) * bossSize, (frame / fr[nStatus].first) * bossSize, bossSize, bossSize };
+
+    SDL_RenderCopy(renderer, tex[nStatus], &tRect, &nRect);
+    frame++;
+    if (status != STATUS::DIE)
+        frame %= fr[status].second;
+    else if (frame == fr[status].second - 1)
+    {
+        audio->play_boss_audio(status);
+    }
+
+    for (int i = 0; i < vAttack1.size(); i++)
+        SDL_RenderCopy(renderer, pr[0], NULL, &vAttack1[i]);
+
+    for (int i = 0; i < vAttack2.size(); i++)
+    {
+        SDL_Rect dRect = vAttack2[i].first.getRect();
+        if (vAttack2[i].second == 0)
+        {
+            dRect.w /= 2;
+            dRect.h /= 2;
+        }
+        SDL_RenderCopy(renderer, pr[1], NULL, &dRect);
+    }
+
+    for (int i = 0; i < vAttack3.size(); i++)
+    {
+        SDL_Rect nnRect = { 0, 0, bossSize / 2, bossSize / 2 };
+        nnRect.x = vAttack3[i].first.x + vAttack3[i].first.w - bossSize / 3;
+        nnRect.y = vAttack3[i].first.y + vAttack3[i].first.h - bossSize / 3;
+        SDL_Rect ttRect = { (vAttack3[i].second % fr[5].first) * bossSize, (vAttack3[i].second / fr[5].first) * bossSize, bossSize, bossSize };
+
+        SDL_RenderCopy(renderer, tex[5], &ttRect, &nnRect);
+        vAttack3[i].second++;
+        vAttack3[i].second %= fr[5].second;
+    }
+    showBossHealthbar(renderer);
 }
 
 void BossLevel::entrance()
@@ -489,10 +559,20 @@ void BossLevel::attack4(Character* character)
             nRect.h += 180;
             if (collision(character->getRect(), nRect))
             {
+                int lastHp = character->getHp();
                 character->takeDamage(dmg_attack4);
+                int curHp = character->getHp();
+                if (lastHp - curHp > 0)
+                    characterHurt = true;
+
                 int chance = Rand(1, 2);
-                if (chance == 1 && character->getId() == 2)
+                if (chance == 1 && character->getId() == 2) {
+                    int lastHp = Boss.getHp();
                     Boss.takeDamage(dmg_attack4);
+                    int curHp = Boss.getHp();
+                    if (lastHp - curHp > 0)
+                        bossHurt = true;
+                }
             }
         }
     }
@@ -573,49 +653,3 @@ void BossLevel::showBossHealthbar(SDL_Renderer* renderer)
 
 }
 
-void BossLevel::loadBoss(SDL_Renderer* renderer)
-{
-    std::string path = "Data/Textures/img/Level_" + int2str(numLevel) + "/";
-    SDL_Surface* sf = NULL;
-    for (int i = 0; i < numStatus; i++)
-    {
-        sf = IMG_Load((path + int2str(i) + ".png").c_str());
-        tex[i] = SDL_CreateTextureFromSurface(renderer, sf);
-        SDL_FreeSurface(sf); sf = NULL;
-    }
-    std::ifstream file((path + "info.txt").c_str());
-    for (int i = 0; i < numStatus; i++)
-    {
-        file >> fr[i].first >> fr[i].second;
-    }
-    file.close();
-    for (int i = 0; i < numBossProjectile; i++) {
-        sf = IMG_Load((path + "pr" + int2str(i) + ".png").c_str());
-        pr[i] = SDL_CreateTextureFromSurface(renderer, sf);
-        pr_w[i] = sf->w;
-        pr_h[i] = sf->h;
-        SDL_FreeSurface(sf); sf = NULL;
-    }
-    bossIcon.loadImage(path + "bossIcon.png", renderer);
-    healthbar.loadImage(path + "healthbar.png", renderer);
-
-    sf = IMG_Load((path + "range.png").c_str());
-    range = SDL_CreateTextureFromSurface(renderer, sf);
-
-    SDL_FreeSurface(sf); sf = NULL;
-
-    bossIcon.setX((SCREEN_WIDTH - bossIcon.getW()) / 2);
-    bossIcon.setY(20);
-
-    healthbar.setX((SCREEN_WIDTH - healthbar.getW()) / 2);
-    healthbar.setY(60);
-
-    rRect = healthbar.getRect();
-
-    rRect.x += 5;
-    rRect.y += 5;
-    rRect.h -= 10;
-    rRect.w = 0;
-
-    font = TTF_OpenFont("Data/Fonts/REVUE.ttf", 30);
-}

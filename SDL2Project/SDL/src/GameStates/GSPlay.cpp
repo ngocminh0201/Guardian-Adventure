@@ -293,7 +293,7 @@ void GSPlay::load(SDL_Renderer* renderer) {
     Audio_Player.setMusic(currentMusic);
     Audio_Player.setSfx(currentSFX);
 
-    //boss.loadBoss(renderer);
+    boss.loadBoss(renderer);
 }
 
 bool GSPlay::loadLevel(int level, SDL_Renderer* renderer)
@@ -650,7 +650,6 @@ void GSPlay::Update(float deltaTime)
                                 if (lastHp > 0) {
                                     Audio_Player.stopSfx();
                                     Audio_Player.character_hurt();
-
                                 }
                             }
                             if (vProjectile[i].getThrew())
@@ -680,7 +679,10 @@ void GSPlay::Update(float deltaTime)
                                         Audio_Player.character_heal();
                                     }
                                 }
+                                int lastHp = boss.getHp();
                                 boss.takeDamage(vProjectile[i].getDmg());
+                                if (lastHp > 0)
+                                    Audio_Player.boss_hurt();
                                 std::swap(vProjectile[i], vProjectile.back());
                                 vProjectile.pop_back();
                             }
@@ -749,6 +751,8 @@ void GSPlay::Update(float deltaTime)
         Audio_Player.playBackgroundMusic(currentState, current_level);
     }
     else if (currentState == STATE::SETTING) {
+        if (!currentMusic) Audio_Player.stopAudio();
+        if (!currentSFX) Audio_Player.stopSfx();
         scr->screenSetting(renderer, currentMusic, currentSFX);
         Audio_Player.setMusic(currentMusic);
         Audio_Player.setSfx(currentSFX);
@@ -811,7 +815,10 @@ void GSPlay::character1()
             {
                 if (collision(vProjectile[i].getHitBox(), boss.getBossHitbox()) && boss.vulnerable())
                 {
+                    int lastHp = boss.getHp();
                     boss.takeDamage(vProjectile[i].getDmg());
+                    if (lastHp > 0)
+                        Audio_Player.boss_hurt();
                 }
             }
         }
@@ -829,7 +836,7 @@ void GSPlay::Draw(SDL_Renderer* renderer)
 
         if (current_level == numLevel) view = 0;
 
-        map->render(renderer, view, vMob.empty(), current_character == numLevel);
+        map->render(renderer, view, vMob.empty(), current_level == numLevel);
 
         for (int i = 0; i < vItem.size(); i++) {
             SDL_Rect nRect = vItem[i].getRect();

@@ -326,6 +326,7 @@ void Character::Update(GameMap* MAP, std::vector<std::pair<SDL_Rect, int> >& rec
 
     if (rect.y + rect.h >= MAP->getMapHeight() * TILE_SIZE - 2 || hp == 0)
     {
+        hp = 0;
         nStatus = Character_STATUS::DIED;
         return;
     }
