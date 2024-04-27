@@ -1,22 +1,21 @@
 ﻿cl : command line  warning D9035: option 'Zc:forScope-' has been deprecated and will be removed in a future release
   Game.cpp
-  ResourceManagers.cpp
   BossLevel.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(162,39): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(163,39): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(188,25): warning C4244: '=': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(218,31): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(219,31): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(229,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(233,28): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(258,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(266,32): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(274,32): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(330,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(339,28): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(446,38): warning C4244: '=': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(493,28): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(550,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(153,39): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(154,39): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(179,25): warning C4244: '=': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(209,31): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(210,31): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(220,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(224,28): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(248,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(256,32): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(268,32): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(328,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(337,28): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(516,38): warning C4244: '=': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(568,28): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(630,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\utility(250,54): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\utility(250,54): warning C4244:         with
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\utility(250,54): warning C4244:         [
@@ -29,21 +28,16 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.3351
   (compiling source file 'src/GameObject/BossLevel.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\utility(250,54):
   the template instantiation context (the oldest one first) is
-  	C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(422,32):
+  	C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(492,32):
   	see reference to function template instantiation 'std::pair<GameObject,int>::pair<GameObject&,ll,0>(_Other1,_Other2 &&) noexcept' being compiled
           with
           [
               _Other1=GameObject &,
               _Other2=ll
           ]
-  		C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(422,31):
+  		C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\BossLevel.cpp(492,31):
   		see the first reference to 'std::pair<GameObject,int>::pair' in 'BossLevel::attack2'
   
-  Camera.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Camera.cpp(23,47): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Camera.cpp(24,47): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Camera.cpp(43,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Camera.cpp(43,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Character.cpp
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Define.h(57,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'src/GameObject/Character.cpp')
@@ -54,38 +48,8 @@ C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\G
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Define.h(56,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'src/GameObject/Character.cpp')
   
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Character.cpp(395,32): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Character.cpp(406,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  CMath.cpp
-  Define.cpp
-  GameMap.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(187,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(187,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(210,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(210,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(218,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(218,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(225,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(225,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(232,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(232,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(239,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(239,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(246,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(246,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(253,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\GameMap.cpp(253,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  GameObject.cpp
-  Item.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Define.h(55,24): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'src/GameObject/Item.cpp')
-  
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Item.cpp(36,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Item.cpp(37,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Item.cpp(52,27): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Item.cpp(67,27): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Item.cpp(77,11): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Item.cpp(84,27): warning C4244: 'argument': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Character.cpp(396,32): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Character.cpp(407,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Mob.cpp
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Define.h(56,31): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'src/GameObject/Mob.cpp')
@@ -103,47 +67,12 @@ C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\G
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(102,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(103,41): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(104,44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(122,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(124,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Renderer.cpp
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(121,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Projectile.cpp(123,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Sound.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Sound.cpp(164,21): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-  Sprite2D.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Sprite2D.cpp(27,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Sprite2D.cpp(27,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  SpriteAnimation.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\SpriteAnimation.cpp(35,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\SpriteAnimation.cpp(35,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\SpriteAnimation.cpp(97,9): warning C4553: '==': result of expression not used; did you intend '='?
-  SupportItem.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Define.h(56,31): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'src/GameObject/SupportItem.cpp')
-  
-  Text.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Text.cpp(34,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Text.cpp(34,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  TextureManager.cpp
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(96,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(97,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,31): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,57): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,57): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,76): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,76): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,86): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(98,86): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(99,25): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(99,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(99,69): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\TextureManager.cpp(99,69): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Compiling...
-  Timer.cpp
-  GameStateBase.cpp
-  GameStateMachine.cpp
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameObject\Sound.cpp(166,21): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   GSCredit.cpp
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSCredit.cpp(49,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  GSIntro.cpp
   GSMenu.cpp
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSMenu.cpp(37,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSMenu.cpp(48,108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -169,538 +98,36 @@ C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\G
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(605,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(627,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(645,40): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(675,48): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(689,40): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(697,52): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(721,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(765,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(801,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(949,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(952,99): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(953,81): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(954,35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(955,35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(674,48): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(691,40): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(699,52): warning C4244: 'initializing': conversion from 'll' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(723,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(769,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(805,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(956,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(959,99): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(960,81): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(961,35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSPlay.cpp(962,35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   GSSelect.cpp
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSSelect.cpp(1071,66): warning C4244: 'argument': conversion from '__int64' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSSelect.cpp(1073,66): warning C4244: 'argument': conversion from '__int64' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSSelect.cpp(1075,66): warning C4244: 'argument': conversion from '__int64' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSSelect.cpp(1265,34): warning C4244: '-=': conversion from '__int64' to 'int', possible loss of data
 C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\src\GameStates\GSSelect.cpp(1270,35): warning C4244: '-=': conversion from '__int64' to 'int', possible loss of data
+  GameStateBase.cpp
   main.cpp
   Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 2185 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  50 of 2188 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    17 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SDL.vcxproj -> C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\x64\Release\SDL.exe
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDLLib\DynamicLib\SDL2.dll
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDLLib\DynamicLib\SDL2_image.dll
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDLLib\DynamicLib\SDL2_mixer.dll
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDLLib\DynamicLib\SDL2_ttf.dll
-  4 File(s) copied
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\instruction.txt
+  0 File(s) copied
   C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\player_info.txt
   C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\player_info_cc.txt
   C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\setting_sound.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\calibri.ttf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\calibrib.ttf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\Caslon.ttf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\Keynord.otf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\lazy.ttf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\neodgm_pro.subset.ttf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Fonts\REVUE.ttf
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\attack_0.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\attack_1.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\attack_2.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\attack_3.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\attack_4.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\attack_5.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\bgm_1.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\bgm_2.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\bgm_3.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\bgm_4.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\bgm_5.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\bgm_6.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\boss_0.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\boss_1.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\boss_10.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\boss_3.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\boss_4.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\change_map.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\character_hurt.mp3
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\click.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\collect_item.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\explosion.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\fly.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\heal.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\jump.mp3
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\jump.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\levelSelection.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\lose.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\mob_die.mp3
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\mob_hurt.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\play.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\select_character.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\startScreen.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\unlock.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\upgrade.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\walk.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\win.wav
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\3.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\4.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\4.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\5.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\5.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Actor1_2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Actor1_2.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Actor1_2demo.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Actor1_2demo.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\adventurer-Sheet.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\background(1).png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\background.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_main_menu.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_main_menu.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_map1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_option.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_play1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_play1.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_play2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\bg_play2.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_close.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_close.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_help.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_help.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_menu.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_menu.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_music.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_music.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_music_off.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_music_off.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_next.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_next.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_ok.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_ok.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_pause.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_pause.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_play.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_play.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_prev.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_prev.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_restart.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_restart.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_settings.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_settings.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_sfx.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_sfx.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_sfx_off.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\btn_sfx_off.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\logo.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\logo.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\logo1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\logo1.tga
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\adventurer-Sheet.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack1-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack1-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack1-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack1-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack1-04.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack2-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack2-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack2-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack2-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack2-04.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack2-05.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack3-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack3-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack3-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack3-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack3-04.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-attack3-05.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-clmb-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-clmb-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-clmb-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-clmb-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-clmb-04.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-grb-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-grb-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-grb-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-grb-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-jmp-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-jmp-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crnr-jmp-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crouch-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crouch-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crouch-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-crouch-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-04.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-05.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-die-06.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-fall-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-fall-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-hurt-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-hurt-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-hurt-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-2-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-2-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-2-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-idle-2-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-jump-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-jump-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-jump-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-jump-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-run-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-run-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-run-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-run-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-run-04.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-run-05.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-slide-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-slide-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-smrslt-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-smrslt-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-smrslt-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-smrslt-03.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-stand-00.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-stand-01.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Adventurer\Individual Sprites\adventurer-stand-02.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\attack.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\char_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\description.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\died.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\died0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\died1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\idle.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\jump.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\jump0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\jump1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\move.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\portrait.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\victory.gif
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\0\victory.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\char_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\description.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\died0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\died1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\jump0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\jump1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\portrait.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\1\victory.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\char_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\description.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\died0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\died1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\jump0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\jump1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\portrait.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\2\victory.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\char_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\description.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\died0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\died1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\jump0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\jump1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\portrait.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\3\victory.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\char_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\description.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\died0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\died1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\jump0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\jump1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\portrait.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\4\victory.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\char_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\description.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\died0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\died1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\jump0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\jump1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\portrait.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\5\victory.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\Nari\jump.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\Nari\run0.gif
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\Nari\run0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\Nari\run1.gif
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\Character\Nari\run1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\adventure.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\arrow0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\arrow1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\back_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\back_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\bar.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\castle.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\charBox.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\continue.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\continue_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\continue_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\costBox.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\credit_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\credit_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\credit_background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\dmgIcon.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\exit_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\exit_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\explosion.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\flag.PNG
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\guardian.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\help_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\help_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\hpIcon.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\infoBox.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\intro.jpg
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\intro1.jpg
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\item0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\item1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\item2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\item3.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\ItemBox.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\lock.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\lose.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\lp.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\lp0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\lp1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\lp2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\main_menu.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\music_off.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\music_on.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\nostar.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\optionbox.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\paused.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\play_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\play_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\play_button.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\return_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\return_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\selected.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\setting_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\setting_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\sfx_off.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\sfx_on.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\star.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\start_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\start_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\statArrow.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\statsRect.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\win.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\bg.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\block_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\block_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\block_2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\block_3.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\decor_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\decor_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\level.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\level_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\lp_pos.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\map_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\name.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\0\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\0\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\0\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\0\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\0\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\1\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\1\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\1\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\1\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_1\1\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\block_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\block_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\block_2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\decor_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\decor_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\decor_2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\level.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\level_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\lp_pos.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\map_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\name.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\0\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\0\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\0\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\0\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\0\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\1\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\1\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\1\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\1\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\1\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\2\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\2\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\2\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\2\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_2\2\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\block_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\block_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\decor_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\decor_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\decor_2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\level.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\level_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\lp_pos.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\map_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\name.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\0\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\0\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\0\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\0\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\0\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\1\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\1\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\1\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\1\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\1\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\2\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\2\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\2\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\2\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_3\2\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\block_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\block_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\decor_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\decor_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\level.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\level_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\lp_pos.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\map_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\name.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\0\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\0\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\0\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\0\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\0\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\1\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\1\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\1\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\1\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\1\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\2\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\2\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\2\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\2\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\2\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\3\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\3\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\3\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\3\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_4\3\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\block_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\block_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\block_2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\decor_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\decor_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\level.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\level_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\lp_pos.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\map_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\name.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\0\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\0\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\0\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\0\move0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\0\move1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\1\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\1\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\1\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\1\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\1\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\2\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\2\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\2\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\2\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\2\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\3\attack0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\3\attack1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\3\idle0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\3\idle1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\3\laser.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_5\3\mob_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\10.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\3.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\4.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\5.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\6.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\7.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\8.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\9.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\background.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\block_0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\block_1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\bossIcon.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\healthbar.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\level.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\level_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\lp_pos.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\map_info.txt
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\name.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\pr0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\pr1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Level_6\range.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\0.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\1.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\2.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\3.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\4.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\5.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\6.png
-  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Textures\img\Projectile\7.png
-  504 File(s) copied
+  C:\Users\admin\Desktop\LeNgocMinh_NguyenBaoQuang_KhanhToan\SDL2Project\SDL\Data\Sounds\boss_hurt.mp3
+  4 File(s) copied
   0 File(s) copied
   0 File(s) copied
