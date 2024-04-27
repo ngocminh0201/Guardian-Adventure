@@ -38,6 +38,14 @@ public:
 	bool loadLevel(int level, SDL_Renderer* renderer);
 	void load(SDL_Renderer* renderer);
 	void character1();
+
+	int getCoin() const { return this->numCoin; }
+	int getGem() const { return this->numGem; }
+	int getLastLevel() const { return this->lastLevel; }
+	int* getCharacterLevel() { return this->character_level; }
+	int** getCharGrowth() { return this->char_growth; }
+	bool getCurrentMusic() const { return this->currentMusic; }
+	bool getCurrentSfx() const { return this->currentSFX; }
 private:
 	std::shared_ptr<Sprite2D>	m_background;
 	//std::shared_ptr<Text>		m_score;

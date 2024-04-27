@@ -21,7 +21,6 @@ bool Game::Init()
 
 void Game::Run()
 {
-	//std::cout << "game: " << Renderer::GetInstance()->GetRenderer() << '\n';
 	TTF_Init();
 	SDL_Renderer* renderer = Renderer::GetInstance()->GetRenderer();
 	gsplay.load(renderer);
@@ -41,6 +40,25 @@ void Game::Run()
 		}
 
 	}
+
+	int numCoin = gsplay.getCoin();
+	int numGem = gsplay.getGem();
+	int lastLevel = gsplay.getLastLevel();
+	int* character_level = gsplay.getCharacterLevel();
+	int** char_growth = gsplay.getCharGrowth();
+	std::ofstream player_info("Data/player_info.txt");
+	player_info << numCoin << ' ' << numGem << '\n';
+	player_info << lastLevel << '\n';
+	for (int i = 0; i < numCharacter; i++)
+		player_info << character_level[i] << ' ' << char_growth[i][0] << ' ' << char_growth[i][1] << '\n';
+
+	player_info.close();
+
+	bool currentMusic = gsplay.getCurrentMusic();
+	bool currentSFX = gsplay.getCurrentSfx();
+	std::ofstream setting_info("Data/setting_sound.txt");
+	setting_info << currentMusic << ' ' << currentSFX;
+	setting_info.close();
 			////Main loop flag
 			//bool quit = false;
 			////Event handler

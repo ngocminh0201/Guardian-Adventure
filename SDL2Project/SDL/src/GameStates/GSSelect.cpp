@@ -1295,13 +1295,11 @@ void GSSelect::handleMouseInput(int x, int y, int& currentState, int& cur_level,
 		if (inRect(x, y, back_button[0].getRect())) {
 			currentState = STATE::MENU;
 		}
-		if (inRect(x, y, music_button[0].getRect()) || 
-				inRect(x, y, music_button[1].getRect())) {
+		if (inRect(x, y, music_button[0].getRect())) {
 			current_music = 1 - current_music;
 		}
 		
-		if (inRect(x, y, sfx_button[0].getRect()) || 
-				inRect(x, y, sfx_button[1].getRect())) {
+		if (inRect(x, y, sfx_button[0].getRect())) {
 			current_sfx = 1 - current_sfx;
 		}
 		
