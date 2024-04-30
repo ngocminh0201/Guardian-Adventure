@@ -164,8 +164,15 @@ bool GameMap::loadMap(std::string path, SDL_Renderer* renderer, int level) {
 }
 
 void GameMap::render(SDL_Renderer* renderer, int view, bool map_cleared, bool isBossLevel) {
-    background->SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-    background->Set2DPosition(0, 0);
+    if (!isBossLevel) {
+        background->SetSize(2 * SCREEN_WIDTH, SCREEN_HEIGHT);
+        background->Set2DPosition(-(view % SCREEN_WIDTH), 0);
+    }
+    else {
+        background->SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+        background->Set2DPosition(0, 0);
+    }
+
     background->Draw(renderer);
 
     SDL_Color rgb{};
